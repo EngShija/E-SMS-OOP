@@ -1,0 +1,103 @@
+<?php
+require_once __DIR__. "/Database.php";
+class User{
+    protected $database;
+    protected $fname;
+    protected $lname;
+    protected $address;
+    protected $dob;
+    protected $email;
+    protected $password;
+    protected $gender;
+    private $role;
+    protected $profile_img;
+    public function __construct(Database $database){  
+        $this->database = $database->getConnection();
+}
+
+public function set_fname($fname){
+    $this->fname = $fname;
+}
+public function set_lname($lname){
+    $this->lname = $lname;
+}
+public function set_address($address){
+    $this->address = $address;
+}
+public function set_dob($dob){
+    $this->dob = $dob;
+}
+public function set_gender($gender){
+    $this->gender = $gender;
+}
+public function get_fname(){
+    return $this->fname;
+}
+public function get_lname(){
+    return $this->lname;
+}
+public function get_address(){
+    return $this->address;
+}
+public function get_dob(){
+    return $this->dob;
+}
+public function set_email($email){
+    $this->email = $email;
+}
+public function get_email(){
+    return $this->email;
+}
+public function set_password($password){
+    $this->password = md5($password);
+}
+public function get_gender(){
+    return $this->gender;
+}
+
+public function get_password(){
+    return $this->password;
+}
+public function set_role($role){
+    $this->role = $role;
+}
+public function get_role(){
+    return $this->role;
+}
+public function set_profile($profile_img){
+    $this->profile_img = $profile_img;
+}
+public function get_profile(){
+    return $this->profile_img;
+}
+public function login_user($email, $password){
+    $sql = "SELECT * FROM users WHERE email_address = ? AND password = ?";
+    return $this->database->execute_query(query: $sql, params: [$email, $password])->fetch_assoc();
+}
+public function is_user_present($email){
+    $sql = "SELECT * FROM users WHERE email_address = ?";
+    return $this->database->execute_query(query: $sql, params: [$email]) -> num_rows > 0;
+}
+
+public function get_user_by_id($user_id){
+    $sql = "SELECT * FROM users WHERE unique_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$user_id])->fetch_assoc();
+}
+public function get_all_users(){
+    $sql = "SELECT * FROM users";
+    return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+}
+public function updade_password($password, $email){
+    $sql = "UPDATE users SET password = ? WHERE email_address = ?";
+    return $this->database->execute_query(query: $sql, params: [$password, $email]);
+}
+public function add_user($unique_id, $fname, $lname, $email, $gender, $password, $profile, $role, $subject_tought){
+    $sql = "INSERT INTO users(unique_id, first_name, last_name, email_address, gender, password, profile_image, role, subject_tought)
+    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    return $this->database->execute_query($sql, [$unique_id, $fname, $lname, $email, $gender, $password, $profile, $role, $subject_tought]);
+}
+public function user_role($email){
+    $sql = "SELECT role FROM users WHERE email_address = ?";
+    return $this->database->execute_query($sql, [$email])->fetch_assoc();
+}
+}
