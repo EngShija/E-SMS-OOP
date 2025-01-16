@@ -1,13 +1,46 @@
-<div class="d-flex justify-content-center mt-5 mb-5 login">
-    <form action="controllers/add-student-handler.php" method="POST" class=" col-sm-5 col-lg-5 col-xs-5 was-validated">
-    <h4 class="text-center">ADD SUBJECT</h4>
-    <a href='dashboard.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-        <div class="form-group">
-            <label for="classname">Subject Name:</label>
-                <input type="classname" class="form-control" name="classname" id="classname" placeholder="Enter Subject Name" required autofocus> 
+<?php
+require_once __DIR__ . "/../includes/functions.php";
+require_once __DIR__ . "/../models/Subject.php";
+$subject = new Subject(new Database());
+?>
+
+<div class="modal fade" id="addSub" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD SUBJECT</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="controllers/add_sub_handler.php" method="POST"
+                class=" col-sm-5 col-lg-5 col-xs-5">
+                <div class="modal-body login">
+                    <div class="error-text">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subname">Subject Name:</label>
+                        <input type="subname" class="form-control" name="subname" id="subname" placeholder="Enter Subject Name" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                          <label for="exam">Subject Category</label>
+                          <select class="form-control" name="exam" id="exam">
+                              <option>Select Sbject Category</option>
+                              <?php foreach ($subject->get_all_subject_categories() as $category) : ?>
+                                  <option value="<?= $category['category'] ?>"><?= $category['category'] ?></option>
+                              <?php endforeach; ?>
+                          </select>
+                      </div>
+
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <div class="button">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-                <button type="submit" class="form-control bg-dark text-light">Submit</button>
-        </div>
-    </form>
     </div>
+</div>

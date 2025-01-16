@@ -8,6 +8,8 @@ require_once "includes/header.php";
 
 </div>
       <div class="form-group">
+
+      
         <label for="email">Email:</label>
         <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" required autofocus title="Email Field is Required" autocomplete="off">
         <small class="invalid-feedback">Email is Required!</small>

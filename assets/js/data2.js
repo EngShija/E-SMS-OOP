@@ -1,10 +1,10 @@
-const section = document.querySelector('.container-fluid nav');
-submitBtn = section.querySelector('.list-group .add-student');
-contentText = section.querySelector('main .students');
+const section = document.querySelector('.modal form');
+submitBtn = section.querySelector('.button button');
+contentText = section.querySelector('.error-text');
 
 submitBtn.onclick = ()=>{
     let xhr = new  XMLHttpRequest();
-    xhr.open('POST','add-student.php', true);
+    xhr.open('POST','controllers/register_handler.php', true);
     xhr.onload = ()=>{
         if(xhr.readyState = XMLHttpRequest.DONE) {
             console.log("Loaded");

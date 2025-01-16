@@ -8,6 +8,7 @@
             <th>No</th>
             <th>Full Name</th>
             <th>Registration Number</th>
+            <th>Registration Date</th>
             <th>Gender</th>
             <th>Class</th>
             <th>Actions</th>
@@ -22,12 +23,15 @@ foreach( $student->get_students() as $student) :?>
             <td><?= $i ?></td>
             <td><?=$student['first_name']. " ". $student['last_name'] ?></td>
             <td><?=$student['reg_no'] ?></td>
+            <td><?=$student['reg_date'] ?></td>
             <td><?=$student['gender'] ?></td>
             <td><?=$student['class'] ?></td>
-            <td><a href="dashboard.php?updatestd=<?php echo $student['unique_id']; $student_id = $student['unique_id'] ?>"  data-bs-toggle="modal" data-bs-target="#editstd">Edit</a> <a href="controllers/delete-student.php?id=<?= $student['unique_id']?>">Delete</a> <a href="dashboard.php?addResult=<?= $student['unique_id'] ?>">results</a></td>
-            <?php  include_once "edit-student.php"; 
-            $_SESSION['id'] = $student_id;
-            ?>
+            <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>">Manage</a>
+            <?php if($role['role'] == 'admin') :?>
+            <a href="controllers/delete-student.php?id=<?= $student['unique_id']?>">Delete</a>
+                <?php endif ?>
+        </td>
+
         </tr>
         
         <?php

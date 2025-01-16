@@ -14,22 +14,16 @@ $user->set_fname(validate_input($_POST['fname']));
 $user->set_lname(validate_input($_POST['lname']));
 $student->set_regNo(validate_input($_POST['RegNo']));
 $class->set_class_name(validate_input($_POST['class']));
+$user->set_mname(validate_input($_POST['mname']));
+$user->set_gender(validate_input($_POST['gender']));
 
-$fname = $user->get_fname();
-$lname = $user->get_lname();
-$RegDate = validate_input($_POST['RegDate']);
-$gender = validate_input($_POST['gender']);
-$regNo = $student->get_regNo();
-$unique_id = uniqid("ID", true);
-$class_name = $class->get_class_name();
-if (!empty($fname) && !empty($lname) && !empty($gender) && !empty($regNo) && !empty($RegDate) && !empty($class_name)) {
-    if (!$student->is_student_present($regNo)) {
-        $student->add_student($unique_id, $fname, $lname, $gender, $regNo, $RegDate, $class_name);
+if (!empty($user->get_fname()) && !empty($user->get_mname()) && !empty($user->get_lname()) && !empty($user->get_gender()) && !empty($student->get_regNo()) && !empty(date('y-m-d')) && !empty($class->get_class_name())) {
+    if (!$student->is_student_present($student->get_regNo())) {
+        $student->add_student(uniqid("ID", true),  $user->get_fname(), $user->get_mname(),  $user->get_lname(), $user->get_gender(),  $student->get_regNo(), date('y-m-d'), $class->get_class_name());
         redirect_to('../dashboard.php?addstd');
     } else {
         echo "Registration Number Already Exist";
     }
 } else {
     echo "All Fields Are Required!";
-    echo $fname . " " . $lname . " " . $RegDate . " " . " " . $gender . " " . $regNo . " " . $unique_id . " " . $class_name;
 }

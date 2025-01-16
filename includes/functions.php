@@ -7,7 +7,7 @@ function is_request_method_post(){
     return $_SERVER["REQUEST_METHOD"] === "POST";
 }
 
-function kick_user_to_login($url, $user_id){
+function kick_user_to($url, $user_id){
     if(!isset($_SESSION[$user_id]) && $_SESSION[$user_id] == null){
         header("Location: {$url}");
     }

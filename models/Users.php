@@ -4,22 +4,33 @@ class User{
     protected $database;
     protected $fname;
     protected $lname;
+    protected $mname;
     protected $address;
     protected $dob;
     protected $email;
+    private $phone;
     protected $password;
     protected $gender;
     private $role;
     protected $profile_img;
+    protected $unique_id;
     public function __construct(Database $database){  
         $this->database = $database->getConnection();
 }
-
+public function set_unique_id($unique_id){
+    $this->unique_id = $unique_id;
+}
+public function get_unique_id(){
+    return $this->unique_id;
+}
 public function set_fname($fname){
     $this->fname = $fname;
 }
 public function set_lname($lname){
     $this->lname = $lname;
+}
+public function set_mname($mname){
+    $this->mname = $mname;
 }
 public function set_address($address){
     $this->address = $address;
@@ -32,6 +43,9 @@ public function set_gender($gender){
 }
 public function get_fname(){
     return $this->fname;
+}
+public function get_mname(){
+    return $this->mname;
 }
 public function get_lname(){
     return $this->lname;
@@ -47,6 +61,15 @@ public function set_email($email){
 }
 public function get_email(){
     return $this->email;
+}
+
+public function set_phone($phone)
+{
+    $this->phone = $phone;
+}
+public function get_phone()
+{
+    return $this->phone;
 }
 public function set_password($password){
     $this->password = md5($password);
@@ -71,9 +94,11 @@ public function get_profile(){
     return $this->profile_img;
 }
 public function login_user($email, $password){
+    
     $sql = "SELECT * FROM users WHERE email_address = ? AND password = ?";
     return $this->database->execute_query(query: $sql, params: [$email, $password])->fetch_assoc();
 }
+
 public function is_user_present($email){
     $sql = "SELECT * FROM users WHERE email_address = ?";
     return $this->database->execute_query(query: $sql, params: [$email]) -> num_rows > 0;
@@ -99,5 +124,9 @@ public function add_user($unique_id, $fname, $lname, $email, $gender, $password,
 public function user_role($email){
     $sql = "SELECT role FROM users WHERE email_address = ?";
     return $this->database->execute_query($sql, [$email])->fetch_assoc();
+}
+public function get_admins(){
+    $sql = "SELECT * FROM users WHERE role = 'admin'";
+    return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 }
 }

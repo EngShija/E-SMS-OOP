@@ -4,34 +4,24 @@ require_once "includes/header.php";
 require_once "includes/functions.php";
 require_once "models/Users.php";
 require_once "models/Student.php";
-kick_user_to_login('login.php', 'user_id');
+require_once "models/Parent.php";
+require_once "models/Subject.php";
+require_once "models/Class.php";
+kick_user_to('login.php', 'user_id');
 $user = new User(new Database());
-$users = $user->get_user_by_id($_SESSION['user_id']);
+$parent = new studentParent(new Database());
+$users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_id($_SESSION['user_id']);
 $student = new Student(new Database());
 $email = $users['email_address'];
 $role = $user->user_role($email);
+$subject = new Subject(new Database());
+$class = new StudentClass(new Database());
 ?>
 <div class="container-fluid">
     <div class="row">
         <?php require_once "includes/sidebar.php" ?>
         <main>
-            <div class="header-main">
-
-                <nav class="navbar bg-dark text-light content">
-                    <div class="container-fluid">
-                        <div class="navbar-header row">
-                            <a class="navbar-brand" href="#"><img src="assets/images/logo.jpg" height="50" width="50"
-                                    style="border-radius: 50%"></a>
-                        </div>
-                        <h3><?= $users['first_name']. " " . $users['last_name'] ?></h3>
-                        <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                            aria-controls="offcanvasExample">
-                            <a href="controllers/logout.php">Logout</a>
-                        </div>
-                    </div>
-                </nav>
-
-            </div>
+        <?php require_once "includes/profile-header.php" ?>
             <div class="students">
             </div>
 
@@ -40,7 +30,7 @@ $role = $user->user_role($email);
           require_once "includes/add-student.php";
         }
           else if(isset($_GET['updatestd'])){
-            require_once "includes/student-list.php";
+            require_once "includes/edit-student.php";
             $_SESSION['stdid'] = $_GET['updatestd'];
           }
           else if(isset($_GET['managestd'])){
@@ -88,18 +78,11 @@ $role = $user->user_role($email);
           else if(isset($_GET['managesub'])){
             require_once "includes/manage-sub.php";
           }
+          else if (isset($_SESSION['viewresult'])) {
+            include_once __DIR__ . "/includes/result-opt.php";
+            unset($_SESSION['viewresult']);
+        }
  else{
      require_once "includes/user-count.php";
  }
-?>
-        </main>
-    </div>
-</div>
-
-<script src="assets/js/data.js"></script>
-<script src="assets/js/data2.js"></script>
-<script src="assets/js/register-student.js"></script>
-<footer class="footer bg-dark text-light mt-5">&#169 2024 EngShija (+255612101742)</footer>
-</body>
-
-</html>
+ require_once __DIR__. "/includes/footer.php";

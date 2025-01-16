@@ -1,19 +1,30 @@
- <div class="d-flex justify-content-center mt-5 mb-5 login">
-    <form action="controllers/add-student-handler.php" method="POST" class=" col-sm-5 col-lg-5 col-xs-5 was-validated">
-    <h4 class="text-center">ADD CLASS</h4>
-    <a href='dashboard.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-        <div class="form-group">
-            <label for="classname">Class Name:</label>
-                <input type="classname" class="form-control" name="classname" id="classname" placeholder="Enter Class Name" required autofocus> 
-        </div>
-        <div class="form-group">
-                <button type="submit" class="form-control bg-dark text-light">Submit</button>
-        </div>
-    </form>
-    </div>
+<div class="modal fade" id="addcls" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+                <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">ADD CLASS</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="controllers/add-class-handler.php" method="POST"
+                class=" col-sm-5 col-lg-5 col-xs-5">
+                <div class="modal-body login">
+                    <div class="error-text">
 
-    <script>
-        $('div{1:div|body}').scrollspy({
-            target: '#navId'
-        });
-    </script>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="className">Class Name:</label>
+                        <input type="text" class="form-control" name="className" id="className" placeholder="Enter Class Name" required autofocus>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <div class="button">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

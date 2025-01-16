@@ -11,7 +11,7 @@ class Database {
         $this->connection = new mysqli($this->hostname, $this->username, $this->password, $this->databasename);
     }
     catch(exception $e){
-        die("Connection failed " . $e->getMessage());
+        die("Connection failed- " . $e->getMessage());
    }
 
 }
