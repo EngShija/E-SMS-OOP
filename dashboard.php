@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once "includes/header.php";
 require_once "includes/functions.php";
 require_once "models/Users.php";
 require_once "models/Student.php";
 require_once "models/Parent.php";
 require_once "models/Subject.php";
 require_once "models/Class.php";
+require_once "includes/header.php";
 kick_user_to('login.php', 'user_id');
 $user = new User(new Database());
 $parent = new studentParent(new Database());
@@ -20,11 +20,8 @@ $class = new StudentClass(new Database());
 <div class="container-fluid">
     <div class="row">
         <?php require_once "includes/sidebar.php" ?>
-        <main>
+        <main class="container">
         <?php require_once "includes/profile-header.php" ?>
-            <div class="students">
-            </div>
-
             <?php
          if(isset($_GET['addstd'])){
           require_once "includes/add-student.php";
@@ -82,7 +79,17 @@ $class = new StudentClass(new Database());
             include_once __DIR__ . "/includes/result-opt.php";
             unset($_SESSION['viewresult']);
         }
- else{
-     require_once "includes/user-count.php";
- }
- require_once __DIR__. "/includes/footer.php";
+        else if(isset($_GET['subid'])){
+          include_once "includes/initial-editisubject.php";
+        }
+        else if(isset($_GET['deleteid'])){
+          include_once "includes/initial-delete.php";
+        }
+        else{
+          require_once "includes/user-count.php";
+          // include_once __DIR__. "/includes/carousel.php";
+          include_once __DIR__. "/includes/advertisements.php";
+        }
+
+require_once __DIR__. "/includes/footer.php";
+

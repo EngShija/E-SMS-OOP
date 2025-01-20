@@ -12,7 +12,7 @@ if($mySubject->is_subject_present($mySubject->get_subjectName())){
 }
 else{
 if ($mySubject->add_subject($mySubject->get_subjectName(), $mySubject->get_subjectCategory())) {
-    redirect_to("../dashboard.php?subjectAdded");
+    redirect_to("../dashboard.php?managesub");
 }
 else{
     redirect_to("../dashboard.php?subNotAdded");

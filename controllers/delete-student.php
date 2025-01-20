@@ -5,8 +5,8 @@ require_once "../includes/functions.php";
 $mystudent = new Student(new Database());
 $parent = new studentParent(new Database());
 
-if(isset($_GET['id'])){
-    $mystudent->delete_student($_GET['id']);
-    $parent->delete_parent($_GET['id']);
+if(isset($_GET['deleteid'])){
+    $mystudent->delete_student($_GET['deleteid']);
+    $parent->delete_parent($_GET['deleteid']);
     redirect_to('../dashboard.php?managestd');
 }

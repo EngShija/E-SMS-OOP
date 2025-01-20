@@ -8,55 +8,55 @@
     ?>
   <div class="modal fade" id="addrst" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
+      <form action="controllers/add-results-handler.php" method="POST"
+      class=" col-sm-5 col-lg-5 col-xs-5">
           <div class="modal-content">
               <div class="modal-header bg-dark text-light">
                   <h1 class="modal-title fs-5" id="exampleModalLabel">ADD RESULTS</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form action="controllers/add-results-handler.php" method="POST"
-                  class=" col-sm-5 col-lg-5 col-xs-5">
                   <div class="modal-body login">
                       <div class="error-text">
 
                       </div>
 
 
-                      <div class="form-group">
-                          <label for="exam">Exam Type:</label>
+                      <div class="form-floating mb-3">
                           <select class="form-control" name="exam" id="exam">
                               <option>Select Exam Type</option>
                               <?php foreach ($exam->get_all_exams() as $myExam) : ?>
                                   <option value="<?= $myExam['exam_name'] ?>"><?= $myExam['exam_name'] ?></option>
                               <?php endforeach; ?>
                           </select>
+                          <label for="exam">Exam Type:</label>
                       </div>
 
 
-                      <div class="form-group">
-                          <label for="exam">Year Of Study:</label>
+                      <div class="form-floating mb-3">
                           <select class="form-control" name="yos" id="exam">
-                              <option>Select Subject</option>
-                              <?php $i = 2024; ?>
-                              <?php while ($i <= 2050) : ?>
+                              <option>Select Year Of Study</option>
+                              <?php $i = 2020; ?>
+                              <?php while ($i <= date('Y')) : ?>
                                   <option value="<?= $i ?>"><?= $i ?></option>
                               <?php $i++;
                                 endwhile ?>
                           </select>
+                          <label for="exam">Year Of Study:</label>
                       </div>
 
-                      <div class="form-group">
-                          <label for="subject">Subject Name:</label>
+                      <div class="form-floating mb-3">
                           <select class="form-control" name="subject" id="subject">
                               <option>Select Subject</option>
                               <?php foreach ($subject->get_all_subjects() as $mySubject) : ?>
                                   <option value="<?= $mySubject['sub_name'] ?>"><?= $mySubject['sub_name'] ?></option>
                               <?php endforeach; ?>
                           </select>
+                          <label for="subject">Subject Name:</label>
                       </div>
 
-                      <div class="form-group">
-                          <label for="marks">Marks Scored:</label>
+                      <div class="form-floating mb-3">
                           <input type="number" class="form-control" name="marks" id="marks" placeholder="Enter Marks Scored" required autofocus>
+                          <label for="marks">Marks Scored:</label>
                       </div>
                   </div>
                   <div class="modal-footer bg-dark">

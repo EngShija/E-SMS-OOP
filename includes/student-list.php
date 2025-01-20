@@ -1,8 +1,9 @@
 
                         
 <?php if(count($student->get_students()) > 0) :?>
+    <h1 class="text-center">STUDENTS</h1>
 <div class="scrollTb">
-<table class="table" id="tbId">
+<table class="table table-striped table-dark" id="tbId">
     <thead>
         <tr>
             <th>No</th>
@@ -26,9 +27,9 @@ foreach( $student->get_students() as $student) :?>
             <td><?=$student['reg_date'] ?></td>
             <td><?=$student['gender'] ?></td>
             <td><?=$student['class'] ?></td>
-            <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>">Manage</a>
+            <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>" Class="btn btn-success">Manage</a>
             <?php if($role['role'] == 'admin') :?>
-            <a href="controllers/delete-student.php?id=<?= $student['unique_id']?>">Delete</a>
+            <a href="dashboard.php?deleteid=<?= $student['unique_id']?>" class="btn btn-danger">Delete</a>
                 <?php endif ?>
         </td>
 

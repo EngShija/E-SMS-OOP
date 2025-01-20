@@ -1,12 +1,15 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
+/* body{
+   background-size: cover;
+} background-image: url('../images/unsplash-photo-1.jpg'); */
+    
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 5px;
-    font-size: 10px;
+    font-size: 18px;
 }
 
 .error-text {
@@ -94,13 +97,3 @@ li {
 .offcanvas-body a {
     text-decoration: none;
 }
-i img{
-    width: 50px;
-    height: 50px;
-    box-shadow: black;
-}
-
-/* .nav-item a{
-    padding: 7px auto 7px auto;
-    background: #000;
-} */

@@ -40,6 +40,10 @@ class Subject
         $sql = "SELECT * FROM subjects ORDER BY sub_name";
         return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_subject_by_id($sub_id){
+        $sql = "SELECT * FROM subjects WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params:[$sub_id])->fetch_assoc();
+    }
     public function add_subject_category($subjectCategory)
     {
         $sql = "INSERT INTO subject_category(category) VALUES(?)";
@@ -52,6 +56,14 @@ class Subject
     public function get_all_subject_categories(){
         $sql = "SELECT * FROM subject_category";
         return $this->database->execute_query(query: $sql);
+    }
+    public function delete_subject($sub_id){
+        $sql = "DELETE FROM subjects WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params: [$sub_id]);
+    }
+    public function edit_subject($subjectName, $subjectCategory, $sub_id){
+        $sql = "UPDATE subjects SET sub_name = ?, category = ? WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params: [$subjectName, $subjectCategory, $sub_id]);
     }
 
 }

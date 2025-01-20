@@ -1,8 +1,9 @@
 <?php
 $teachers = new User(new Database);
 if(count($teachers->get_all_users()) > 0) :?>
+<h1 class="text-center">TEACHERS</h1>
 <div class="scrollTb">
-<table class="table" id="tbId">
+<table class="table table-striped table-dark" id="tbId">
     <thead>
         <tr>
             <th>S/N</th>
@@ -21,10 +22,10 @@ foreach( $teachers->get_all_users() as $teacher) :?>
             <td><?=$teacher['first_name']. " ". $teacher['last_name'] ?></td>
             <td><?=$teacher['subject_tought'] ?></td>
             <td><?=$teacher['email_address'] ?></td>
-            <td><a href="dashboard.php?updatestd=<?= $teacher['unique_id'] ?>">Edit</a> <a href="controllers/delete-student.php?id=<?= $teacher['unique_id']?>">Delete</a> <a href="dashboard.php?addResult=<?= $teacher['unique_id'] ?>">results</a></td>
+            <td><a href="dashboard.php?updatetch=<?= $teacher['unique_id'] ?>" class="btn btn-success">Edit</a> <a href="controllers/delete-teacher.php?id=<?= $teacher['unique_id']?>"  class="btn btn-danger">Delete</a>
         </tr>
         <?php $i++; endforeach; ?>
     </tbody>
 </table>
 </div>
-<?php else: echo "<h5 class='text-center text-danger mt-5'>No Students Details Found!</h5>"; endif;?>
+<?php else: echo "<h5 class='text-center text-danger mt-5'>No Teachers Details Found!</h5>"; endif;?>

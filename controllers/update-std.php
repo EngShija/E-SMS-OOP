@@ -15,8 +15,8 @@ if (isset($_SESSION['stdId'])) {
     $studentClass->set_class_name(validate_input($_POST['class']));
     $mystudent->set_mname(validate_input($_POST['mname']));
     $mystudent->update_student($mystudent->get_fname(), $mystudent->get_mname(),  $mystudent->get_lname(),  $mystudent->get_gender(),  $mystudent->get_regNo(), $studentClass->get_class_name(), $_SESSION['stdId']);
+    $_SESSION['stdUpdated'] = "done";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
-    $_SESSION['done'] = "done";
 }
 redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 $_SESSION['fail'] = "fail";

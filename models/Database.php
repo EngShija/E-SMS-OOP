@@ -1,6 +1,17 @@
 <?php
+/**
+ * Undocumented class
+ */
 class Database {
    private  $connection;
+   /**
+    * Undocumented function
+    *
+    * @param string $hostname
+    * @param string $username
+    * @param string $password
+    * @param string $databasename
+    */
    function __construct(private $hostname = 'localhost', private $username = 'root', private $password = '', private $databasename = 'e_smsdb'){
     $this->hostname = $hostname;
     $this->username = $username;
@@ -15,6 +26,10 @@ class Database {
    }
 
 }
+/**
+ * 
+ * @return mysqli
+ */
 public function getConnection(){
     return $this->connection;
 }

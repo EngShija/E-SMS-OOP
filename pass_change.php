@@ -7,14 +7,14 @@ require_once "includes/header.php";
     <div class="error-text">
 
 </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
+      <div class="form-floating mb-3">
         <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" required autofocus title="Email Field is Required" autocomplete="off">
+        <label for="email">Email Address</label>
         <small class="invalid-feedback">Email is Required!</small>
       </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
+      <div class="form-floating">
         <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Your Password" required title="Password is Required">
+        <label for="pwd">Password</label>
         <small class="invalid-feedback">Password is required!</small>
         </div>
         <div class="form-group button">

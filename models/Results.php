@@ -63,6 +63,10 @@ class Results
         $sql = "SELECT * FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type])->fetch_assoc();
     }
+    public function is_result_exist($student_id, $exam_type){
+        $sql = "SELECT * FROM results WHERE student_id = ? AND exam_type = ?";
+        return $this->database->execute_query(query: $sql, params: [$student_id, $exam_type])->fetch_assoc();
+    }
     public function get_results($student_id, $exam_type){
         $sql = "SELECT * FROM results WHERE student_id = ? AND exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id, $exam_type])->fetch_all(MYSQLI_ASSOC);

@@ -1,51 +1,66 @@
 <!-----ADD TEACHER--->
-<div class="d-flex justify-content-center mt-5 mb-5 login">
-    <form action="controllers/add-teacher-handler.php" method="POST" class=" col-sm-5 col-lg-5 col-xs-5 was-validated">
-    <h4 class="text-center">ADD TEACHER</h4>
-    <a href='dashboard.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
 
-    <div class="myrow">
-        <div class="form-group">
-            <label for="fname">First Name:</label>
-                <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" required autofocus> 
-        </div>
+<div class="modal fade" id="addtch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form action="controllers/add-teacher-handler.php" method="POST" class=" col-sm-5 col-lg-5 col-xs-5">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">ADD CLASS</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body login">
+                    <div class="error-text">
 
-        <div class="form-group">
-            <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" required>
-        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name"
+                            required autofocus>
+                        <label for="fname">First Name:</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name"
+                            required>
+                        <label for="lname">Last Name:</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-control" name="gender" id="gender">
+                            <option value="">Select Your Gender:</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <label for="gender">Gender:</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Enter Email Address" required>
+                        <label for="email">Email:</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject Tought"
+                            required>
+                        <label for="phone">Subject Tought:</label>
+
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="password" id="pass"
+                            placeholder="Enter Parent Relationship" required>
+                        <label for="pass">Password:</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <div class="button">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+        </form>
     </div>
-
-    <div class="myrow">
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-                <select class="form-control" name="gender" id="gender">
-                <option value="">Select Your Gender:</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email Address" required>
-        </div>
-        </div>
-
-        <div class="myrow">
-        <div class="form-group">
-            <label for="phone">Subject Tought:</label>
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject Tought" required>
-        </div>
-    
-        <div class="form-group">
-            <label for="pass">Password:</label>
-                <input type="password" class="form-control" name="password" id="pass" placeholder="Enter Parent Relationship" required>
-        </div>
-    </div>
-    <div class="form-group">
-                <button type="submit" class="form-control bg-dark text-light">Submit</button>
-        </div>
-
-    </form>
-    </div>
+</div>
+</div>
