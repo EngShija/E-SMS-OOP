@@ -58,7 +58,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#addSub">Add Subject</a></li>
                             <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#subcat">Add Subject Category</a></li>
+                                    data-bs-toggle="modal" data-bs-target="#subcat">Add Category</a></li>
                             <a href="dashboard.php?managesub" class="list-group-item list-group-item-action">Manage
                                 Subjects</a>
                             </li>
@@ -162,62 +162,6 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 
                         </ul>
                     </li>
-
-                    <!-- <li class="dropdown">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#people" />
-                            </svg> Students
-                        </button>
-                        <ul class="dropdown-menu">
-
-                            <li><a href="dashboard.php?addstd" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addStudent">Add Student</a></li>
-                            <li><a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
-                                    Students</a></li>
-
-                        </ul>
-                    </li>
-
-
-                    <div class="dropdown mt-3">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#grid" />
-                            </svg>
-                            Subjects
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addSub">Add Subject</a></li>
-                            <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#subcat">Add Subject Category</a></li>
-                            <a href="dashboard.php?managesub" class="list-group-item list-group-item-action">Manage
-                                Subjects</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="dropdown mt-3">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#file-earmark-text" />
-                            </svg>
-                            Examinations
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="dashboard.php?addexm" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addexm">Add Exam Type</a></li>
-
-                            <a href="dashboard.php?addtmtb" class="add-student list-group-item list-group-item-action"
-                                data-toggle="modal" data-target="#modelId">Add Examination Timetable</a>
-                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
-                                Exams</a>
-                            </li>
-                        </ul>
-                    </div> -->
-
-
                 <?php endif ?>
 
                 <?php if ($role['role'] == 'admin'): ?>
@@ -255,7 +199,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                     <div class="dropdown mt-3">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#paypal" />
+                                <use xlink:href="#credit-card" />
                             </svg>
                             Payments
                         </button>

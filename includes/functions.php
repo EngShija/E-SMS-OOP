@@ -35,3 +35,15 @@ function display_alert($type, $heading, $message){
         </div>
         <?php 
 }
+function sweetAlert($alert_head, $message, $class)
+{
+    ?>
+        <script>
+            swal('<?= $alert_head ?>', '<?= $message ?>', '<?= $class ?>');
+        </script>
+    <?php
+    
+}
+function corfirm_password($password1, $password2){
+    return $password1 === $password2;
+}

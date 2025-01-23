@@ -27,7 +27,7 @@ $_SESSION['exam'] = $exam->get_examName();
 redirect_to("../dashboard.php?viewresults");
 }
 else{
-    redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
     $_SESSION['noRusults'] = 'noResults';
+    redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }
 // echo strtoupper($student->get_fname()) . ' ' . strtoupper($student->get_lname()) . '(' .  $exam->get_examName() .  $exam->get_yos(). ')';

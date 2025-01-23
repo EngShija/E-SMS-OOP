@@ -129,4 +129,8 @@ public function get_admins(){
     $sql = "SELECT * FROM users WHERE role = 'admin'";
     return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 }
+public function get_user_by_email($email){
+    $sql = "SELECT * FROM users WHERE email_address = ?";
+    return $this->database->execute_query(query: $sql, params: [$email])->fetch_assoc();
+}
 }

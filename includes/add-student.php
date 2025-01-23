@@ -58,7 +58,7 @@ $class = new StudentClass(new Database());
 
                     <div class="form-floating mb-3">
                         <select class="form-control" name="class" id="class">
-                            <option>Select Exam Type</option>
+                            <option>Select Current Class</option>
                             <?php foreach ($class->get_all_classes() as $myClass) : ?>
                                 <option value="<?= $myClass['class_name'] ?>"><?= $myClass['class_name'] ?></option>
                             <?php endforeach; ?>

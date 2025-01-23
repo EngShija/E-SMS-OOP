@@ -7,23 +7,21 @@ $student = $myStudent->get_student_by_id($_GET['updatestd']);
 $_SESSION['stdId'] = $_GET['updatestd'];
 $myParent = new studentParent(new Database());
 $parent = $myParent->get_student_parent($_GET['updatestd']);
+
+if(isset($_SESSION['updated'])){
+sweetAlert( 'Success', 'Detailes updated successfully!', 'success');
+unset($_SESSION['updated']);
+}
+else if(isset($_SESSION['resultAdded'])){
+    sweetAlert( 'Success',  $_SESSION['resultAdded']. ' Results Added Successfully!', 'success');
+unset($_SESSION['resultAdded']);
+}
+else if(isset($_SESSION['noRusults'])){
+    sweetAlert( 'Sorry',  'No results found for your selections!!', 'warning');
+unset($_SESSION['noRusults']);
+}
 ?>
 
-<?php if (isset($_GET['updatestd-done'])): ?>
-    <div class="d-flex justify-content-center">
-        <div class="alert alert-success" role="alert">
-            Details Updated Successfully!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-<?php elseif (isset($_GET['updatestd-fail'])): ?>
-    <div class="d-flex justify-content-center">
-        <div class="alert alert-danger text-center" role="alert">
-            Something Went Wrong!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-<?php endif ?>
 <div class="d-flex justify-content-center">
     <div class="card text-center mb-3 mt-3" style="width: 20rem;">
         <div class="card-body">
@@ -126,9 +124,13 @@ if (!$myParent->is_parent_exist($_GET['updatestd'])) {
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="class" id="class" value="<?= $student['class'] ?>"
-                            placeholder="Enter Current Class ">
-                            <label for="class">Current Class:</label>
+                        <select class="form-control" name="class" id="class">
+                            <option><?= $student['class'] ?></option>
+                            <?php foreach ($class->get_all_classes() as $myClass) : ?>
+                                <option value="<?= $myClass['class_name'] ?>"><?= $myClass['class_name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <label for="class">Current Class:</label>
                     </div>
                 </div>
 
@@ -140,3 +142,4 @@ if (!$myParent->is_parent_exist($_GET['updatestd'])) {
         </div>
     </div>
 </div>
+<script src="assets/js/sweetAlerts.js"></script>

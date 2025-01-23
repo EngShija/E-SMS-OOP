@@ -14,20 +14,20 @@
 
                         </div>
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="fname" id="fname"
                                 placeholder="Enter First Name" value="<?= $parent['first_name'] ?>" required autofocus>
                                 <label for="fname">First Name:</label>
                         </div>
 
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="lname" id="lname"
                                 placeholder="Enter Last Name"  value="<?= $parent['last_name'] ?>" required>
                                 <label for="lname">Last Name:</label>
                         </div>
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <select class="form-control" name="gender" id="gender">
                                 <option><?= $parent['gender'] ?></option>
                                 <option value="male">Male</option>
@@ -37,25 +37,25 @@
                         </div>
 
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="address" id="address"
                                 placeholder="Enter Physical Address"  value="<?= $parent['physical_address'] ?>" required>
                                 <label for="address">Physical Address:</label>
                         </div>
 
-                        <div class="ffloating">
+                        <div class="form-floating mb-3">
                             <input type="email" class="form-control" name="email" id="email"
                                 placeholder="Enter Email Address"  value="<?= $parent['email_address'] ?>" required>
                                 <label for="email">Email Address:</label>
                         </div>
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input type="number" class="form-control" name="phone" id="phone"
                                 placeholder="Enter Phone Number "  value="<?= $parent['phone'] ?>"required>
                                 <label for="phone">Phone Number:</label>
                         </div>
 
-                        <div class="form-floating">
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="relation" id="relation"
                                 placeholder="Enter Parent Relationship "  value="<?= $parent['relation'] ?>" required>
                                 <label for="relation">Relationship:</label>

@@ -1,3 +1,13 @@
+<?php
+if(isset($_SESSION['parent-rg'])){
+    sweetAlert( 'Success', 'Parent information added successfully!', 'success');
+    unset($_SESSION['parent-rg']);
+    }
+else if(isset($_SESSION['exist'])){
+    sweetAlert( 'Parent Exists!', 'Parent exists for this student, Only one parent is allowed!', 'warning');
+    unset($_SESSION['exist']);
+    }
+?>
 
 <div class="modal fade" id="addprt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="container">
@@ -56,8 +66,15 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="relation" id="relation"
-                                placeholder="Enter Parent Relationship " required>
+                            <select class="form-control" name="relation" id="relation">
+                                <option value="father">Father</option>
+                                <option value="mother">Mother</option>
+                                <option value="brother">Brother</option>
+                                <option value="sister">Sister</option>
+                                <option value="uncle">Uncle</option>
+                                <option value="aunt">Aunt</option>
+                                <option value="">Other Gurdian</option>
+                            </select>
                                 <label for="relation">Relationship:</label>
                         </div>
                     </div>

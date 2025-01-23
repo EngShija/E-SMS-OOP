@@ -122,7 +122,7 @@ if (!$myResult->is_result_present($student->get_student_id(), $subject->get_subj
         $pdf->add_result_summary($totalMarks, round($totalMarks / $subjectCount), $myResult->get_grade(), $myResult->get_description(),    $myResult->get_division(), $totalPoints);
         $pdf->save_pdf_to_server('../documents', strtoupper($student->get_fname()) . ' ' . strtoupper($student->get_lname()) . '(' .  $exam->get_examName() .  $exam->get_yos() . ')', $pdf->Output('S'));
 
-
+        $_SESSION['resultAdded'] = $subject->get_subjectName();
         redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
     }
 } else {

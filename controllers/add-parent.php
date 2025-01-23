@@ -21,10 +21,10 @@ $student->set_student_id($_SESSION['stdId']);
 $parent->set_unique_id(uniqid("ID", true));
 
 if (!$parent->is_parent_exist($student->get_student_id())) {
-    redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
     $_SESSION['exist'] = "exist";
+    redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 } else {
     $parent->add_parent($parent->get_unique_id(), $student->get_student_id(), $parent->get_fname(), $parent->get_lname(), $parent->get_email(), $parent->get_phone(), $parent->get_gender(), $parent->get_address(), $parent->get_relation(), $parent->get_password());
+    $_SESSION['parent-rg'] = "registered";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
-    $_SESSION['paremt-rg'] = "registered";
 }

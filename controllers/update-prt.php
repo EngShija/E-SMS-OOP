@@ -16,8 +16,8 @@ if (isset($_SESSION['stdId'])) {
     $myParent->set_relation(validate_input($_POST['relation']));
 
     $myParent->update_parent($myParent->get_fname(),  $myParent->get_lname(), $myParent->get_email(), $myParent->get_phone(),  $myParent->get_gender(),  $myParent->get_address(), $myParent->get_relation(), $_SESSION['stdId']);
+    $_SESSION['updated'] = "update";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
-    $_SESSION['done'] = "done";
 }
 redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 $_SESSION['fail'] = "fail";

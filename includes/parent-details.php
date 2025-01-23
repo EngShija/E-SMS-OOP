@@ -1,14 +1,12 @@
 
 <div class="modal fade" id="prtdetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="container">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header bg-dark text-light">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">PARENT DETAILS</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="controllers/update-prt.php" method="POST"
-                    class=" col-sm-5 col-lg-5 col-xs-5">
                     <div class="modal-body">
                         <div class="error-text">
 
@@ -26,7 +24,6 @@
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-success">Update</button>
                     </div>
-                </form>
             </div>
         </div>
     </div>

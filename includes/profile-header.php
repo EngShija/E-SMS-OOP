@@ -16,7 +16,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_i
         <h3><?= strtoupper($users['first_name']). " " . strtoupper($users['last_name']). "(". $users['role']. ")" ?></h3>
         <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample"> 
-            <a href="controllers/logout.php">  <i><img src="assets/images/log-out.svg" alt="" height="30" width="50"></i> Logout</a>
+            <a href="controllers/logout.php" title="Logout">  <i><img src="assets/images/log-out.svg" alt="" height="30" width="50"></i></a>
         </div>
     </div>
 </nav>

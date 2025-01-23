@@ -1,4 +1,9 @@
-
+<?php
+if(isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student'){
+    sweetAlert('Deleted', 'Student details deleted successfully!', 'warning');
+    unset($_SESSION['deleted']);
+}
+?>
                         
 <?php if(count($student->get_students()) > 0) :?>
     <h1 class="text-center">STUDENTS</h1>
