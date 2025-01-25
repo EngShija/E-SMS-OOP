@@ -28,7 +28,7 @@ class Student extends User
     {
         $sql = "INSERT INTO student(unique_id, first_name, last_name, middle_name, gender, reg_no, reg_date, class)
         VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$unique_id, $fname, $lname, $mname, $gender, $regNo, $RegDate, $class]);
+        return $this->database->execute_query(query: $sql, params: [$unique_id, $fname, $mname, $lname, $gender, $regNo, $RegDate, $class]);
     }
     public function get_students()
     {
@@ -49,5 +49,11 @@ class Student extends User
     {
         $sql = "UPDATE student SET first_name = ?, middle_name = ?, last_name = ?,  gender = ?, reg_no = ?,  class = ? WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$fname, $mname, $lname, $gender, $reg_no, $class, $student_id]);
+    }
+
+    public function get_student_by_class($class)
+    {
+        $sql = "SELECT * FROM student WHERE class = ?";
+        return $this->database->execute_query(query: $sql, params: [$class])->fetch_all(MYSQLI_ASSOC);
     }
 }

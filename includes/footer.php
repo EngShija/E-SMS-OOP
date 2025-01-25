@@ -197,11 +197,12 @@
     </symbol>
   </svg>
 <div class="footer text-light">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom bg-dark">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top fixed-bottom bg-dark">
         <p class="col-md-4 mb-0">&#169 2024 - <?= date('Y') ?> EngShija (+255612101742)</p>
 
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="assets/images/logo.jpg" height="30" width="30" class="rounded-circle border border-white"">
+            <img src="assets/images/logo.jpg" height="30" width="30" class="
+            rounded-circle border border-white"">
         </a>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
@@ -216,7 +217,9 @@
         </ul>
     </footer>
 </div>
-<!-- <footer class="footer bg-dark text-light mt-5">&#169 2024 - 2025 EngShija (+255612101742)</footer> -->
+<!-- <footer class="footer bg-dark text-light d-flex flex-wrap justify-content-between align-items-center border-top fixed-bottom bg-dark">
+  &#169 2024 - 2025 EngShija (+255612101742)
+</footer> -->
 </body>
 
 </html>

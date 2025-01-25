@@ -1,13 +1,4 @@
 /* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"); */
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    font-size: 18px;
-}
-
 .error-text {
     color: #721c24;
     padding: 8px 10px;
@@ -73,9 +64,7 @@ li {
     overflow: scroll;
     max-height: 500px;
     width: 100%;
-    margin: 0 auto;
     align-items: center;
-    justify-content: center;
 }
 
 .logo {

@@ -1,12 +1,12 @@
 <?php
 if(isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student'){
-    sweetAlert('Deleted', 'Student details deleted successfully!', 'warning');
+    sweetAlert('Deleted', 'Student details deleted successfully!', 'success');
     unset($_SESSION['deleted']);
 }
 ?>
                         
 <?php if(count($student->get_students()) > 0) :?>
-    <h1 class="text-center">STUDENTS</h1>
+    <h3 class="text-center">STUDENTS</h3>
 <div class="scrollTb">
 <table class="table table-striped table-dark" id="tbId">
     <thead>
@@ -27,11 +27,11 @@ if(isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student'){
 foreach( $student->get_students() as $student) :?>
         <tr>
             <td><?= $i ?></td>
-            <td><?=$student['first_name']. " ". $student['last_name'] ?></td>
+            <td><?= strtoupper($student['first_name']. " ". $student['middle_name']. " ". $student['last_name']) ?></td>
             <td><?=$student['reg_no'] ?></td>
             <td><?=$student['reg_date'] ?></td>
             <td><?=$student['gender'] ?></td>
-            <td><?=$student['class'] ?></td>
+            <td><?= strtoupper($student['class']) ?></td>
             <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>" Class="btn btn-success">Manage</a>
             <?php if($role['role'] == 'admin') :?>
             <a href="dashboard.php?deleteid=<?= $student['unique_id']?>" class="btn btn-danger">Delete</a>

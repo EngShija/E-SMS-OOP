@@ -1,5 +1,6 @@
 <?php
 session_start();
+// error_reporting(0);
 require_once "includes/functions.php";
 require_once "models/Users.php";
 require_once "models/Student.php";
@@ -85,6 +86,13 @@ $class = new StudentClass(new Database());
         else if(isset($_GET['deleteid'])){
           include_once "includes/initial-delete.php";
         }
+        else if(isset($_GET['addAttendance'])){
+          include_once "includes/attendance.php";
+        }
+        else if(isset($_SESSION['classEmpty'])){
+          sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
+          unset($_SESSION['classEmpty']);
+        }
         else{
           require_once "includes/user-count.php";
           // include_once __DIR__. "/includes/carousel.php";
@@ -92,4 +100,3 @@ $class = new StudentClass(new Database());
         }
 
 require_once __DIR__. "/includes/footer.php";
-

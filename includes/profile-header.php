@@ -8,7 +8,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_i
 
 ?>
 
-<nav class="navbar bg-dark text-light content">
+<nav class="navbar bg-dark text-light content mb-6">
     <div class="container-fluid">
         <div class="navbar-header row">
             <a class="navbar-brand" href="#"><img src="assets/images/logo.jpg" height="50" width="50" class="rounded-circle border border-success"></a>

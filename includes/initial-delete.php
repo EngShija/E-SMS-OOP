@@ -1,9 +1,14 @@
 <?php
 $myStudent = $student->get_student_by_id($_GET['deleteid']);
 
-if(!isset($_GET['deleteid'])){
-    redirect_to('dashboard.php?managestd');
-}
+// $myStudent['id'] ??  redirect_to('dashboard.php');
+
+// if($myStudent['id'] != null){
+//     redirect_to('dashboard.php?managestd');
+// }
+
+// echo $_GET['deleteid'] . '<br>'; 
+// echo strlen($_GET['deleteid']);
 ?>
 
 <div class="d-flex justify-content-center">

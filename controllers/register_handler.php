@@ -20,7 +20,7 @@ $user->set_gender(validate_input($_POST['gender']));
 if (!empty($user->get_fname()) && !empty($user->get_mname()) && !empty($user->get_lname()) && !empty($user->get_gender()) && !empty($student->get_regNo()) && !empty(date('y-m-d')) && !empty($class->get_class_name())) {
     if (!$student->is_student_present($student->get_regNo())) {
         $student->add_student(uniqid("ID", true),  $user->get_fname(), $user->get_mname(),  $user->get_lname(), $user->get_gender(),  $student->get_regNo(), date('y-m-d'), $class->get_class_name());
-        redirect_to('../dashboard.php?addstd');
+        redirect_to('../dashboard.php?managestd');
     } else {
         echo "Registration Number Already Exist";
     }

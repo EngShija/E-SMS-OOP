@@ -9,13 +9,13 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo" src="assets/images/logo.jpg"
-                height="50" width="50" style="border-radius: 50%"></img><?= "  " ?>SMS</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success" src="assets/images/logo.jpg"
+                height="30" width="30""></img><?= "  " ?>SMS</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
 
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+        <div class="d-flex flex-column flex-shrink-0 text-bg-dark" style="width: 300px;">
             <hr>
 
             <ul class="list-group col-md-3 col-lg-2 nav nav-pills flex-column mb-auto">
@@ -76,14 +76,46 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             <li><a href="dashboard.php?addexm" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#addexm">Add Exam Type</a></li>
 
-                            <a href="dashboard.php?addtmtb" class="add-student list-group-item list-group-item-action"
-                                data-toggle="modal" data-target="#modelId">Add Examination Timetable</a>
                             <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
                                 Exams</a>
                             </li>
                         </ul>
                     </div>
 
+                    <div class="dropdown mt-3">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                            <svg class="bi pe-none me-2" width="25" height="25">
+                                <use xlink:href="#calendar3" />
+                            </svg>
+                            Timetables
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="dashboard.php?addexm" class="add-student list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#addexm">Add Timetable</a></li>
+
+                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
+                                Timetables</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown mt-3">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                            <svg class="bi pe-none me-2" width="25" height="25">
+                                <use xlink:href="#calendar3" />
+                            </svg>
+                            Attendance
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
+
+                            
+
+                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">View
+                                Attendances</a>
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class="dropdown mt-3">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
@@ -257,4 +289,6 @@ include_once "add-exam.php";
 include_once "add-subject-catyegory.php";
 include_once "add-class.php";
 include_once "add-teacher.php";
+include_once "attendance-choice.php";
+
 
