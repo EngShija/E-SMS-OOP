@@ -92,6 +92,9 @@ $class = new StudentClass(new Database());
         else if(isset($_GET['viewAttendance'])){
           include_once "includes/view-attendance.php";
         }
+        else if(isset($_GET['indidualAttendance'])){
+          include_once "includes/individual-attendance.php";
+        }
         else if(isset($_SESSION['classEmpty'])){
           sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
           unset($_SESSION['classEmpty']);
@@ -111,4 +114,3 @@ $class = new StudentClass(new Database());
         }
 
 require_once __DIR__. "/includes/footer.php";
-

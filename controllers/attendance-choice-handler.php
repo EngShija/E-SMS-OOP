@@ -3,16 +3,21 @@ session_start();
 require_once __DIR__. "/../models/Student.php";
 require_once __DIR__. "/../models/Class.php";
 require_once __DIR__. "/../includes/functions.php";
-
+require_once __DIR__ . "/../models/Attendance.php";
 
 $class = new StudentClass(new Database());
 
 $student = new Student(new Database());
 
+$attendance = new Attendance(new Database());
+
 $class->set_class_name($_POST['class']);
+
+$attendance->set_date($_POST['date']);
 
 if(count($student->get_student_by_class($class->get_class_name())) > 0){
     $_SESSION['student_class'] = $class->get_class_name();
+    $_SESSION['date'] = $attendance->get_date();
     redirect_to('../dashboard.php?addAttendance');
 }
 else{

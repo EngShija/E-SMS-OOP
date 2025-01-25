@@ -7,7 +7,7 @@ $attendance = new Attendance(new Database());
 
 $student = new Student(new Database());
 
-$attendance->set_date(date('Y-m-d'));
+$attendance->set_date($_SESSION['date']);
 
 $attendance->set_status(isset($_POST['status']) ? 'present' : 'absent');
 
@@ -17,7 +17,7 @@ if (isset($_SESSION['attendanceExist'])) {
 }
 ?>
 
-<h3 class="text-center"><?= strtoupper($_SESSION['student_class']) ?></h3>
+<h3 class="text-center"><?= strtoupper($_SESSION['student_class'] . " ". "(". $attendance->get_date(). ")") ?></h3>
 <div class="scrollTb">
     <table class="table table-striped table-dark" id="tbId">
         <thead>
@@ -35,7 +35,7 @@ if (isset($_SESSION['attendanceExist'])) {
             foreach ($student->get_student_by_class($_SESSION['student_class']) as $student): ?>
                 <tr>
                     <td><?= $i ?></td>
-                    <td><?= strtoupper($student['first_name'] . " ". $student['middle_name'] . " ".  $student['last_name']) ?></td>
+                    <td><a href="dashboard.php?indidualAttendance=<?= $student['unique_id'] ?>" class="text-light" style="text-decoration: none;"><?= strtoupper($student['first_name'] . " ". $student['middle_name'] . " ".  $student['last_name']) ?></a></td>
                     <td><?= $student['reg_no'] ?></td>
                     <?php if (!$attendance->is_checked($attendance->get_date(), $student['unique_id'])): ?>
                         <td>

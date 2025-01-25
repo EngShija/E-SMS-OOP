@@ -2,7 +2,6 @@
 $myStudent = $student->get_student_by_id($_GET['deleteid']);
 
 $full_name = strtoupper($myStudent['first_name']) . " " . strtoupper($myStudent['last_name']);
-
 ?>
 
 <div class="d-flex justify-content-center">

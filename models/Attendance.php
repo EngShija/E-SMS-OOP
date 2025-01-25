@@ -26,6 +26,10 @@ public function is_checked($date, $student_id){
     $sql = "SELECT * FROM attendance WHERE date = ? AND student_id = ?";
     return $this->database->execute_query(query: $sql, params: [$date, $student_id])->num_rows > 0;
 }
+public function get_attendance_by_student_id($student_id){
+    $sql = "SELECT * FROM attendance WHERE student_id = ? ORDER BY date DESC";
+    return $this->database->execute_query(query: $sql, params: [$student_id])->fetch_all(MYSQLI_ASSOC);
+}
 public function get_attendance_by_student_id_with_date($date, $student_id){
     $sql = "SELECT * FROM attendance WHERE date = ? AND student_id = ?";
     return $this->database->execute_query(query: $sql, params: [$date, $student_id])->fetch_assoc();

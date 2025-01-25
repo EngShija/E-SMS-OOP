@@ -29,6 +29,8 @@ $class = new StudentClass(new Database());
                         <label for="class">Current Class:</label>
                     </div>
 
+                    <input type="hidden" value="<?= date('Y-m-d') ?>" name="date">
+
                 </div>
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
