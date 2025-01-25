@@ -30,4 +30,13 @@ public function get_attendance_by_student_id_with_date($date, $student_id){
     $sql = "SELECT * FROM attendance WHERE date = ? AND student_id = ?";
     return $this->database->execute_query(query: $sql, params: [$date, $student_id])->fetch_assoc();
 }
+public function get_attendance_by_date($date){
+    $sql = "SELECT * FROM attendance WHERE date = ?";
+    return $this->database->execute_query(query: $sql, params: [$date])->fetch_all(MYSQLI_ASSOC);
+}
+public function delete_attendance($date, $student_id){
+    $sql = "DELETE FROM attendance WHERE date = ? AND student_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$date, $student_id]);
+}
+
 }

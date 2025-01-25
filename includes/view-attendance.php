@@ -7,17 +7,13 @@ $attendance = new Attendance(new Database());
 
 $student = new Student(new Database());
 
-$attendance->set_date(date('Y-m-d'));
+$attendance->set_date($_SESSION['date']);
 
 $attendance->set_status(isset($_POST['status']) ? 'present' : 'absent');
 
-if (isset($_SESSION['attendanceExist'])) {
-    sweetAlert('Sorry!', 'This student is already checked!', 'warning');
-    unset($_SESSION['attendanceExist']);
-}
 ?>
 
-<h3 class="text-center"><?= strtoupper($_SESSION['student_class']) ?></h3>
+<h3 class="text-center"><?= strtoupper($_SESSION['student_class']. " ". "(". $_SESSION['date']. ")") ?></h3>
 <div class="scrollTb">
     <table class="table table-striped table-dark" id="tbId">
         <thead>
@@ -59,7 +55,6 @@ if (isset($_SESSION['attendanceExist'])) {
                                     <?= $myAttendance['status'] ?>
                                 </p>
                             <?php endif ?>
-                            <p class="btn btn-warning btn-sm"><a href="controllers/delete-attendance.php?stdId=<?= $student['unique_id'] ?>" class="text-light" style="text-decoration: none;">Undo</a></p>
                         </td>
                     <?php endif ?>
                 </tr>

@@ -109,9 +109,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         <ul class="dropdown-menu">
                             <li><a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
 
-                            
-
-                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">View
+                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#viewAttendance">View
                                 Attendances</a>
                             </li>
                         </ul>
@@ -290,5 +288,7 @@ include_once "add-subject-catyegory.php";
 include_once "add-class.php";
 include_once "add-teacher.php";
 include_once "attendance-choice.php";
+include_once "initial-view-attendance.php";
+
 
 

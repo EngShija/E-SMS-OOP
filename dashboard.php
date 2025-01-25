@@ -84,13 +84,24 @@ $class = new StudentClass(new Database());
           include_once "includes/initial-editisubject.php";
         }
         else if(isset($_GET['deleteid'])){
-          include_once "includes/initial-delete.php";
+          include_once "includes/initial-delete-student.php";
         }
         else if(isset($_GET['addAttendance'])){
           include_once "includes/attendance.php";
         }
+        else if(isset($_GET['viewAttendance'])){
+          include_once "includes/view-attendance.php";
+        }
         else if(isset($_SESSION['classEmpty'])){
           sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
+          unset($_SESSION['classEmpty']);
+        }
+        else if(isset($_SESSION['noAttendance'])){
+          sweetAlert('Sorry!', 'No attendance taken for this date!', 'warning');
+          unset($_SESSION['noAttendance']);
+        }
+        else if(isset($_SESSION['classEmpty'])){
+          sweetAlert('Sorry!', 'No students to this class!', 'warning');
           unset($_SESSION['classEmpty']);
         }
         else{
@@ -100,3 +111,4 @@ $class = new StudentClass(new Database());
         }
 
 require_once __DIR__. "/includes/footer.php";
+
