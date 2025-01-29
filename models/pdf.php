@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/../fpdf/fpdf.php";
+require_once __DIR__ . "/../fpdf/fpdf.php";
 
 class PDF extends FPDF
 {
@@ -11,11 +11,11 @@ class PDF extends FPDF
     }
     public function create_pdf()
     {
-       return $this->SetFont('Arial', 'B', 12);
+        return $this->SetFont('Arial', 'B', 12);
     }
     public function add_result_details($fname, $lname, $exam_name)
     {
-        $this->Cell(0, 10, 'Student Name: ' .$fname . ' ' . $lname, 0, 1);
+        $this->Cell(0, 10, 'Student Name: ' . $fname . ' ' . $lname, 0, 1);
         $this->Cell(0, 10, 'Exam Type: ' . $exam_name, 0, 1);
         $this->Ln(10);
     }
@@ -47,7 +47,7 @@ class PDF extends FPDF
         $this->Cell(60, 10, $average, 1);
         $this->Ln();
         $this->Cell(130, 10, 'Average grade', 1);
-        $this->Cell(60, 10,$average_grade, 1);
+        $this->Cell(60, 10, $average_grade, 1);
         $this->Ln();
         $this->Cell(130, 10, 'Description', 1);
         $this->Cell(60, 10, $desc, 1);
@@ -59,8 +59,22 @@ class PDF extends FPDF
         $this->Cell(60, 10, $total_points, 1);
         $this->Ln();
     }
-    public function save_pdf_to_server($dir, $name, $output){
-       return file_put_contents($dir. '/'. $name. '.'.'pdf', $output);
+    //TIMETABLE
+    public function add_timetable_header($time_slot)
+    {
+        $this->SetFont('Arial', 'B', 12);
+        $this->Cell(40, 10, $time_slot, 1);
+        $this->Ln();
+    }
+    public function add_timetable_contents($day, $subject_name)
+    {
+        $this->Cell(40, 10, $day, 1);
+        $this->Cell(30, 10, $subject_name, 1);
+        $this->Ln();
+    }
+    public function save_pdf_to_server($dir, $name, $output)
+    {
+        return file_put_contents($dir . '/' . $name . '.' . 'pdf', $output);
     }
     // function Footer(){
     //     $this->SetY(-10);

@@ -14,7 +14,6 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
 
 ?>
 
-
 <div class="d-flex justify-content-center">
     <div class="card text-center mb-3 mt-3" style="width: 20rem;">
         <div class="card-body">
@@ -22,8 +21,7 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
             <h5 class="card-title" style="text-decoration: underline;">
                 <?= strtoupper($myStudent['first_name']) . " " . strtoupper($myStudent['last_name']) ?>
             </h5>
-
-            <table class="table table-striped table-dark" id="tbId">
+            <table class="table table-striped card-item" id="tbId">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -31,7 +29,6 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
                         <th>Status</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <?php
                     $i = 1;

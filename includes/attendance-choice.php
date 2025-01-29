@@ -12,7 +12,7 @@ $class = new StudentClass(new Database());
         <form action="controllers/attendance-choice-handler.php" method="POST" class=" col-sm-5 col-lg-5 col-xs-5">
             <div class="modal-content">
                 <div class="modal-header bg-dark text-light">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Student</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">TAKE ATTENDANCE</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body addstd">

@@ -6,7 +6,7 @@ require_once "includes/functions.php";
 ?>
 <!-- <div class="container">
   <div class="d-flex justify-content-center mt-5 mb-5 col-md-10 mx-auto col-lg-5 login"> -->
-  <div class="col-md-10 mx-auto col-lg-3 mt-5 login">
+  <div class="mx-auto col-lg-3 mt-5 login">
     <form action="../controllers/login_handler.php" class="p-4 p-md-5 border rounded-3 bg-secondary was-validated" enctype="multipart/form-data" method="POST">
     <div class="error-text">
 
@@ -40,6 +40,7 @@ if(isset($_SESSION['passChanged'])){
       <a href="pass_change.php" class="text-dark">Forgot Password</a>
   </form>
   </div>
+  
 
   <div class="footer text-light">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom bg-dark">

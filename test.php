@@ -1,101 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-sms</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-</head>
-
-<body>
-
-<button type="button" class="btn btn-secondary"
-        data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="This top tooltip is themed via CSS variables.">
-  Custom tooltip
-</button>
-
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-        aria-controls="offcanvasExample">
-        Link with href
-    </a>
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample">
-        Button with data-bs-target
-    </button>
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div>
-                <nav class="list-group col-md-3 col-lg-2 d-md-block sidebar bg-dark mb-5">
-                    <li class="nav-item">
-                        <a class="list-group-item list-group-item-action" href="dashboard.php">DASHBOARD</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="subject list-group-item list-group-item-action" href="#subject">SUBJECTS</a>
-                    </li>
-
-                    <div class="dropdown mt-3">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            SUBJECTS
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-
-                    <li class="nav-item">
-                        <a class="exams list-group-item list-group-item-action" href="#exams">EXAMINATIONS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="results list-group-item list-group-item-action" href="#result">RESULTS</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="class list-group-item list-group-item-action" href="#class">CLASSES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="student list-group-item list-group-item-action" href="#student">STUDENTS</a>
-                    </li>
-                    <?php if($role['role'] == 'admin') :?>
-                    <li class="nav-item">
-                        <a class="teacher list-group-item list-group-item-action" href="#teacher">TEACHERS</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="admin list-group-item list-group-item-action" href="#admin">ADMINS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="settings list-group-item list-group-item-action" href="#result">SETTINGS</a>
-                    </li>
-                    <?php endif ?>
-                </nav>
-            </div>
-            <div class="dropdown mt-3">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    Dropdown button
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
@@ -211,4 +113,160 @@
   </div>
 </div>
 
+<?php
+// Database connection
+$conn = new mysqli('localhost', 'root', '', 'timetable_db');
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch unique time slots to use as column headers
+$time_slots = [];
+$result_slots = $conn->query("SELECT DISTINCT time_slot FROM timetable ORDER BY time_slot");
+while ($row = $result_slots->fetch_assoc()) {
+    $time_slots[] = $row['time_slot'];
+}
+
+// Fetch timetable data grouped by day
+$data = [];
+$result = $conn->query("SELECT day, time_slot, subject FROM timetable ORDER BY FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'), time_slot");
+while ($row = $result->fetch_assoc()) {
+    $data[$row['day']][$row['time_slot']][] = $row['subject'];
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weekly Timetable</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <?php foreach ($time_slots as $slot): ?>
+                    <th><?php echo $slot; ?></th>
+                <?php endforeach; ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data as $day => $slots): ?>
+                <tr>
+                    <td><?php echo $day; ?></td>
+                    <?php foreach ($time_slots as $slot): ?>
+                        <td>
+                            <?php
+                            if (isset($slots[$slot])) {
+                                echo implode('<br>', $slots[$slot]);
+                            } else {
+                                echo "-";
+                            }
+                            ?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
+</html>
+
+
+
+<?php
+// Database connection
+$conn = new mysqli("localhost", "root", "", "school_management");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch student scores
+$student_id = 101; // Replace with dynamic student ID (e.g., from session or GET request)
+$sql = "SELECT subject, score FROM student_scores WHERE student_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $student_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Prepare data
+$data = [];
+while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
+
+// Return JSON response
+header('Content-Type: application/json');
+echo json_encode($data);
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Student Performance</h1>
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+
+    <script>
+        // Fetch data from PHP
+        fetch('fetch_scores.php')
+            .then(response => response.json())
+            .then(data => {
+                // Extract subjects and scores
+                const subjects = data.map(item => item.subject);
+                const scores = data.map(item => item.score);
+
+                // Render the chart
+                const ctx = document.getElementById('performanceChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: subjects, // Subjects
+                        datasets: [{
+                            label: 'Scores',
+                            data: scores, // Scores
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>

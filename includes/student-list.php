@@ -8,7 +8,7 @@ if(isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student'){
 <?php if(count($student->get_students()) > 0) :?>
     <h3 class="text-center">STUDENTS</h3>
 <div class="scrollTb">
-<table class="table table-striped table-dark" id="tbId">
+<table class="table table-striped table-dark table-responsive" id="tbId">
     <thead>
         <tr>
             <th>No</th>
@@ -27,7 +27,7 @@ if(isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student'){
 foreach( $student->get_students() as $student) :?>
         <tr>
             <td><?= $i ?></td>
-            <td><?= strtoupper($student['first_name']. " ". $student['middle_name']. " ". $student['last_name']) ?></td>
+            <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>" class="text-light text-decoration-none"><?= strtoupper($student['first_name']. " ". $student['middle_name']. " ". $student['last_name']) ?></a></td>
             <td><?=$student['reg_no'] ?></td>
             <td><?=$student['reg_date'] ?></td>
             <td><?=$student['gender'] ?></td>

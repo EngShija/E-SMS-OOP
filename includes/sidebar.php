@@ -9,9 +9,9 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success" src="assets/images/logo.jpg"
-                height="30" width="30""></img><?= "  " ?>SMS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success"
+                src="assets/images/logo.jpg" height="30" width="30""></img><?= "  " ?>SMS</h5>
+        <button type=" button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
 
@@ -20,13 +20,13 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 
             <ul class="list-group col-md-3 col-lg-2 nav nav-pills flex-column mb-auto">
                 <li class="dropdown">
-                    <a href="dashboard.php" class="nav-link text-white">
+                    <a href="dashboard.php" class="btn text-light">
                         <svg class="bi pe-none me-2" width="25" height="25">
                             <use xlink:href="#speedometer2" />
                         </svg>
                         Dashboard
                     </a>
-</li>
+                </li>
 
                 <?php if ($role['role'] == 'admin' || $role['role'] == 'teacher'): ?>
 
@@ -45,9 +45,26 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 
                         </ul>
                     </li>
-
-
-                    <div class="dropdown mt-3">
+<!-- 
+                    <li class="mb-1">
+                        <button
+                            class="btn dropdown-toggle text-light btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                            <svg class="bi pe-none me-2" width="25" height="25">
+                                <use xlink:href="#people" />
+                            </svg>
+                            Students
+                        </button>
+                        <div class="collapse" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small pl-4 mt-0">
+                                <li><a href="dashboard.php?addstd" class="btn btn-dark bg-dark text-light" data-bs-toggle="modal"
+                                        data-bs-target="#addStudent">Add Student</a></li>
+                                <li><a href="dashboard.php?managestd" class="btn btn-dark bg-dark text-light">Manage
+                                        Students</a></li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <div class="dropdown">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#grid" />
@@ -65,7 +82,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#file-earmark-text" />
@@ -82,7 +99,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#calendar3" />
@@ -90,16 +107,22 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             Timetables
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="dashboard.php?addexm" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addexm">Add Timetable</a></li>
+                            <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#addtmt">Add Timetable</a></li>
+
+                                    <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#classTmt">View Class Timetable</a></li>
+
+                                    <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#examTmt">View Exam Timetable</a></li>
 
                             <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
                                 Timetables</a>
                             </li>
                         </ul>
                     </div>
-                    
-                    <div class="dropdown mt-3">
+
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#calendar3" />
@@ -107,15 +130,17 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             Attendance
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
+                            <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
 
-                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#viewAttendance">View
+                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action"
+                                data-bs-toggle="modal" data-bs-target="#viewAttendance">View
                                 Attendances</a>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#graph-up" />
@@ -130,7 +155,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#table" />
@@ -149,7 +174,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 
                 <?php if ($role['role'] == 'parent'): ?>
 
-                    <li class="dropdown mt-3">
+                    <li class="dropdown mt-2">
                         <button class="btn text-light" type="button">
                             <a href="dashboard.php?addstd" class="text-light" data-bs-toggle="modal"
                                 data-bs-target="#addStudent">
@@ -161,7 +186,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                     </li>
 
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#table" />
@@ -176,8 +201,8 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             </li>
                         </ul>
                     </div>
-                    
-                    <li class="dropdown">
+
+                    <li class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#people" />
@@ -195,7 +220,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                 <?php endif ?>
 
                 <?php if ($role['role'] == 'admin'): ?>
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#people" />
@@ -212,7 +237,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#people-circle" />
@@ -226,7 +251,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#credit-card" />
@@ -241,7 +266,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#file-earmark" />
@@ -256,7 +281,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-3">
+                    <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
                                 <use xlink:href="#gear-wide-connected" />
@@ -289,6 +314,11 @@ include_once "add-class.php";
 include_once "add-teacher.php";
 include_once "attendance-choice.php";
 include_once "initial-view-attendance.php";
+include_once "add-timetable.php";
+include_once "view-class-timetable.php";
+include_once "view-exam-timetable.php";
+
+
 
 
 
