@@ -5,6 +5,7 @@ include_once "../includes/functions.php";
 include_once "../models/Timetable.php";
 include_once "../models/Class.php";
 require_once __DIR__. "/../models/Exam.php";
+include_once "../models/Subject.php";
 
 $exam = new Exam(new Database());
 
@@ -15,6 +16,8 @@ $database = new Database();
 $timetable = new Timetable(new Database());
 
 $pdf = new PDF();
+
+$subject = new Subject(new Database());
 
 $myExam = $exam->is_exam_present(validate_input($_POST['exam']));
 
@@ -44,7 +47,9 @@ while ($row = $result_slots->fetch_assoc()) {
 $data = [];
 $result = $database->getConnection()->query("SELECT * FROM timetable WHERE class_id = $class_id AND timetable_type = 'Exam' AND exam_id = $exam_id AND yos = $yos ORDER BY date");
 while ($row = $result->fetch_assoc()) {
-    $data[$row['date']][$row['time_slots']][] = $row['subject_id'];
+    $mySubject = $subject->get_subject_by_id($row['subject_id']);
+
+    $data[$row['date']][$row['time_slots']][] =  $mySubject['sub_name'];
 }
 
 // $data = [];

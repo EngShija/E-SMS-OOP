@@ -9,6 +9,7 @@ require_once "models/Subject.php";
 require_once "models/Class.php";
 require_once "includes/header.php";
 kick_user_to('login.php', 'user_id');
+require_once "includes/tabs-control.php";
 $user = new User(new Database());
 $parent = new studentParent(new Database());
 $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_id($_SESSION['user_id']);
@@ -114,3 +115,4 @@ $class = new StudentClass(new Database());
         }
 
 require_once __DIR__. "/includes/footer.php";
+

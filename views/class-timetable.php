@@ -4,6 +4,7 @@ include_once "../models/pdf.php";
 include_once "../includes/functions.php";
 include_once "../models/Timetable.php";
 include_once "../models/Class.php";
+include_once "../models/Subject.php";
 
 $class = new StudentClass(new Database());
 
@@ -13,7 +14,11 @@ $timetable = new Timetable(new Database());
 
 $pdf = new PDF();
 
+$subject = new Subject(new Database());
+
 $myClass = $class->is_class_present(validate_input($_POST['class']));
+
+// $mySubject = $subject->is_subject_present()
 
 $yos = validate_input($_POST['yos']);
 
@@ -38,7 +43,8 @@ while ($row = $result_slots->fetch_assoc()) {
 $data = [];
 $result = $database->getConnection()->query("SELECT * FROM timetable WHERE class_id = $class_id AND timetable_type = 'Class' AND yos = $yos ORDER BY FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'), time_slots");
 while ($row = $result->fetch_assoc()) {
-    $data[$row['day']][$row['time_slots']][] = $row['subject_id'];
+    $mySubject = $subject->get_subject_by_id($row['subject_id']);
+    $data[$row['day']][$row['time_slots']][] = $mySubject['sub_name'];
 }
 
 // $data = [];

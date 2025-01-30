@@ -20,6 +20,7 @@ if (is_request_method_post()) {
                         $user->get_password()
                     );
                 $_SESSION['user_id'] = $users['unique_id'];
+                $_SESSION['tab_token'] = bin2hex(random_bytes(32));
                 echo "success";
             } elseif ($parent->login_parent($user->get_email(), $user->get_password())) {
                 $myParent = $parent->login_parent(
@@ -27,6 +28,7 @@ if (is_request_method_post()) {
                     $user->get_password()
                 );
                 $_SESSION['user_id'] = $myParent['student_id'];
+                $_SESSION['tab_token'] = bin2hex(random_bytes(32));
                 echo "success";
             } else {
                 echo "Email or Password not correct!";
