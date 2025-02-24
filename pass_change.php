@@ -5,7 +5,7 @@ require_once "includes/header.php";
   <div class="d-flex justify-content-center mt-5 mb-5 login"> -->
   <div class="container">
   <div class="d-flex justify-content-center mt-5 mb-5 col-md-10 mx-auto col-lg-4 login">
-    <form action="../controllers/change_password.php"  class="p-4 p-md-5 border rounded-3 bg-secondary was-validated" enctype="multipart/form-data" method="POST">
+    <form action="../controllers/change_password.php"  class="p-4 p-md-5 border rounded-3 border-primary bg-dark was-validated" enctype="multipart/form-data" method="POST">
     <div class="error-text">
 
 </div>
@@ -42,10 +42,10 @@ require_once "includes/header.php";
         </div>
         <div class="form-group button">
         <div>
-          <input type="submit" class="btn btn-lg bg-dark text-light form-control mt-3" value="Change" title="Click to Submit" name="login">
+          <input type="submit" class="btn btn-lg bg-primary text-light form-control mt-3" value="Change" title="Click to Submit" name="login">
         </div>
       </div>
-      <a href="login.php" class="text-dark">Back to login</a>
+      <a href="login.php" class="text-light">Back to login</a>
 
   </form>
   </div>

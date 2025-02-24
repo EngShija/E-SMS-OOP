@@ -65,5 +65,14 @@ class Subject
         $sql = "UPDATE subjects SET sub_name = ?, category = ? WHERE id = ?";
         return $this->database->execute_query(query: $sql, params: [$subjectName, $subjectCategory, $sub_id]);
     }
+    public function getSubjects() {
+        $subjects = [];
+        $query = "SELECT sub_name FROM subjects";
+        $result = $this->database->execute_query($query);
+        while ($row = $result->fetch_assoc()) {
+            $subjects[] = $row['sub_name'];
+        }
+        return $subjects;
+    }
 
 }

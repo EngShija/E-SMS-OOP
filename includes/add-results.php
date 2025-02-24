@@ -35,7 +35,7 @@
                       <div class="form-floating mb-3">
                           <select class="form-control" name="yos" id="exam">
                               <option>Select Year Of Study</option>
-                              <?php $i = 2020; ?>
+                              <?php $i = date('Y') - 1; ?>
                               <?php while ($i <= date('Y')) : ?>
                                   <option value="<?= $i ?>"><?= $i ?></option>
                               <?php $i++;

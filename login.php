@@ -7,7 +7,7 @@ require_once "includes/functions.php";
 <!-- <div class="container">
   <div class="d-flex justify-content-center mt-5 mb-5 col-md-10 mx-auto col-lg-5 login"> -->
   <div class="mx-auto col-lg-3 mt-5 login">
-    <form action="../controllers/login_handler.php" class="p-4 p-md-5 border rounded-3 bg-secondary was-validated" enctype="multipart/form-data" method="POST">
+    <form action="../controllers/login_handler.php" class="p-4 p-md-5 border rounded-3 border-primary bg-dark was-validated" enctype="multipart/form-data" method="POST">
     <div class="error-text">
 
 </div>
@@ -30,14 +30,14 @@ if(isset($_SESSION['passChanged'])){
   
 </div>
         <div class="checkbox mt-3">
-          <label><input type="checkbox" name="cookie" value="cookie"> Remember me</label>
+          <label class="text-light"><input type="checkbox" name="cookie" value="cookie"> Remember me</label>
         </div>
         <div class="form-group button">
         <div>
-          <input type="submit" class="btn btn-lg btn-dark form-control mt-3" value="Login" title="Click to Submit" name="login">
+          <input type="submit" class="btn btn-lg btn-primary form-control mt-3" value="Login" title="Click to Submit" name="login">
         </div>
       </div>
-      <a href="pass_change.php" class="text-dark">Forgot Password</a>
+      <a href="pass_change.php" class="text-light">Forgot Password</a>
   </form>
   </div>
   

@@ -3,7 +3,7 @@ $teachers = new User(new Database);
 if(count($teachers->get_all_users()) > 0) :?>
 <h1 class="text-center">TEACHERS</h1>
 <div class="scrollTb">
-<table class="table table-striped table-dark" id="tbId">
+<table class="table table-striped table-dark table-bordered" id="tbId">
     <thead>
         <tr>
             <th>S/N</th>
@@ -22,7 +22,8 @@ foreach( $teachers->get_all_users() as $teacher) :?>
             <td><?=$teacher['first_name']. " ". $teacher['last_name'] ?></td>
             <td><?=$teacher['subject_tought'] ?></td>
             <td><?=$teacher['email_address'] ?></td>
-            <td><a href="dashboard.php?updatetch=<?= $teacher['unique_id'] ?>" class="btn btn-success">Edit</a> <a href="controllers/delete-teacher.php?id=<?= $teacher['unique_id']?>"  class="btn btn-danger">Delete</a>
+            <td><a href="dashboard.php?updatetch=<?= $teacher['unique_id'] ?>" class="btn btn-success">Edit</a> 
+            <a  class="btn btn-danger" onclick="confirmDelete('<?=$teacher['first_name']. ' ' . $teacher['last_name'] ?>', 'controllers/delete-teacher.php?id=<?= $teacher['unique_id']?>')">Delete</a>
         </tr>
         <?php $i++; endforeach; ?>
     </tbody>

@@ -71,6 +71,10 @@ class Results
         $sql = "SELECT * FROM results WHERE student_id = ? AND exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id, $exam_type])->fetch_all(MYSQLI_ASSOC);
     }
+public function get_results_by_student_id($student_id){
+        $sql = "SELECT * FROM results WHERE student_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$student_id])->fetch_all(MYSQLI_ASSOC);
+    }
     public function get_point_array($student_id, $exam_type){
         $sql = "SELECT * FROM results WHERE student_id = ? AND exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id, $exam_type])->fetch_all(MYSQLI_ASSOC);

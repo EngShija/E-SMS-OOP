@@ -1,4 +1,4 @@
 <?php
 include_once "config/constants.php";
 include_once "includes/functions.php";
-redirect_to(login);
+redirect_to(LOGIN);

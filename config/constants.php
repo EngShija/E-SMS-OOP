@@ -1,3 +1,3 @@
 <?php
 define('ROOT_PATH', 'localhost/E-SMS-OOP');
-define('login', 'login.php');
+define('LOGIN', 'login.php');

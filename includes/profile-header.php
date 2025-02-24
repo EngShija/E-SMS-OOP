@@ -5,7 +5,6 @@ require_once "models/Users.php";
 $user = new User(new Database());
 $parent = new studentParent(new Database());
 $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_id($_SESSION['user_id']);
-
 ?>
 
 <nav class="navbar bg-dark text-light content mb-6">

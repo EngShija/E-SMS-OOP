@@ -37,33 +37,15 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             </svg> Students
                         </button>
                         <ul class="dropdown-menu">
-
+                        <?php if ($role['role'] == 'admin'): ?>
                             <li><a href="dashboard.php?addstd" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#addStudent">Add Student</a></li>
+                                    <?php endif ?>
                             <li><a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
                                     Students</a></li>
 
                         </ul>
                     </li>
-<!-- 
-                    <li class="mb-1">
-                        <button
-                            class="btn dropdown-toggle text-light btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                            <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#people" />
-                            </svg>
-                            Students
-                        </button>
-                        <div class="collapse" id="home-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small pl-4 mt-0">
-                                <li><a href="dashboard.php?addstd" class="btn btn-dark bg-dark text-light" data-bs-toggle="modal"
-                                        data-bs-target="#addStudent">Add Student</a></li>
-                                <li><a href="dashboard.php?managestd" class="btn btn-dark bg-dark text-light">Manage
-                                        Students</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
                     <div class="dropdown">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
@@ -72,16 +54,21 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             Subjects
                         </button>
                         <ul class="dropdown-menu">
+                            <?php if ($role['role'] == 'admin'): ?>
                             <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#addSub">Add Subject</a></li>
                             <li><a href="dashboard.php?addsub" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#subcat">Add Category</a></li>
-                            <a href="dashboard.php?managesub" class="list-group-item list-group-item-action">Manage
-                                Subjects</a>
+                                    <a href="dashboard.php?managesub" class="list-group-item list-group-item-action">Manage
+                                    Subjects</a>
+                                    <?php elseif($role['role'] == 'teacher'): ?>
+                                        <a href="dashboard.php?managesub" class="list-group-item list-group-item-action">View
+                                        Subjects</a>
+                                    <?php endif ?>
                             </li>
                         </ul>
                     </div>
-
+                    <?php if ($role['role'] == 'admin'): ?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
@@ -93,12 +80,12 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             <li><a href="dashboard.php?addexm" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#addexm">Add Exam Type</a></li>
 
-                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
+                            <a href="dashboard.php?manageexam" class="list-group-item list-group-item-action">Manage
                                 Exams</a>
                             </li>
                         </ul>
                     </div>
-
+<?php endif ?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
@@ -115,10 +102,12 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
 
                                     <li><a href="#" class="add-student list-group-item list-group-item-action"
                                     data-bs-toggle="modal" data-bs-target="#examTmt">View Exam Timetable</a></li>
-
+                                    <?php if ($role['role'] == 'admin'): ?>
+                                        <li>
                             <a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
                                 Timetables</a>
                             </li>
+                            <?php endif ?>
                         </ul>
                     </div>
 
@@ -140,6 +129,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                         </ul>
                     </div>
 
+                    <?php if ($role['role'] == 'admin'): ?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25">
@@ -154,6 +144,7 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             </li>
                         </ul>
                     </div>
+                    <?php endif ?>
 
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
@@ -163,8 +154,10 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             Classes
                         </button>
                         <ul class="dropdown-menu">
+                        <?php if ($role['role'] == 'admin'): ?>
                             <a href="dashboard.php?addcls" class="list-group-item list-group-item-action"
                                 data-bs-toggle="modal" data-bs-target="#addcls">Add Class</a>
+                                <?php endif ?>
                             <a href="dashboard.php?managecls" class="list-group-item list-group-item-action">Manage
                                 Classes</a>
                             </li>
@@ -201,22 +194,6 @@ $role = $user->user_role($email) ?: $parent->user_role($email);
                             </li>
                         </ul>
                     </div>
-
-                    <li class="dropdown mt-2">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25">
-                                <use xlink:href="#people" />
-                            </svg> Students
-                        </button>
-                        <ul class="dropdown-menu">
-
-                            <li><a href="dashboard.php?addstd" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addStudent">Add Student</a></li>
-                            <li><a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
-                                    Students</a></li>
-
-                        </ul>
-                    </li>
                 <?php endif ?>
 
                 <?php if ($role['role'] == 'admin'): ?>

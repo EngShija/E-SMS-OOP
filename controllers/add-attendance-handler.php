@@ -10,6 +10,8 @@ $student = new Student(new Database());
 
 $attendance->set_date(date('Y-m-d'));
 
+$attendance->set_day(date('l'));
+
 $attendance->set_status(isset($_POST['status']) ? 'present' : 'absent');
 
 $student->set_student_id($_POST['student_id']);
@@ -17,6 +19,7 @@ $student->set_student_id($_POST['student_id']);
 if(!$attendance->is_checked($attendance->get_date(), $student->get_student_id())){
     $attendance->add_attendance(
         $attendance->get_date(),
+        $attendance->get_day(),
         $student->get_student_id(),
         $attendance->get_status());
         $_SESSION['attendanceAdded'] = 'Attendance Added';

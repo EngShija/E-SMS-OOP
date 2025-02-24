@@ -15,8 +15,6 @@ if (!isset($_SESSION['tab_initialized'])) {
 }
 ?>
 
-?>
-
 <script>
         let storedTabToken = sessionStorage.getItem('tab_token');
         let serverTabToken = "<?= $tabToken; ?>"; // Get PHP session's tab token

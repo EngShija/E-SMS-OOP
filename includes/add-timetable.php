@@ -37,7 +37,6 @@ $exam = new Exam(new Database());
                         <label for="class">Class:</label>
                     </div>
 
-
                     <div class="form-floating mb-3 col-sm-6">
                         <select class="form-control" name="subject" id="subject">
                             <option>Select Subject</option>
@@ -51,7 +50,7 @@ $exam = new Exam(new Database());
                     <div class="row">
                     <div class="form-floating mb-3 col-sm-6">
                         <select class="form-control" name="type" id="type">
-                            <option>Select Timetable type</option>
+                            <option>Select type</option>
                             <option value="Exam">Examination</option>
                             <option value="Class">Class</option>
                         </select>
