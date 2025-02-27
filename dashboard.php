@@ -27,7 +27,7 @@ function resetTimer() {
     logoutTimer = setTimeout(logoutUser, 180000); // Set new 3-minute timeout
 }
 
-// function resetWarningTimer() {
+// function resetWarningTimer() 
 //     clearTimeout(warningTimer); // Clear previous timeout
 //     warningTimer = setTimeout(showTimeoutWarning, 90000); 
 // }

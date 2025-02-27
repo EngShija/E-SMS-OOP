@@ -12,7 +12,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success"
-                src="assets/images/logo.jpg" height="30" width="30""></img><?= "  " ?>SMS</h5>
+                src="assets/images/logo.jpg" height="30" width="30"></img><?= "  " ?>SMS</h5>
         <button type=" button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <hr>
