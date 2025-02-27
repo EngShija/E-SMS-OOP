@@ -45,7 +45,7 @@ class studentParent extends User
         return $this->database->execute_query(query: $sql, params: [$email])->fetch_assoc();
     }
     public function get_parent_by_id($user_id){
-        $sql = "SELECT * FROM parent WHERE student_id = ?";
+        $sql = "SELECT * FROM parent WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$user_id])->fetch_assoc();
     }
     public function user_role($email){

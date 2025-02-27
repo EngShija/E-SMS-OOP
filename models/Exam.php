@@ -64,6 +64,11 @@ class Exam
         $sql = "SELECT * FROM exam";
         return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function get_exam_by_id($exam_id){
+        $sql = "SELECT * FROM exam WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params: [$exam_id])->fetch_assoc();
+    }
     /**
      * Summary of is_exam_present
      * @param mixed $examName
@@ -72,5 +77,14 @@ class Exam
     public function is_exam_present($examName){
         $sql = "SELECT * FROM exam WHERE exam_name = ?";
         return $this->database->execute_query(query: $sql, params: [$examName])->fetch_assoc();
+    }
+    public function delete_exam($exam_id){
+        $sql = "DELETE FROM exam WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params: [$exam_id]);
+    }
+    public function edit_exam($exam_name, $exam_id)
+    {
+        $sql = "UPDATE exam SET exam_name = ? WHERE id = ?";
+        return $this->database->execute_query(query: $sql, params: [$exam_name, $exam_id]);
     }
 }

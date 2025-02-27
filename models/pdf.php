@@ -76,6 +76,14 @@ class PDF extends FPDF
     {
         return file_put_contents($dir . '/' . $name . '.' . 'pdf', $output);
     }
+
+    public $headers = []; // Store dynamic headers
+
+    // Set headers dynamically
+    function setHeaders($headers) {
+        $this->headers = $headers;
+    }
+
     // function Footer(){
     //     $this->SetY(-10);
     //     $this->SetFont('Arial', 'I', 8);

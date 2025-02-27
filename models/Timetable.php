@@ -77,4 +77,8 @@ class Timetable
         $sql = "SELECT * FROM timetable ORDER BY FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'), time_slots";
         return $this->database->execute_query(query: $sql)->fetch_assoc();
     }
+    public function delete_timetable_by_subject_id($subject_id){
+        $sql = "DELETE FROM timetable WHERE subject_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$subject_id]);
+    }
 }

@@ -7,9 +7,9 @@ require_once __DIR__ . "/../models/pdf.php";
 
 $student = new Student(new Database());
 $exam = new Exam(new Database());
-$myStudent = $student->get_student_by_id($_SESSION['stdId']);
+// $myStudent = $student->get_student_by_id($_SESSION['stdId']);
 
-$student->set_student_id($_SESSION['stdId']);
+// $student->set_student_id($_SESSION['stdId']);
 $exam->set_examName(validate_input($_SESSION['exam']));
 $exam->set_yos(validate_input($_SESSION['yos']));
 $student->set_fname($_SESSION['fname']);

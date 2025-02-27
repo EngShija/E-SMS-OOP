@@ -36,7 +36,7 @@ if (isset($_SESSION['attendanceExist'])) {
                 <tr>
                     <td><?= $i ?></td>
                     <td><a href="dashboard.php?indidualAttendance=<?= $student['unique_id'] ?>" class="text-light" style="text-decoration: none;"><?= strtoupper($student['first_name'] . " ". $student['middle_name'] . " ".  $student['last_name']) ?></a></td>
-                    <td><?= $student['reg_no'] ?></td>
+                    <td title=" <?= strtoupper($student['first_name']) . " " . strtoupper($student['last_name']) ?>"><?= $student['reg_no'] ?></td>
                     <?php if (!$attendance->is_checked($attendance->get_date(), $student['unique_id'])): ?>
                         <td>
                             <form action="controllers/add-attendance-handler.php" method="POST">
@@ -51,11 +51,11 @@ if (isset($_SESSION['attendanceExist'])) {
 
                             <?php $myAttendance = $attendance->get_attendance_by_student_id_with_date($attendance->get_date(), $student['unique_id']); ?>
                             <?php if ($myAttendance['status'] == 'absent'): ?>
-                                <p class="btn btn-danger btn-sm">
+                                <p class="btn btn-danger btn-sm" title=" <?= strtoupper($student['first_name']) . " " . strtoupper($student['last_name']) ?>">
                                     <?= $myAttendance['status'] ?>
                                 </p>
                             <?php else: ?>
-                                <p class="btn btn-success btn-sm">
+                                <p class="btn btn-success btn-sm" title=" <?= strtoupper($student['first_name']) . " " . strtoupper($student['last_name']) ?>">
                                     <?= $myAttendance['status'] ?>
                                 </p>
                             <?php endif ?>

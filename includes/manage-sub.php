@@ -8,7 +8,9 @@
                     <th>No</th>
                     <th>Subject Name</th>
                     <th>Subject Category</th>
+                    <?php if ($role['role'] == 'admin'): ?>
                     <th>Actions</th>
+                    <?php endif ?>
 
                 </tr>
             </thead>
@@ -19,11 +21,11 @@
                 foreach ($subject->get_all_subjects() as $subjects): ?>
                     <tr>
                         <td><?= $i ?></td>
-                        <td><?= $subjects['sub_name'] ?></td>
-                        <td><?= $subjects['category'] ?></td>
+                        <td><?= strtoupper($subjects['sub_name']) ?></td>
+                        <td><?= strtoupper($subjects['category']) ?></td>
+                        <?php if ($role['role'] == 'admin'): ?>
                         <td><a href="dashboard.php?subid=<?= $subjects['id'] ?>"  class="btn btn-success" >Edit</a>
-                            <?php if ($role['role'] == 'admin'): ?>
-                                <a href="controllers/delete-subject.php?subid=<?= $subjects['id'] ?>"  class="btn btn-danger">Delete</a>
+                                <a class="btn btn-danger" onclick="confirmDelete('<?= strtoupper($subjects['sub_name']) ?>', 'controllers/delete-subject.php?subid=<?= $subjects['id'] ?>')">Delete</a>
                             <?php endif ?>
                         </td>
 

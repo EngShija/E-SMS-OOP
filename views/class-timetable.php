@@ -18,18 +18,9 @@ $subject = new Subject(new Database());
 
 $myClass = $class->is_class_present(validate_input($_POST['class']));
 
-// $mySubject = $subject->is_subject_present()
-
 $yos = validate_input($_POST['yos']);
 
-// $type = validate_input($_POST['type']);
-
 $class_id = $myClass['id'];
-// Database connection
-// $conn = new mysqli('localhost', 'root', '', 'e_smsdb');
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
 
 // Fetch unique time slots to use as column headers
 
@@ -47,22 +38,6 @@ while ($row = $result->fetch_assoc()) {
     $data[$row['day']][$row['time_slots']][] = $mySubject['sub_name'];
 }
 
-// $data = [];
-// while($row = $timetable->get_timetable()){
-//     $data[$row['day']][$row['time_slots']][] = $row['subject_id'];
-// }
-
-// $conn->close();
-
-// $pdf->AddPage();
-// $pdf->create_pdf();
-// foreach($timetable->get_time_slots() as $time_slot){
-// $pdf->add_timetable_header($slot);
-// }
-// // foreach ($data as $day => $slots){
-// //     $pdf->add_timetable_contents($day, )
-// // }
-// $pdf->save_pdf_to_server('documents', 'results', $pdf->Output('s'))
 ?>
 
 <!DOCTYPE html>
@@ -114,4 +89,4 @@ while ($row = $result->fetch_assoc()) {
 
 
 <?php
-// echo date('D');
+echo date('l');

@@ -1,4 +1,64 @@
+  <script>
+    function confirmDelete(deleteItem, url){
+       let corfirm = confirm('Are you sure you want to delete ' + deleteItem);
+       if(corfirm){
+        window.location = url;
+       }
+       else{
+        return false;
+       }
+    }
+
+    function warningAlert(param, url){
+       let corfirm = confirm(param);
+       if(corfirm){
+        window.location = url;
+       }
+       else{
+        return false;
+       }
+    }
+
+    let logoutTimer;
+    // let warningTimer;
+
+function resetTimer() {
+    clearTimeout(logoutTimer); // Clear previous timeout
+    logoutTimer = setTimeout(logoutUser, 180000); // Set new 3-minute timeout
+}
+
+// function resetWarningTimer() {
+//     clearTimeout(warningTimer); // Clear previous timeout
+//     warningTimer = setTimeout(showTimeoutWarning, 90000); 
+// }
+
+// function showTimeoutWarning() {
+//       alert('You will be logged out in 30 seconds due to inactivity!');
+//   }
+
+function logoutUser() {
+    window.location.href = "controllers/logout.php"; // Redirect to logout page
+}
+
+// Detect user interactions (mouse, keyboard, touch)
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keypress", resetTimer);
+document.addEventListener("click", resetTimer);
+document.addEventListener("scroll", resetTimer);
+
+// document.addEventListener("mousemove", resetWarningTimer);
+// document.addEventListener("keypress", resetWarningTimer);
+// document.addEventListener("click", resetWarningTimer);
+// document.addEventListener("scroll", resetWarningTimer);
+
+// Start the timer when the page loads
+// resetWarningTimer();
+resetTimer();
+
+</script>
+
 <?php
+
 session_start();
 // error_reporting(0);
 require_once "includes/functions.php";
@@ -84,6 +144,9 @@ $class = new StudentClass(new Database());
         else if(isset($_GET['subid'])){
           include_once "includes/initial-editisubject.php";
         }
+        else if(isset($_GET['examid'])){
+          include_once "includes/initial-editexam.php";
+        }
         else if(isset($_GET['deleteid'])){
           include_once "includes/initial-delete-student.php";
         }
@@ -95,6 +158,12 @@ $class = new StudentClass(new Database());
         }
         else if(isset($_GET['indidualAttendance'])){
           include_once "includes/individual-attendance.php";
+        }
+        else if(isset($_GET['manageexam'])){
+          include_once "includes/manage-exam.php";
+        }
+        else if(isset($_GET['loginHst'])){
+          include_once "includes/login-history.php";
         }
         else if(isset($_SESSION['classEmpty'])){
           sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
@@ -108,11 +177,16 @@ $class = new StudentClass(new Database());
           sweetAlert('Sorry!', 'No students to this class!', 'warning');
           unset($_SESSION['classEmpty']);
         }
+        else if(isset($_SESSION['noRusults'])){
+          sweetAlert( 'Sorry',  'No results found for your selections!!', 'warning');
+      unset($_SESSION['noRusults']);
+      }
         else{
+          if($role['role'] != 'parent'){
           require_once "includes/user-count.php";
-          // include_once __DIR__. "/includes/carousel.php";
-          include_once __DIR__. "/includes/advertisements.php";
+          }
+          include_once __DIR__. "/includes/carousel.php";
+          // include_once __DIR__. "/includes/advertisements.php";
         }
 
 require_once __DIR__. "/includes/footer.php";
-

@@ -12,9 +12,14 @@
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/sweetAlerts.js"></script>
+  <style>
+.body{
+    background-image: url('./assets/images/bg.jpeg');
+}
+  </style>
 </head>
 
-<body class="bg-secondary">
+<body class="body">
 
   <div class="header-main">
     <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark text-light">
@@ -23,7 +28,7 @@
           <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
               class="rounded-circle border border-success"></a>
         </div>
-        <h1>SCHOOL MANAGEMENT SYSTEM-SMS</h1>
+        <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php if (isset($_SESSION['user_id'])): ?>
           <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample">
