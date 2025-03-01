@@ -12,13 +12,12 @@
 
                         </div>
                         
-                    <span><h5>Full Name: </h5><p><?= " ". $parent['first_name']. " ". $parent['last_name'] ?></p></span>
+                    <span><h5>Full Name: </h5><p><?= " ". $parentUser['first_name']. " ". $parentUser['last_name'] ?></p></span>
                     <span><h5>Gender: </h5><p><?= " ". $parent['gender'] ?></p></span>
                     <span><h5>Physical Address:</h5><p> <?= " ". $parent['physical_address'] ?></p></span>
-                    <span><h5>Email Address:</h5><p> <?= " ". $parent['email_address'] ?></p></span>
+                    <span><h5>Email Address:</h5><p> <?= " ". $parentUser['email_address'] ?></p></span>
                     <span><h5>Phone Number: </h5><p><?= " ". $parent['phone'] ?></p></span>
                     <span><h5>Relationship: </h5><p><?= " ". $parent['relation'] ?></p></span>
-
                     </div>
                     <div class="modal-footer bg-dark">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

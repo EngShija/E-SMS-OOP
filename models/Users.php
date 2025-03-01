@@ -121,12 +121,28 @@ public function add_user($unique_id, $fname, $lname, $email, $gender, $password,
     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     return $this->database->execute_query($sql, [$unique_id, $fname, $lname, $email, $gender, $password, $profile, $role, $subject_tought]);
 }
+public function updade_user($fname, $lname, $email, $gender, $user_id){
+    $sql = "UPDATE users SET first_name  = ?, last_name = ?, email_address= ?, gender = ? WHERE unique_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$fname, $lname, $email, $gender, $user_id]);
+}
 public function user_role($email){
     $sql = "SELECT role FROM users WHERE email_address = ?";
     return $this->database->execute_query($sql, [$email])->fetch_assoc();
 }
 public function get_admins(){
     $sql = "SELECT * FROM users WHERE role = 'admin'";
+    return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+}
+public function get_teachers(){
+    $sql = "SELECT * FROM users WHERE role = 'teacher' OR role = 'admin'";
+    return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+}
+public function get_teachers_exept_current($user_id){
+    $sql = "SELECT * FROM users WHERE role = ? OR role = ? AND unique_id != ? AND role != ?";
+    return $this->database->execute_query($sql, ['teacher','admin',  $user_id, 'deleted'])->fetch_all(MYSQLI_ASSOC);
+}
+public function get_parents(){
+    $sql = "SELECT * FROM users WHERE role = 'parent'";
     return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 }
 public function get_user_by_email($email){
@@ -141,5 +157,9 @@ public function update_user_role($user_id, $role) {
 public function get_all_users_except_current($user_id){
     $sql = "SELECT * FROM users WHERE unique_id != ? AND role != ?";
     return $this->database->execute_query(query: $sql, params: [$user_id, 'deleted'])->fetch_all(MYSQLI_ASSOC);
+}
+public function update_pass_change_attempt($count, $user_id){
+    $sql = "UPDATE users SET change_password_attemts = ? WHERE unique_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$count, $user_id]);
 }
 }

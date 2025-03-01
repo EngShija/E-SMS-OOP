@@ -13,7 +13,11 @@ if (isset($_SESSION['stdId'])) {
     $parent->set_phone(validate_input($_POST['phone']));
     $parent->set_relation(validate_input($_POST['relation']));
 
-    $parent->update_parent($parent->get_fname(),  $parent->get_lname(), $parent->get_email(), $parent->get_phone(),  $parent->get_gender(),  $parent->get_address(), $parent->get_relation(), $_SESSION['stdId']);
+    $myParent = $parent->get_student_parent($_SESSION['stdId']);
+
+    $parent_id = $myParent['unique_id'];
+    $user->updade_user($parent->get_fname(), $parent->get_lname(), $parent->get_email(), $parent->get_gender(), $parent_id);
+    $parent->update_parent($parent->get_phone(),  $parent->get_gender(),  $parent->get_address(), $parent->get_relation(), $_SESSION['stdId']);
     $_SESSION['updated'] = "update";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }

@@ -3,10 +3,10 @@
         <h4><?= count($student->get_students()) . " " ?> Students</h4>
     </div>
     <div class="counts bg-dark text-light text-center border border-success">
-        <h4><?= count($parent->get_parents()) . " " ?> Parents</h4>
+        <h4><?= count($user->get_parents()) . " " ?> Parents</h4>
     </div>
     <div class="counts bg-dark text-light text-center border border-success">
-        <h4><?= count($user->get_all_users()) . " " ?> Teachers</h4>
+        <h4><?= count($user->get_teachers()) . " " ?> Teachers</h4>
     </div>
     <div class="counts bg-dark text-light text-center border border-success">
         <h4><?= count($user->get_admins()) . " " ?> Admins</h4>

@@ -15,10 +15,10 @@ class studentParent extends User
         $sql = "SELECT * FROM parent WHERE student_id = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id])->num_rows < 1;
     }
-    public function add_parent($unique_id, $student_id, $fname, $lname, $email, $phone, $gender, $adress, $relation, $password) {
-        $sql = "INSERT INTO parent(unique_id, student_id, first_name, last_name, email_address, phone,  gender, physical_address,  relation, password)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$unique_id, $student_id, $fname, $lname, $email, $phone, $gender, $adress, $relation, $password]);
+    public function add_parent($unique_id, $student_id, $phone, $gender, $adress, $relation) {
+        $sql = "INSERT INTO parent(unique_id, student_id, phone,  gender, physical_address,  relation)
+        VALUES(?, ?, ?, ?, ?, ?)";
+        return $this->database->execute_query(query: $sql, params: [$unique_id, $student_id, $phone, $gender, $adress, $relation]);
     }
     public function delete_parent($student_id)
     {
@@ -29,14 +29,10 @@ class studentParent extends User
         $sql = "SELECT * FROM parent WHERE student_id = ?";
         return $this->database->execute_query(query: $sql, params:[$student_id])->fetch_assoc();
     }
-    public function update_parent($fname, $lname, $email, $phone, $gender, $address, $relation,  $student_id)
+    public function update_parent($phone, $gender, $address, $relation,  $student_id)
     {
-        $sql = "UPDATE parent SET first_name = ?, last_name = ?, email_address = ?, phone = ?,  gender = ?, physical_address = ?,  relation = ? WHERE student_id = ?";
-        return $this->database->execute_query(query: $sql, params: [$fname, $lname, $email, $phone, $gender, $address, $relation,  $student_id]);
-    }
-    public function login_parent($email, $password){
-        $sql = "SELECT * FROM parent WHERE email_address = ? AND password = ?";
-        return $this->database->execute_query(query: $sql, params: [$email, $password])->fetch_assoc();
+        $sql = "UPDATE parent SET phone = ?,  gender = ?, physical_address = ?,  relation = ? WHERE student_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$phone, $gender, $address, $relation,  $student_id]);
     }
 
     public function is_parent_present($email)
@@ -52,13 +48,9 @@ class studentParent extends User
         $sql = "SELECT role FROM parent WHERE email_address = ?";
         return $this->database->execute_query($sql, [$email])->fetch_assoc();
     }
-    public function get_parents()
-    {
-        $sql = "SELECT * FROM parent ORDER BY first_name, last_name";
-        return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
-    }
-    public function updade_password($password, $email){
-        $sql = "UPDATE parent SET password = ? WHERE email_address = ?";
-        return $this->database->execute_query(query: $sql, params: [$password, $email]);
-    }
+    // public function get_parents()
+    // {
+    //     $sql = "SELECT * FROM parent ORDER BY first_name, last_name";
+    //     return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+    // }
 }

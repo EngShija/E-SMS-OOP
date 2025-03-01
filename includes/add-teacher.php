@@ -41,11 +41,14 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject Tought"
-                            required>
-                        <label for="phone">Subject Tought:</label>
-
-                    </div>
+                          <select class="form-control" name="subject" id="subject">
+                              <option>Select Subject</option>
+                              <?php foreach ($subject->get_all_subjects() as $mySubject) : ?>
+                                  <option value="<?= $mySubject['sub_name'] ?>"><?= $mySubject['sub_name'] ?></option>
+                              <?php endforeach; ?>
+                          </select>
+                          <label for="subject">Subject Name:</label>
+                      </div>
 
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" name="password" id="pass"

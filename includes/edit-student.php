@@ -8,6 +8,8 @@ $_SESSION['stdId'] = $_GET['updatestd'];
 $myParent = new studentParent(new Database());
 $parent = $myParent->get_student_parent($_GET['updatestd']);
 
+$parentUser = $myStudent->get_user_by_id($parent['unique_id']);
+
 if(isset($_SESSION['updated'])){
 sweetAlert( 'Success', 'Detailes updated successfully!', 'success');
 unset($_SESSION['updated']);

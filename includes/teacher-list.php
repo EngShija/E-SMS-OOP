@@ -8,7 +8,7 @@
 
 <?php
 $teachers = new User(new Database);
-if(count($teachers->get_all_users()) > 0) :?>
+if(count($teachers->get_teachers()) > 0) :?>
 <h1 class="text-center">TEACHERS</h1>
 <div class="scrollTb">
 <table class="table table-striped table-dark table-bordered" id="tbId">
@@ -24,7 +24,7 @@ if(count($teachers->get_all_users()) > 0) :?>
     <tbody>
     <?php                                           
     $i = 1;
-foreach( $teachers->get_all_users() as $teacher) :?>
+foreach( $teachers->get_teachers($_SESSION[]) as $teacher) :?>
         <tr>
             <td><?= $i ?></td>
             <td><?=$teacher['first_name']. " ". $teacher['last_name'] ?></td>

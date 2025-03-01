@@ -6,3 +6,4 @@ define('DELETED_USER', 'deleted');
 define('PASSWORD', 'password');
 define('VERIFIED', 'verified');
 define('STATUS', 'status');
+define('PARENT', 'parent');

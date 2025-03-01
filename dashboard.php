@@ -52,7 +52,7 @@ require_once "includes/header.php";
 kick_user_to('login.php', 'user_id');
 // require_once "includes/tabs-control.php";
 $parent = new studentParent(new Database());
-$users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_id($_SESSION['user_id']);
+$users = $user->get_user_by_id($_SESSION['user_id']);
 $email = $users['email_address'];
 $role = $user->user_role($email);
 ?>

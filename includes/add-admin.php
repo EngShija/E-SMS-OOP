@@ -16,7 +16,7 @@ if (count($teachers->get_all_users()) > 0): ?>
             <tbody>
                 <?php
                 $i = 1;
-                foreach ($teachers->get_all_users_except_current($_SESSION['user_id']) as $teacher): ?>
+                foreach ($teachers->get_teachers_exept_current($_SESSION['user_id']) as $teacher): ?>
                     <tr>
                         <td><?= $i ?></td>
                         <td><?= $teacher['first_name'] . " " . $teacher['last_name'] ?></td>

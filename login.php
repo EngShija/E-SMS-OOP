@@ -37,7 +37,7 @@ if(isset($_SESSION['passChanged'])){
           <input type="submit" class="btn btn-lg btn-primary form-control mt-3" value="Login" title="Click to Submit" name="login">
         </div>
       </div>
-      <a href="pass_change.php" class="text-light">Forgot Password</a>
+      <a href="forget-password.php" class="text-light">Forgot Password</a>
   </form>
   </div>
 <script src="assets/js/login.js"></script>

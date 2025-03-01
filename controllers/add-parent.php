@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__. "/../config/autoloader.php";
 require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__. "/../config/constants.php";
 require_once __DIR__ . "/../includes/functions.php";
 
 $parent->set_fname(validate_input($_POST['fname']));
@@ -16,11 +17,27 @@ $parent->set_password(strtoupper($parent->get_lname()));
 $student->set_student_id($_SESSION['stdId']);
 $parent->set_unique_id(uniqid("ID", true));
 
+$user_id = $parent->get_unique_id();
+$fname = $parent->get_fname();
+$lname = $parent->get_lname();
+$gender = $parent->get_gender();
+$password = $parent->get_password();
+$profile = null;
+$role = PARENT;
+$subjectTought = null;
+$student_id = $student->get_student_id();
+$phone = $parent->get_phone();
+$address = $parent->get_address();
+$relation = $parent->get_relation();
+$email = $parent->get_email();
+
 if (!$parent->is_parent_exist($student->get_student_id())) {
     $_SESSION['exist'] = "exist";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 } else {
-    $parent->add_parent($parent->get_unique_id(), $student->get_student_id(), $parent->get_fname(), $parent->get_lname(), $parent->get_email(), $parent->get_phone(), $parent->get_gender(), $parent->get_address(), $parent->get_relation(), $parent->get_password());
+    $parent->add_user($user_id, $fname, $lname, $email, $gender, $password, $profile, $role, $subjectTought );
+    $myUser = $user->get_user_by_email($email);
+    $parent->add_parent($myUser['unique_id'], $student_id, $phone, $gender, $address, $relation);
     $_SESSION['parent-rg'] = "registered";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }

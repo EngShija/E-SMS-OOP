@@ -329,7 +329,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
 <hr>
 <div class="d-inline-flex">
                     <img src="assets/images/user.svg" height="20" width="20"></img>
-                <a href="dashboard.php?changePass" class="list-group-item list-group-item-action">Change Password</a>
+                <a href="#" class="list-group-item list-group-item-action"  data-bs-toggle="modal" data-bs-target="#updatePass">Change Password</a>
 </div>
                 <hr>
                 <div class="d-inline-flex">
@@ -361,4 +361,5 @@ include_once "view-class-timetable.php";
 include_once "view-result.php";
 include_once "view-exam-timetable.php";
 include_once "verify-results.php";
+include_once "update-password.php";
 
