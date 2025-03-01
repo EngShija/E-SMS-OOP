@@ -1,21 +1,8 @@
 <?php
-require_once "../models/Timetable.php";
-
-require_once "../models/Class.php";
-
-require_once "../models/Subject.php";
-
-require_once "../includes/functions.php";
-
-require_once __DIR__. "/../models/Exam.php";
-
-$timetable = new Timetable(new Database());
-
-$class = new StudentClass(new Database());
-
-$subject = new Subject(new Database());
-
-$exam = new Exam(new Database());
+session_start();
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 
 $class->set_class_name(validate_input($_POST['class']));
@@ -48,14 +35,15 @@ $class_id = $myClass['id'];
 $subject_id = $mySubject['id'];
 $yos = validate_input($_POST['yos']);
 $exam_id = $myExam['id'];
+$user_id = $_SESSION['user_id'];
 
-if(!isset($date)){
+if(!isset($date) && !isset($examType)){
 if(count($timetable->is_space_free($class_id, $day, $time_slot, $yos)) > 0){
     $_SESSION['noSpace'] = "No space";
     redirect_to('../dashboard.php');
 }
 else{
-    if($timetable->add_timetable($subject_id, $class_id, $day, $time_slot, $type, NULL, NULL, $yos)){
+    if($timetable->add_timetable($user_id, $subject_id, $class_id, $day, $time_slot, $type, NULL, NULL, $yos)){
     $_SESSION['tmtAdded'] = 'Added';
     redirect_to('../dashboard.php');
     }
@@ -67,7 +55,7 @@ else{
         redirect_to('../dashboard.php');
     }
     else{
-        if($timetable->add_timetable($subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos)){
+        if($timetable->add_timetable($user_id, $subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos)){
         $_SESSION['tmtAdded'] = 'Added';
         redirect_to('../dashboard.php');
     }

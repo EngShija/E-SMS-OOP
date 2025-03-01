@@ -1,7 +1,7 @@
 <?php
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
 require_once __DIR__ . "/../includes/functions.php";
-require_once __DIR__ . "/../models/Subject.php";
-$subject = new Subject(new Database());
 
 $subject->set_subjectCategory($_POST['subcat']);
 

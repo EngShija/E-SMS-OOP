@@ -1,12 +1,8 @@
 <?php
 session_start();
-require_once __DIR__. "/../models/Student.php";
-require_once __DIR__. "/../models/Attendance.php";
-require_once __DIR__. "/../includes/functions.php";
-
-$attendance = new Attendance(new Database());
-
-$student = new Student(new Database());
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 $attendance->set_date(date('Y-m-d'));
 

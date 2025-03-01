@@ -8,6 +8,7 @@
         return false;
        }
     }
+  
 
     function warningAlert(param, url){
        let corfirm = confirm(param);
@@ -26,16 +27,6 @@ function resetTimer() {
     clearTimeout(logoutTimer); // Clear previous timeout
     logoutTimer = setTimeout(logoutUser, 180000); // Set new 3-minute timeout
 }
-
-// function resetWarningTimer() 
-//     clearTimeout(warningTimer); // Clear previous timeout
-//     warningTimer = setTimeout(showTimeoutWarning, 90000); 
-// }
-
-// function showTimeoutWarning() {
-//       alert('You will be logged out in 30 seconds due to inactivity!');
-//   }
-
 function logoutUser() {
     window.location.href = "controllers/logout.php"; // Redirect to logout page
 }
@@ -46,38 +37,24 @@ document.addEventListener("keypress", resetTimer);
 document.addEventListener("click", resetTimer);
 document.addEventListener("scroll", resetTimer);
 
-// document.addEventListener("mousemove", resetWarningTimer);
-// document.addEventListener("keypress", resetWarningTimer);
-// document.addEventListener("click", resetWarningTimer);
-// document.addEventListener("scroll", resetWarningTimer);
-
-// Start the timer when the page loads
-// resetWarningTimer();
 resetTimer();
 
 </script>
 
-<?php
 
+<?php
 session_start();
 // error_reporting(0);
+require_once __DIR__. "/config/autoloader.php";
+require_once __DIR__. "/config/incidences.php";
 require_once "includes/functions.php";
-require_once "models/Users.php";
-require_once "models/Student.php";
-require_once "models/Parent.php";
-require_once "models/Subject.php";
-require_once "models/Class.php";
 require_once "includes/header.php";
 kick_user_to('login.php', 'user_id');
-require_once "includes/tabs-control.php";
-$user = new User(new Database());
+// require_once "includes/tabs-control.php";
 $parent = new studentParent(new Database());
 $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_id($_SESSION['user_id']);
-$student = new Student(new Database());
 $email = $users['email_address'];
 $role = $user->user_role($email);
-$subject = new Subject(new Database());
-$class = new StudentClass(new Database());
 ?>
 <div class="container-fluid">
     <div class="row">

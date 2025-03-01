@@ -1,7 +1,8 @@
 <?php
-require_once __DIR__. "/../models/Grade.php";
-require_once __DIR__. "/../includes/functions.php";
-$grades = new Grade(new Database());
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
+// $grades = new Grade(new Database());
 
     if(isset($_POST["submit"]) && !empty($_POST['submit'])){
         $grades->set_start($_POST['from']);

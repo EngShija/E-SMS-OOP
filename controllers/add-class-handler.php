@@ -1,8 +1,7 @@
 <?php
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
 require_once __DIR__ . "/../includes/functions.php";
-require_once __DIR__ . "/../models/Database.php";
-require_once __DIR__ . "/../models/Class.php";
-$class = new StudentClass(new Database());
 
 $class->set_class_name($_POST['className']);
 

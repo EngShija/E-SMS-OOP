@@ -22,8 +22,8 @@ class studentParent extends User
     }
     public function delete_parent($student_id)
     {
-        $sql = "DELETE FROM parent WHERE student_id = ?";
-        return $this->database->execute_query($sql, [$student_id]);
+        $sql = "UPDATE parent SET role = ? WHERE student_id = ?";
+        return $this->database->execute_query($sql, ['deleted', $student_id]);
     }
     public function get_student_parent($student_id){
         $sql = "SELECT * FROM parent WHERE student_id = ?";
@@ -56,5 +56,9 @@ class studentParent extends User
     {
         $sql = "SELECT * FROM parent ORDER BY first_name, last_name";
         return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+    }
+    public function updade_password($password, $email){
+        $sql = "UPDATE parent SET password = ? WHERE email_address = ?";
+        return $this->database->execute_query(query: $sql, params: [$password, $email]);
     }
 }

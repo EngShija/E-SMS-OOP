@@ -42,8 +42,8 @@ class Student extends User
     }
     public function delete_student($student_id)
     {
-        $sql = "DELETE FROM student WHERE unique_id = ?";
-        return $this->database->execute_query($sql, [$student_id]);
+        $sql = "UPDATE student SET status = ? WHERE unique_id = ?";
+        return $this->database->execute_query($sql, ['deleted', $student_id]);
     }
     public function update_student($fname, $mname, $lname, $gender, $reg_no, $class,  $student_id)
     {

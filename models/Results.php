@@ -54,10 +54,10 @@ class Results
         return $this->division;
     }
 
-    public function add_results($student_id, $subject_name, $exam_type,    $marks,    $grade,    $description, $point)
+    public function add_results($student_id, $teacher_id, $subject_name, $exam_type,    $marks,    $grade,    $description, $point)
     {
-        $sql = "INSERT INTO results(student_id,	subject_name,	exam_type, marks,	grade, description, point) VALUES(?, ?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type,   $marks,    $grade,    $description, $point]);
+        $sql = "INSERT INTO results(student_id, teacher_id,	subject_name,	exam_type, marks,	grade, description, point) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        return $this->database->execute_query(query: $sql, params: [$student_id, $teacher_id, $subject_name, $exam_type,   $marks,    $grade,    $description, $point]);
     }
     public function is_result_present($student_id, $subject_name, $exam_type){
         $sql = "SELECT * FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
@@ -78,5 +78,9 @@ public function get_results_by_student_id($student_id){
     public function get_point_array($student_id, $exam_type){
         $sql = "SELECT * FROM results WHERE student_id = ? AND exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id, $exam_type])->fetch_all(MYSQLI_ASSOC);
+    }
+    public function update_results_status($status, $exam_type){
+        $sql = "UPDATE results SET status = ? WHERE exam_type = ?";
+        return $this->database->execute_query(query: $sql, params: [$status, $exam_type]);
     }
 }

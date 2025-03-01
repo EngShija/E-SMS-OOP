@@ -4,7 +4,7 @@ require_once __DIR__ . "/../includes/functions.php";
 
 $database = new Database();
 
-// $login_history = $database->get_login_history($_SESSION['user_id'])
+$login_history = $database->get_login_history($_SESSION['user_id'])
 ?>
 
 <script>
@@ -26,7 +26,7 @@ $database = new Database();
             <h2 class="card-title">
                 Login History
             </h2>
-            <?php if(count($database->get_login_history($_SESSION['user_id'])) > 0) :?>
+            <?php if(count($login_history) > 0) :?>
             <a href="#" onclick="clearLoginHst('controllers/clear-login-history.php')" class="text-decoration-none text-danger">Clear History</a>
             <table class="table table-striped table-bordered card-item" id="tbId">
                 <thead>
@@ -39,17 +39,17 @@ $database = new Database();
                 <tbody>
                     <?php
                     $i = 1;
-                    foreach ($database->get_login_history($_SESSION['user_id']) as $login_history): ?>
+                    foreach ($login_history as $history): ?>
                         <tr>
                             <td>
                                 <?= $i ?>
                             </td>
                                 <td>
-                                <?= $login_history['login_time'] ?>
+                                <?= $history['login_time'] ?>
                             </td>
                 
                             <td>
-                                <?= $login_history['status'] ?>
+                                <?= $history['status'] ?>
                             </td>
                         </tr>
                         <?php

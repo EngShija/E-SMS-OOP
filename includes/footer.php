@@ -196,22 +196,22 @@
             d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 2h16v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm3 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm2 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
     </symbol>
   </svg>
-<div class="footer text-light">
+<div class="footer text-light" style="bottom: 0 important; position: fixed important;">
     <footer class="d-flex flex-wrap justify-content-between align-items-center border-top fixed-bottom bg-dark">
         <p class="col-md-4 mb-0">&#169 2024 - <?= date('Y') ?> EngShija (+255612101742)</p>
 
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <img src="assets/images/logo.jpg" height="30" width="30" class="
-            rounded-circle border border-white"">
+            rounded-circle border border-white" style="filter: invert(1);">
         </a>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24" fill="white">
                         <use xlink:href="#twitter1" />
                     </svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24" fill="white">
                         <use xlink:href="#instagram" />
                     </svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24" fill="white">
                         <use xlink:href="#facebook" />
                     </svg></a></li>
         </ul>

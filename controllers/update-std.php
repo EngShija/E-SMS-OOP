@@ -1,20 +1,17 @@
 <?php
 session_start();
-require_once "../models/Student.php";
-require_once "../includes/functions.php";
-require_once "../models/Class.php";
-$mystudent = new Student(new Database());
-$studentClass = new StudentClass(new Database());
-
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 if (isset($_SESSION['stdId'])) {
-    $mystudent->set_fname(validate_input($_POST['fname']));
-    $mystudent->set_lname(validate_input($_POST['lname']));
-    $mystudent->set_gender(validate_input($_POST['gender']));
-    $mystudent->set_regNo(validate_input($_POST['RegNo']));
-    $studentClass->set_class_name(validate_input($_POST['class']));
-    $mystudent->set_mname(validate_input($_POST['mname']));
-    $mystudent->update_student($mystudent->get_fname(), $mystudent->get_mname(),  $mystudent->get_lname(),  $mystudent->get_gender(),  $mystudent->get_regNo(), $studentClass->get_class_name(), $_SESSION['stdId']);
+    $student->set_fname(validate_input($_POST['fname']));
+    $student->set_lname(validate_input($_POST['lname']));
+    $student->set_gender(validate_input($_POST['gender']));
+    $student->set_regNo(validate_input($_POST['RegNo']));
+    $class->set_class_name(validate_input($_POST['class']));
+    $student->set_mname(validate_input($_POST['mname']));
+    $student->update_student($student->get_fname(), $student->get_mname(),  $student->get_lname(),  $student->get_gender(),  $student->get_regNo(), $class->get_class_name(), $_SESSION['stdId']);
     $_SESSION['updated'] = "done";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }

@@ -72,7 +72,7 @@ public function get_phone()
     return $this->phone;
 }
 public function set_password($password){
-    $this->password = md5($password);
+    $this->password = password_hash($password, PASSWORD_DEFAULT);
 }
 public function get_gender(){
     return $this->gender;
@@ -109,8 +109,8 @@ public function get_user_by_id($user_id){
     return $this->database->execute_query(query: $sql, params: [$user_id])->fetch_assoc();
 }
 public function get_all_users(){
-    $sql = "SELECT * FROM users";
-    return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+    $sql = "SELECT * FROM users WHERE role != ?";
+    return $this->database->execute_query(query: $sql, params: ['deleted'])->fetch_all(MYSQLI_ASSOC);
 }
 public function updade_password($password, $email){
     $sql = "UPDATE users SET password = ? WHERE email_address = ?";
@@ -132,5 +132,14 @@ public function get_admins(){
 public function get_user_by_email($email){
     $sql = "SELECT * FROM users WHERE email_address = ?";
     return $this->database->execute_query(query: $sql, params: [$email])->fetch_assoc();
+}
+
+public function update_user_role($user_id, $role) {
+    $sql = "UPDATE users SET role = ? WHERE unique_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$role, $user_id]);
+}
+public function get_all_users_except_current($user_id){
+    $sql = "SELECT * FROM users WHERE unique_id != ? AND role != ?";
+    return $this->database->execute_query(query: $sql, params: [$user_id, 'deleted'])->fetch_all(MYSQLI_ASSOC);
 }
 }

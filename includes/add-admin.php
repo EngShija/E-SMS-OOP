@@ -8,22 +8,26 @@ if (count($teachers->get_all_users()) > 0): ?>
                 <tr>
                     <th>S/N</th>
                     <th>Full Name</th>
-                    <th>Subject(s) Tought</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $i = 1;
-                foreach ($teachers->get_all_users() as $teacher): ?>
+                foreach ($teachers->get_all_users_except_current($_SESSION['user_id']) as $teacher): ?>
                     <tr>
                         <td><?= $i ?></td>
                         <td><?= $teacher['first_name'] . " " . $teacher['last_name'] ?></td>
-                        <td><?= $teacher['subject_tought'] ?></td>
                         <td><?= $teacher['email_address'] ?></td>
+                        <td><?= $teacher['role'] ?></td>
                         <td>
-                        <a  class="btn btn-primary" onclick="warningAlert('Are you sure you want to make <?= strtoupper($teacher['first_name']. ' ' . $teacher['last_name']) ?> an admin?', 'controllers/delete-teacher.php?id=<?= $teacher['unique_id']?>')">Make Admin</a>
+                        <?php if ($teacher['role'] == 'admin'): ?>
+                            <a class="btn btn-danger" onclick="warningAlert('Are you sure you want to remove <?= strtoupper($teacher['first_name']. ' ' . $teacher['last_name']) ?> as an admin?', 'controllers/remove-admin.php?id=<?= $teacher['unique_id']?>')">Remove Admin</a>
+                        <?php else: ?>
+                            <a class="btn btn-primary" onclick="warningAlert('Are you sure you want to make <?= strtoupper($teacher['first_name']. ' ' . $teacher['last_name']) ?> an admin?', 'controllers/make-admin.php?id=<?= $teacher['unique_id']?>')">Make Admin</a>
+                        <?php endif; ?>
                         </td>
                     </tr>
                     <?php $i++; endforeach; ?>

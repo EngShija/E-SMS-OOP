@@ -1,11 +1,8 @@
 <?php
 session_start();
-require_once __DIR__. "/../models/Users.php";
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
 require_once __DIR__."/../includes/functions.php";
-require_once __DIR__. "/../models/Class.php";
-
-$database = new Database();
-$user = new User($database);
 
     $user->set_fname(validate_input($_POST['fname']));
     $user->set_lname(validate_input($_POST['lname']));

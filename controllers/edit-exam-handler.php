@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once "../models/Exam.php";
-require_once "../includes/functions.php";
-$exam = new Exam(new Database());
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 $exam->set_examName(validate_input($_POST['examname']));
 if(isset($_SESSION['examid'])){

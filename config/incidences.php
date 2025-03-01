@@ -1,4 +1,5 @@
 <?php
+$database = new Database();
 
 $user = new User(new Database());
 
@@ -13,6 +14,10 @@ $class = new StudentClass(new Database());
 $exam = new Exam(new Database());
 
 $result = new Results(new Database());
+
+$attendance = new Attendance(new Database);
+
+$timetable = new Timetable(new Database());
 
 $pdf = new PDF();
 

@@ -1,12 +1,8 @@
 <?php
 session_start();
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
 require_once __DIR__ . "/../includes/functions.php";
-require_once __DIR__ . "/../models/Class.php";
-require_once __DIR__ . "/../models/Parent.php";
-require_once __DIR__ . "/../models/Student.php";
-
-$parent = new studentParent(new Database());
-$student = new Student(new Database());
 
 $parent->set_fname(validate_input($_POST['fname']));
 $parent->set_lname(validate_input($_POST['lname']));

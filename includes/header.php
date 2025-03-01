@@ -15,6 +15,7 @@
   <style>
 .body{
     background-image: url('./assets/images/bg.jpeg');
+    /* filter: invert(); */
 }
   </style>
 </head>
@@ -26,13 +27,13 @@
       <div class="container-fluid">
         <div class="navbar-header row">
           <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
-              class="rounded-circle border border-success"></a>
+              class="rounded-circle border border-success" style="filter: invert(1);"></a>
         </div>
         <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php if (isset($_SESSION['user_id'])): ?>
           <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample">
-            <a class="nav-link" title="Menu"><img src="assets/images/menu.svg"></img></a>
+            <a class="nav-link" title="Menu"><img src="assets/images/menu.svg" style="filter: invert(1);"></img></a>
           </div>
         <?php endif ?>
       </div>

@@ -1,9 +1,7 @@
 <?php
-require_once "../models/Subject.php";
-require_once "../models/Timetable.php";
-require_once "../includes/functions.php";
-$subject = new Subject(new Database());
-$timetable = new Timetable(new Database());
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 if(isset($_GET['subid'])){
     $subject->delete_subject($_GET['subid']);

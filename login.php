@@ -40,29 +40,6 @@ if(isset($_SESSION['passChanged'])){
       <a href="pass_change.php" class="text-light">Forgot Password</a>
   </form>
   </div>
-  
-
-  <div class="footer text-light">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom bg-dark">
-        <p class="col-md-4 mb-0">&#169 2024 - <?= date('Y') ?> EngShija (+255612101742)</p>
-
-        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="assets/images/logo.jpg" height="30" width="30" class="rounded-circle border border-white"">
-        </a>
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#twitter" />
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#instagram" />
-                    </svg></a></li>
-            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                        <use xlink:href="#facebook" />
-                    </svg></a></li>
-        </ul>
-    </footer>
-</div>
-
 <script src="assets/js/login.js"></script>
 </body>
 </html>

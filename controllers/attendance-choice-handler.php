@@ -1,15 +1,8 @@
 <?php
 session_start();
-require_once __DIR__. "/../models/Student.php";
-require_once __DIR__. "/../models/Class.php";
-require_once __DIR__. "/../includes/functions.php";
-require_once __DIR__ . "/../models/Attendance.php";
-
-$class = new StudentClass(new Database());
-
-$student = new Student(new Database());
-
-$attendance = new Attendance(new Database());
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 $class->set_class_name($_POST['class']);
 

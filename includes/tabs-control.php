@@ -1,3 +1,4 @@
+
 <?php
 
 // Generate a unique session token per tab
@@ -10,7 +11,6 @@ $sessionId = session_id();
 $tabToken = $_SESSION['tab_token'];
 
 if (!isset($_SESSION['tab_initialized'])) {
-    session_regenerate_id(true); // Create a new session ID for each tab
     $_SESSION['tab_initialized'] = true;
 }
 ?>
@@ -33,7 +33,7 @@ if (!isset($_SESSION['tab_initialized'])) {
                 .then(() => {
                     alert("New tab detected. Session expired.");
                     sessionStorage.clear();
-                    window.location.href = "login.php"; // Redirect to login
+                    window.location.href = "controllers/logout.php"; // Redirect to login
                 });
         }
     </script>

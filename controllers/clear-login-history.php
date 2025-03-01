@@ -1,7 +1,8 @@
 <?php 
 session_start();
-require_once __DIR__ . "/../models/Database.php";
-include_once __DIR__ . "/../includes/functions.php";
+require_once __DIR__. "/../config/autoloader.php";
+require_once __DIR__. "/../config/incidences.php";
+require_once __DIR__."/../includes/functions.php";
 
 $database = new Database();
 

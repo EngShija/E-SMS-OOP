@@ -57,9 +57,9 @@ class Timetable
      * @param mixed $type
      * @return bool|mysqli_result
      */
-    public function add_timetable($subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos){
-        $sql = "INSERT INTO timetable(subject_id, class_id, day, time_slots, timetable_type, date, exam_id, yos) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos]);
+    public function add_timetable($teacher_id, $subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos){
+        $sql = "INSERT INTO timetable(teacher_id, subject_id, class_id, day, time_slots, timetable_type, date, exam_id, yos) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return $this->database->execute_query(query: $sql, params: [$teacher_id, $subject_id, $class_id, $day, $time_slot, $type, $date, $exam_id, $yos]);
     }
     public function is_space_free($class_id, $day, $time_slot, $yos){
         $sql = "SELECT * FROM timetable WHERE class_id = ? AND day = ? AND time_slots = ? AND yos =?";
@@ -80,5 +80,15 @@ class Timetable
     public function delete_timetable_by_subject_id($subject_id){
         $sql = "DELETE FROM timetable WHERE subject_id = ?";
         return $this->database->execute_query(query: $sql, params: [$subject_id]);
+    }
+
+    public function get_subject_id_by_name($subject_name) {
+        $sql = "SELECT id FROM subjects WHERE sub_name = ?";
+        return $this->database->execute_query(query: $sql, params: [$subject_name])->fetch_assoc()['id'];
+    }
+
+    public function update_timetable($class_id, $year_of_study, $day, $time_slot, $subject_id) {
+        $sql = "UPDATE timetable SET subject_id = ? WHERE class_id = ? AND yos = ? AND day = ? AND time_slots = ?";
+    return $this->database->execute_query(query: $sql, params: [$subject_id, $class_id, $year_of_study, $day, $time_slot]);
     }
 }
