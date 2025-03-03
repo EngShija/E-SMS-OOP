@@ -196,6 +196,8 @@
             d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 2h16v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm3 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm2 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
     </symbol>
   </svg>
+</div>
+</div>
 <div class="footer text-light" style="bottom: 0 important; position: fixed important;">
     <footer class="d-flex flex-wrap justify-content-between align-items-center border-top fixed-bottom bg-dark">
         <p class="col-md-4 mb-0">&#169 2024 - <?= date('Y') ?> EngShija (+255612101742)</p>

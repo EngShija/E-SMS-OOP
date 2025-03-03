@@ -4,6 +4,7 @@ class Student extends User
 {
     private $student_id;
     private $RegNo;
+    private $parent_id;
     public function set_student_id($student_id){
         $this->student_id = $student_id;
     }
@@ -17,6 +18,14 @@ class Student extends User
     public function get_regNo()
     {
         return $this->RegNo;
+    }
+        public function set_parent_id($parent_id)
+    {
+        $this->parent_id = $parent_id;
+    }
+    public function get_parent_id()
+    {
+        return $this->parent_id;
     }
     public function is_student_present($RegNo)
     {
@@ -55,5 +64,10 @@ class Student extends User
     {
         $sql = "SELECT * FROM student WHERE class = ?";
         return $this->database->execute_query(query: $sql, params: [$class])->fetch_all(MYSQLI_ASSOC);
+    }
+    public function update_parent_id($parent_id, $student_id){
+        $sql = "UPDATE student SET parent_id = ? WHERE unique_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$parent_id, $student_id]);
+    
     }
 }

@@ -34,12 +34,6 @@ class studentParent extends User
         $sql = "UPDATE parent SET phone = ?,  gender = ?, physical_address = ?,  relation = ? WHERE student_id = ?";
         return $this->database->execute_query(query: $sql, params: [$phone, $gender, $address, $relation,  $student_id]);
     }
-
-    public function is_parent_present($email)
-    {
-        $sql = "SELECT * FROM parent WHERE email_address = ?";
-        return $this->database->execute_query(query: $sql, params: [$email])->fetch_assoc();
-    }
     public function get_parent_by_id($user_id){
         $sql = "SELECT * FROM parent WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$user_id])->fetch_assoc();

@@ -7,7 +7,7 @@ $class = new StudentClass(new Database());
 ?>
 
 
-<div class="modal fade text-center" id="addStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade text-center" id="addStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="filter: none;">
     <div class="modal-dialog modal-lg">
     <form action="controllers/register_handler.php" method="POST"
     class=" col-sm-5 col-lg-5 col-xs-5">

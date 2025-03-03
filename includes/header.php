@@ -15,12 +15,18 @@
   <style>
 .body{
     background-image: url('./assets/images/bg.jpeg');
-    /* filter: invert(); */
 }
   </style>
 </head>
 
-<body class="body">
+<body class="body" style="filter: <?= $_SESSION['theme'] ??'no'?>">
+<!-- <form action="controllers/theme-toggle.php" method="POST">
+  <input type="submit" name="light" value="Light Theme">
+  <input type="submit" name="dark" value="Dark Theme">
+</form> -->
+
+<!-- <button onclick="lightTheme()">Light Theme</button>
+<button onclick="darkTheme()">Dark Theme</button> -->
 
   <div class="header-main">
     <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark text-light">
