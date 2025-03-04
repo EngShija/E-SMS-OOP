@@ -47,7 +47,7 @@ if (!$parent->is_parent_exist($student->get_student_id())) {
 else{
     $parent->add_user($user_id, $fname, $lname, $email, $gender, $password, $profile, $role, $subjectTought );
     $myUser = $user->get_user_by_email($email);
-    $student->update_parent_id($parent_id, $student_id);
+    $student->update_parent_id($myUser['unique_id'], $student_id);
     $parent->add_parent($myUser['unique_id'], $student_id, $phone, $gender, $address, $relation);
     $_SESSION['parent-rg'] = "registered";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");

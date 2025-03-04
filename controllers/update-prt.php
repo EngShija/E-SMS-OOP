@@ -19,15 +19,17 @@ if (isset($_SESSION['stdId'])) {
     $role = PARENT;
     $subjectTought = null;
 
-    $myParent = $parent->get_user_by_email($_SESSION[CURRENT_USER]);
 if($parent->is_user_present($parent->get_email())){
+    $myParent = $parent->get_user_by_email($parent->get_email());
     $parent_id = $myParent['unique_id'];
     $user->updade_user($parent->get_fname(), $parent->get_lname(), $parent->get_email(), $parent->get_gender(), $parent_id);
     $parent->update_parent($parent->get_phone(),  $parent->get_gender(),  $parent->get_address(), $parent->get_relation(), $_SESSION['stdId']);
+    $student->update_parent_id($myParent['unique_id'], $_SESSION['stdId']);
     $_SESSION['updated'] = "update";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }
 else{
+    $parent->delete_parent_parmanently($_SESSION['stdId']);
     $parent->add_user($parent->get_unique_id(),$parent->get_fname(), $parent->get_lname(), $parent->get_email(), $parent->get_gender(), $parent->get_password(), $profile, $role, $subjectTought );
     $myUser = $user->get_user_by_email($parent->get_email());
     $student->update_parent_id($parent->get_unique_id(), $_SESSION['stdId']);
@@ -35,8 +37,7 @@ else{
     $_SESSION['parentChanged'] = "changed";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }
-// $parent->is_user_present($parent->get_email());
-// echo $parent->is_user_present($parent->get_email());
+
 }
 redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 $_SESSION['fail'] = "fail";
