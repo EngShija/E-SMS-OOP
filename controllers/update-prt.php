@@ -34,7 +34,7 @@ else{
     $myUser = $user->get_user_by_email($parent->get_email());
     $student->update_parent_id($parent->get_unique_id(), $_SESSION['stdId']);
     $parent->add_parent($parent->get_unique_id(), $_SESSION['stdId'], $parent->get_phone(), $parent->get_gender(),  $parent->get_address(), $parent->get_relation());
-    $_SESSION['parentChanged'] = "changed";
+    $_SESSION['parentChanged'] = $parent->get_email();
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }
 
