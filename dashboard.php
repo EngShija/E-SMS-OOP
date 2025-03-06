@@ -142,6 +142,12 @@ $role = $user->user_role($email);
         else if(isset($_GET['loginHst'])){
           include_once "includes/login-history.php";
         }
+        else if(isset($_GET['myProfile'])){
+          include_once "includes/my-profile.php";
+        }
+        else if(isset($_GET['profileImage'])){
+          include_once "includes/profile.php";
+        }
         else if(isset($_SESSION['classEmpty'])){
           sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
           unset($_SESSION['classEmpty']);

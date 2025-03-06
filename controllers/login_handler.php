@@ -20,7 +20,7 @@ if (is_request_method_post()) {
                     if($myUser['role'] != 'deleted'){
                 $_SESSION['user_id'] = $myUser['unique_id'];
                 $_SESSION['tab_token'] = bin2hex(random_bytes(32));
-                    $database->add_login_history($myUser['unique_id'], 'success');
+                    $database->add_login_history($myUser['unique_id'], $user->get_email(), 'success');
                     $user->update_pass_change_attempt(0, $_SESSION[CURRENT_USER]);
                 echo "success";
                     }
@@ -30,7 +30,7 @@ if (is_request_method_post()) {
             } 
             else {
                 $myUser = $user->get_user_by_email($user->get_email());
-                $database->add_login_history($myUser['unique_id'], 'failed (incorrect password)');
+                $database->add_login_history($myUser['unique_id'],$user->get_email(),  'failed (incorrect password)');
                 echo "Email or Password not correct!";
             }
         } else {

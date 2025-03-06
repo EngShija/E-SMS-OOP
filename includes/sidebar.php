@@ -305,7 +305,6 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             </li>
                         </ul>
                     </div>
-
                 <?php endif ?>
                 </nav>
 
@@ -317,7 +316,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
             <button class="btn text-light" type="button" data-bs-toggle="dropdown">
                 <div class="d-inline-flex">
                     <img class="rounded-circle border border-success"
-                        src="assets/images/logo.jpg" height="30" width="30"></img>
+                        src="uploads/<?= $users['profile_image'] ?>" height="30" width="30"></img>
                            <h5 class=" dropdown-toggle ml-3">Account</h5>
                 </div>
             </button>

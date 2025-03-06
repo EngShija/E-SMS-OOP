@@ -10,7 +10,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_i
 <nav class="navbar bg-dark text-light content mb-6">
     <div class="container-fluid">
         <div class="navbar-header row">
-            <a class="navbar-brand" href="#"><img src="assets/images/logo.jpg" height="50" width="50" class="rounded-circle border border-success" style="filter: invert(1);"></a>
+        <a class="navbar-brand" href="dashboard.php?profileImage"><img src="uploads/<?= $users['profile_image'] ?>" height="50" width="50" class="rounded-circle border border-success"></a>
         </div>
         <h3><?= strtoupper($users['first_name']). " " . strtoupper($users['last_name']). "(". $users['role']. ")" ?></h3>
         <div class="nav-item"> 

@@ -20,7 +20,7 @@ $login_history = $database->get_login_history($_SESSION['user_id'])
     </script>
 
 <div class="d-flex justify-content-center">
-    <div class="card text-center mb-3 mt-3" style="width: 30rem;">
+    <div class="card text-center mb-3 mt-3" style="max-width:fit-content; ">
         <div class="card-body">
 
             <h2 class="card-title">
@@ -33,6 +33,7 @@ $login_history = $database->get_login_history($_SESSION['user_id'])
                     <tr>
                         <th>#</th>
                         <th>Login Time Stamp</th>
+                        <th>User Email</th>
                         <th>Login Status</th>
                     </tr>
                 </thead>
@@ -46,6 +47,11 @@ $login_history = $database->get_login_history($_SESSION['user_id'])
                             </td>
                                 <td>
                                 <?= $history['login_time'] ?>
+                            </td>
+
+                            </td>
+                                <td>
+                                <?= $history['user_email'] ?>
                             </td>
                 
                             <td>
@@ -61,3 +67,5 @@ $login_history = $database->get_login_history($_SESSION['user_id'])
             <?php else :?>
                 <h5 class="text-danger">No login history available for this account!</h5>
             <?php endif ?>
+        </div>
+    </div>

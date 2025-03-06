@@ -24,7 +24,7 @@ if(count($teachers->get_teachers()) > 0) :?>
     <tbody>
     <?php                                           
     $i = 1;
-foreach( $teachers->get_teachers($_SESSION[]) as $teacher) :?>
+foreach( $teachers->get_teachers() as $teacher) :?>
         <tr>
             <td><?= $i ?></td>
             <td><?=$teacher['first_name']. " ". $teacher['last_name'] ?></td>

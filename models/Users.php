@@ -162,4 +162,9 @@ public function update_pass_change_attempt($count, $user_id){
     $sql = "UPDATE users SET change_password_attemts = ? WHERE unique_id = ?";
     return $this->database->execute_query(query: $sql, params: [$count, $user_id]);
 }
+
+public function upload_profile_image($user_id, $profile_img) {
+    $sql = "UPDATE users SET profile_image = ? WHERE unique_id = ?";
+    return $this->database->execute_query(query: $sql, params: [$profile_img, $user_id]);
+}
 }
