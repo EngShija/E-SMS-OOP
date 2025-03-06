@@ -306,6 +306,18 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                         </ul>
                     </div>
                 <?php endif ?>
+                <div class="dropdown mt-2">
+                    <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                        <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                            <use xlink:href="#credit-card" />
+                        </svg>
+                        School Fees
+                    </button>
+                    <ul class="dropdown-menu" style="filter: invert();">
+                        <a href="dashboard.php?payFees" class="list-group-item list-group-item-action">Pay Fees</a>
+                        <a href="dashboard.php?viewFees" class="list-group-item list-group-item-action">View Payment History</a>
+                    </ul>
+                </div>
                 </nav>
 
         </div>
