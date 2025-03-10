@@ -22,9 +22,9 @@ else if(isset($_SESSION['noRusults'])){
     sweetAlert( 'Sorry',  'No results found for your selections!!', 'warning');
 unset($_SESSION['noRusults']);
 }
-else if(isset($_SESSION['parentPresent'])){
-    sweetAlert( 'Sorry',  'A parent with email '. $_SESSION['parentPresent']. 'already exists, if is not a parent for a specific student, go and update!', 'warning');
-unset($_SESSION['parentPresent']);
+else if(isset($_SESSION['parentChanged'])){
+    sweetAlert( 'Sorry',  'A parent with email '. $_SESSION['parentChanged']. 'already exists, if is not a parent for a specific student, go and update!', 'warning');
+unset($_SESSION['parentChanged']);
 }
 ?>
 

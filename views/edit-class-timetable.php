@@ -93,16 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <td><?php echo $day; ?></td>
                             <?php foreach ($time_slots as $slot): ?>
                                 <td>
-                                    <div class="d-inline-flex">
-                                    <select name="timetable">
+                                    <select name="timetable[<?= $day ?>][<?= $slot ?>]">
                                     <option value="">---</option>
                                         <?php foreach ($subject->get_all_subjects() as $subj): ?>
-                                            <option value="<?= $subj['sub_name'] ?>" <?= isset($slots[$slot]) && in_array($subj['sub_name'], $slots[$slot]) ? 'selected' : '' ?>><?= $subj['sub_name'] ?>
-                                        </option>
+                                            <option value="<?= $subj['sub_name'] ?>" <?= isset($slots[$slot]) && in_array($subj['sub_name'], $slots[$slot]) ? 'selected' : '' ?>><?= $subj['sub_name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <button type="submit" class="btn btn-success">Update</button>
-                                    </div>
                                 </td>
                             <?php endforeach; ?>
                         </tr>
@@ -110,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tbody>
             </table>
             <button type="submit" class="btn btn-success">Update Timetable</button>
+            <?= $class_id ?>
         </form>
     <?php endif; ?>
 </div>

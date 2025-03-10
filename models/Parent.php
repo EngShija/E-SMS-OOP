@@ -25,6 +25,10 @@ class studentParent extends User
         $sql = "UPDATE parent SET role = ? WHERE student_id = ?";
         return $this->database->execute_query($sql, ['deleted', $student_id]);
     }
+    public function delete_parent_parmanently($student_id){
+        $sql = "DELETE FROM parent WHERE student_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$student_id]);
+    }
     public function get_student_parent($student_id){
         $sql = "SELECT * FROM parent WHERE student_id = ?";
         return $this->database->execute_query(query: $sql, params:[$student_id])->fetch_assoc();
