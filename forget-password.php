@@ -30,7 +30,7 @@ require_once "includes/header.php";
       </div>
       </div>
       </div>
-      <div class="form-floating mb-6">
+      <div class="form-floating mb-3">
         <input type="password" class="form-control" id="newpass" name="password" placeholder="Enter Your Password" required title="Password is Required">
         <label for="newpass">New Password</label>
         <small class="invalid-feedback">*Please Enter your New Password!</small>

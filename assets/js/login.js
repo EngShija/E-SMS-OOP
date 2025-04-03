@@ -26,3 +26,21 @@ continueBtn.onclick = ()=>{
     let formData = new FormData(form);
     xhr.send(formData);
 }
+
+// const form = document.querySelector(".login form");
+
+// errorText = form.querySelector(".error-text");
+
+// $(".login form .button input").click(function(){
+//     $(".error-text").load("controllers/login_handler.php", function(responseText, statusText, xhr){
+//         if(statusText == "success"){
+//             location.href = "dashboard.php";
+//         }
+//         else if(statusText == "error"){
+//             const data = responseText;
+//             console.log(data);
+//             errorText.style.display = "block";
+//             errorText.textContent = data;
+//         }
+//     })
+// })

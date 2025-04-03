@@ -23,11 +23,15 @@ if (count($teachers->get_all_users()) > 0): ?>
                         <td><?= $teacher['email_address'] ?></td>
                         <td><?= $teacher['role'] ?></td>
                         <td>
-                        <?php if ($teacher['role'] == 'admin'): ?>
-                            <a class="btn btn-danger" onclick="warningAlert('Are you sure you want to remove <?= strtoupper($teacher['first_name']. ' ' . $teacher['last_name']) ?> as an admin?', 'controllers/remove-admin.php?id=<?= $teacher['unique_id']?>')">Remove Admin</a>
-                        <?php else: ?>
-                            <a class="btn btn-primary" onclick="warningAlert('Are you sure you want to make <?= strtoupper($teacher['first_name']. ' ' . $teacher['last_name']) ?> an admin?', 'controllers/make-admin.php?id=<?= $teacher['unique_id']?>')">Make Admin</a>
-                        <?php endif; ?>
+                            <?php if ($teacher['role'] == 'admin'): ?>
+                                <a class="btn btn-danger"
+                                    onclick="warningAlert('Are you sure you want to remove <?= strtoupper($teacher['first_name'] . ' ' . $teacher['last_name']) ?> as an admin?', 'controllers/remove-admin.php?id=<?= $teacher['unique_id'] ?>')">Remove
+                                    Admin</a>
+                            <?php else: ?>
+                                <a class="btn btn-primary"
+                                    onclick="warningAlert('Are you sure you want to make <?= strtoupper($teacher['first_name'] . ' ' . $teacher['last_name']) ?> an admin?', 'controllers/make-admin.php?id=<?= $teacher['unique_id'] ?>')">Make
+                                    Admin</a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php $i++; endforeach; ?>
@@ -35,4 +39,5 @@ if (count($teachers->get_all_users()) > 0): ?>
         </table>
     </div>
 <?php else:
-    echo "<h5 class='text-center text-danger mt-5'>No Teachers Details Found!</h5>"; endif; ?>
+    echo "<h5 class='text-center text-danger mt-5'>No Teachers Details Found!</h5>";
+endif; ?>

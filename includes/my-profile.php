@@ -13,7 +13,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_i
         <div class="card-body">
 
             <h2 class="card-title">
-            <a class="navbar-brand" href="dashboard.php?profileImage"><img src="uploads/<?= $users['profile_image'] ?>" height="50" width="50" class="rounded-circle border border-success"></a>
+            <a class="navbar-brand" href="dashboard.php?profileImage"><img src="uploads/<?= $users['profile_image'] ?>" height="50" width="50" class="rounded-circle"></a>
                 <?= $users['first_name']. "'s". " Profile"?>
             </h2>
             <table class="table table-striped table-bordered table-dark card-item" id="tbId">

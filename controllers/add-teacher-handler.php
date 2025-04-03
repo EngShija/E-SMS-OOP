@@ -9,7 +9,7 @@ require_once __DIR__."/../includes/functions.php";
     $user->set_email(validate_input($_POST['email']));
     $user->set_gender(validate_input($_POST['gender']));
     $user->set_password(validate_input($_POST['password']));
-    $user->set_profile(validate_input("PROFILE_IMAGE"));
+    $user->set_profile(validate_input("default_profile.svg"));
 
     $fname = $user->get_fname();
     $lname = $user->get_lname();

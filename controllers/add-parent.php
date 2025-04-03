@@ -12,7 +12,7 @@ $parent->set_phone(validate_input($_POST['phone']));
 $parent->set_gender(validate_input($_POST['gender']));
 $parent->set_address(validate_input($_POST['address']));
 $parent->set_relation(validate_input($_POST['relation']));
-$parent->set_profile(validate_input("PROFILE_IMAGE"));
+$parent->set_profile(validate_input("default_profile.svg"));
 $parent->set_password(strtoupper($parent->get_lname()));
 $student->set_student_id($_SESSION['stdId']);
 $parent->set_unique_id(uniqid("ID", true));

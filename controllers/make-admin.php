@@ -12,5 +12,3 @@ $role = 'admin';
         header("Location: ../dashboard.php?addad=error");
     }
     exit();
-echo $user_id;
-?>

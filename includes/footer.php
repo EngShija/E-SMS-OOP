@@ -204,7 +204,7 @@
 
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <img src="assets/images/logo.jpg" height="30" width="30" class="
-            rounded-circle border border-white" style="filter: invert(1);">
+            rounded-circle border border-white">
         </a>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24" fill="white">

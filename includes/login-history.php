@@ -25,6 +25,8 @@ $login_history = $database->get_login_history($_SESSION['user_id'])
 
             <h2 class="card-title">
                 Login History
+
+                <?= date('h:m:s') ?>
             </h2>
             <?php if(count($login_history) > 0) :?>
             <a href="#" onclick="clearLoginHst('controllers/clear-login-history.php')" class="text-decoration-none text-danger">Clear History</a>

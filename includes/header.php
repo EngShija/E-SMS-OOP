@@ -1,3 +1,6 @@
+<?php 
+date_default_timezone_set('Africa/Nairobi'); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,10 +14,14 @@
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/datatables/dataTables.bootstrap.css">
   <script src="assets/js/sweetAlerts.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
   <style>
 .body{
     background-image: url('./assets/images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
   </style>
 </head>
@@ -33,7 +40,7 @@
       <div class="container-fluid">
         <div class="navbar-header row">
           <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
-              class="rounded-circle border border-success" style="filter: invert(1);"></a>
+              class="rounded-circle border border-success"></a>
         </div>
         <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php if (isset($_SESSION['user_id'])): ?>

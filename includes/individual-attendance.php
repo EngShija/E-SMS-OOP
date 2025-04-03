@@ -15,7 +15,7 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
 ?>
 
 <div class="d-flex justify-content-center">
-    <div class="card bg-dark text-center mb-3 mt-3" style="width: 30rem;">
+    <div class="card bg-dark text-center text-light mb-3 mt-3" style="width: 30rem;">
         <div class="card-body">
 
             <h5 class="card-title" style="text-decoration: underline;">

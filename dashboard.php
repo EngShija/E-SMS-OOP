@@ -60,8 +60,28 @@ $role = $user->user_role($email);
     <main class="container">
       <?php require_once "includes/profile-header.php" ?>
       <?php
+// Get the requested route from the URL
+$route = isset($_GET['route']) ? $_GET['route'] : 'home';
+
+// Simple router
+// switch ($route) {
+//     case 'students/add':
+//       require_once "includes/add-student.php";
+//       break;
+//     case 'dashboard':
+//         include 'dashboard.php';
+//         break;
+//     case 'students':
+//       require_once "includes/student-list.php";
+//       break;
+//     default:
+//         include '404.php'; // Handle unknown routes
+//         break;
+// }
+
+
       if (isset($_GET['addstd'])) {
-        require_once "includes/add-student.php";
+        // require_once "includes/add-student.php";
       } else if (isset($_GET['updatestd'])) {
         require_once "includes/edit-student.php";
         $_SESSION['stdid'] = $_GET['updatestd'];
