@@ -219,6 +219,7 @@
         </ul>
     </footer>
 </div>
+</div>
 <!-- <footer class="footer bg-dark text-light d-flex flex-wrap justify-content-between align-items-center border-top fixed-bottom bg-dark">
   &#169 2024 - 2025 EngShija (+255612101742)
 </footer> -->

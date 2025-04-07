@@ -12,7 +12,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success"
-                src="assets/images/logo.jpg" height="30" width="30" style="filter: invert(2);"></img><?= "  " ?>SMS</h5>
+                src="assets/images/logo.jpg" height="30" width="30""></img><?= "  " ?>SMS</h5>
         <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close" style="filter: invert(1);"></button>
     </div>
     <hr>
@@ -169,7 +169,12 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                 <?php endif ?>
 
                 <?php if ($role['role'] == 'parent'): ?>
-
+                    <div class="dropdown">
+                        <button class="btn text-light" type="button" onclick="window.location.href='dashboard.php?mystudents'">
+                            <img src="assets/images/book-open.svg" height="28" width="28" style="filter: invert(1);"></img>
+                            My Students
+                        </button>
+                    </div>
 
                     <div class="dropdown">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">

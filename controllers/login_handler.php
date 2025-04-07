@@ -14,7 +14,7 @@ if (is_request_method_post()) {
     if (!empty($user->get_email()) && !empty($user->get_password())) {
         if ($user->is_user_present($user->get_email())) {
             $myUser = $user->get_user_by_email($user->get_email());
-            $password = password_verify($_POST['password'], $myUser['password']);
+            // $password = password_verify($_POST['password'], $myUser['password']);
             if ($myUser) {
                 if(password_verify($_POST['password'], $myUser['password']) === TRUE){
                     if($myUser['role'] != 'deleted'){

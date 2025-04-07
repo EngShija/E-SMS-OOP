@@ -8,7 +8,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']) ?: $parent->get_parent_by_i
 
 ?>
 
-<nav class="navbar bg-dark text-light content mb-6">
+<nav class="navbar bg-dark text-light  border border-light content mb-6 mt-5">
     <div class="container-fluid">
         <div class="navbar-header row">
         <a class="navbar-brand" href="dashboard.php?myProfile"><img src="uploads/<?= $users['profile_image'] ?>" height="50" width="50" class="rounded-circle"></a>

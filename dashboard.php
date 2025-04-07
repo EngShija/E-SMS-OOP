@@ -142,6 +142,8 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
         include_once "includes/my-profile.php";
       } else if (isset($_GET['profileImage'])) {
         include_once "includes/profile.php";
+      }else if (isset($_GET['mystudents'])) {
+          include_once "includes/parent-students.php";
       } else if (isset($_SESSION['classEmpty'])) {
         sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
         unset($_SESSION['classEmpty']);
@@ -161,5 +163,6 @@ $route = isset($_GET['route']) ? $_GET['route'] : 'home';
         include_once __DIR__ . "/includes/carousel.php";
         // include_once __DIR__. "/includes/advertisements.php";
       }
+      require_once __DIR__. "/includes/alerts.php";
 
       require_once __DIR__ . "/includes/footer.php";

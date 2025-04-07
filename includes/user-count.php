@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center py-5">
     <div class="counts bg-dark text-light text-center border border-success">
         <h4><?= count($student->get_students()) . " " ?> Students</h4>
     </div>

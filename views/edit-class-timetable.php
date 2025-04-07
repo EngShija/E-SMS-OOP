@@ -75,9 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 
     <?php if (isset($data)): ?>
-        <form action="../controllers/update-timetable.php" method="POST">
-            <input type="hidden" name="class" value="<?= $class_name ?>">
-            <input type="hidden" name="yos" value="<?= $year_of_study ?>">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -93,20 +90,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <td><?php echo $day; ?></td>
                             <?php foreach ($time_slots as $slot): ?>
                                 <td>
-                                    <select name="timetable[<?= $day ?>][<?= $slot ?>]">
+                                    <form action="../controllers/update-timetable.php" method="POST">
+                                    <input type="hidden" name="class" value="<?= $class_name ?>">
+                                    <input type="hidden" name="yos" value="<?= $year_of_study ?>">
+                                    <select name="sub_name">
                                     <option value="">---</option>
                                         <?php foreach ($subject->get_all_subjects() as $subj): ?>
                                             <option value="<?= $subj['sub_name'] ?>" <?= isset($slots[$slot]) && in_array($subj['sub_name'], $slots[$slot]) ? 'selected' : '' ?>><?= $subj['sub_name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    </form>
                                 </td>
                             <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-success">Update Timetable</button>
-            <?= $class_id ?>
-        </form>
     <?php endif; ?>
 </div>

@@ -4,9 +4,7 @@ require_once "includes/header.php";
 require_once "includes/functions.php";
 
 ?>
-<!-- <div class="container">
-  <div class="d-flex justify-content-center mt-5 mb-5 col-md-10 mx-auto col-lg-5 login"> -->
-<div class="mx-auto mt-5 login col-sm-3">
+<div class="mx-auto mt-5 login col-sm-3 py-5 ">
   <form action="../controllers/login_handler.php"
     class="p-4 p-md-5 border rounded-3 border-primary bg-dark was-validated" enctype="multipart/form-data"
     method="POST">
@@ -44,8 +42,11 @@ require_once "includes/functions.php";
     </div>
     <a href="forget-password.php" class="text-light">Forgot Password</a>
   </form>
+  <div class="text-center">
+    <p class="text-light">Don't have an account? <a href="register.php" class="text-decoration-none">Register</a></p>
 </div>
 <script src="assets/js/login.js"></script>
-</body>
 
-</html>
+<?php
+require_once "includes/footer.php";
+?>

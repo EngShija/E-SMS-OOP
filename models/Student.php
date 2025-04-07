@@ -5,10 +5,12 @@ class Student extends User
     private $student_id;
     private $RegNo;
     private $parent_id;
-    public function set_student_id($student_id){
+    public function set_student_id($student_id)
+    {
         $this->student_id = $student_id;
     }
-    public function get_student_id(){
+    public function get_student_id()
+    {
         return $this->student_id;
     }
     public function set_regNo($regNo)
@@ -19,7 +21,7 @@ class Student extends User
     {
         return $this->RegNo;
     }
-        public function set_parent_id($parent_id)
+    public function set_parent_id($parent_id)
     {
         $this->parent_id = $parent_id;
     }
@@ -44,6 +46,11 @@ class Student extends User
         $sql = "SELECT * FROM student ORDER BY first_name, last_name";
         return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
     }
+    public function get_students_by_parent_id()
+    {
+        $sql = "SELECT * FROM student WHERE parent_id = ? ORDER BY first_name, last_name";
+        return $this->database->execute_query(query: $sql, params: [$this->get_parent_id()])->fetch_all(MYSQLI_ASSOC);
+    }
     public function get_student_by_id($student_id)
     {
         $sql = "SELECT * FROM student WHERE unique_id = ?";
@@ -54,7 +61,7 @@ class Student extends User
         $sql = "UPDATE student SET status = ? WHERE unique_id = ?";
         return $this->database->execute_query($sql, ['deleted', $student_id]);
     }
-    public function update_student($fname, $mname, $lname, $gender, $reg_no, $class,  $student_id)
+    public function update_student($fname, $mname, $lname, $gender, $reg_no, $class, $student_id)
     {
         $sql = "UPDATE student SET first_name = ?, middle_name = ?, last_name = ?,  gender = ?, reg_no = ?,  class = ? WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$fname, $mname, $lname, $gender, $reg_no, $class, $student_id]);
@@ -65,9 +72,10 @@ class Student extends User
         $sql = "SELECT * FROM student WHERE class = ?";
         return $this->database->execute_query(query: $sql, params: [$class])->fetch_all(MYSQLI_ASSOC);
     }
-    public function update_parent_id($parent_id, $student_id){
+    public function update_parent_id($parent_id, $student_id)
+    {
         $sql = "UPDATE student SET parent_id = ? WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$parent_id, $student_id]);
-    
+
     }
 }

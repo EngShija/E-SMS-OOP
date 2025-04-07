@@ -35,13 +35,12 @@ if (!$parent->is_parent_exist($student->get_student_id())) {
     $_SESSION['exist'] = "exist";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 } else {
+    $parentUser = $parent->get_user_by_email($email);
     if($parent->is_user_present($email)){
-        $_SESSION['parentPresent'] = $email;
-        $myParent = $parent->get_user_by_email($email);
-        $student->set_parent_id($myParent['unique_id']);
-        $parent_id = $student->get_parent_id();
-        $student->update_parent_id($parent_id, $student_id);
-        $parent->add_parent($myParent['unique_id'], $student_id, $phone, $gender, $address, $relation);
+        $parent->add_parent($parentUser['unique_id'], $student_id, $phone, $gender, $address, $relation);
+        $parent->add_user($parentUser['unique_id'], $fname, $lname, $email, $gender, $password, $profile, 'parent', NULL );
+        $student->update_parent_id($parentUser['unique_id'], $student_id);
+        $_SESSION['parentPresent'] = $parentUser['first_name'] . " " . $parentUser['last_name'] ;
         redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
     }
 else{

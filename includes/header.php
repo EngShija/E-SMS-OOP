@@ -23,9 +23,13 @@ date_default_timezone_set('Africa/Nairobi');
     background-repeat: no-repeat;
     background-size: cover;
 }
+.all{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+}
   </style>
 </head>
-
+<div class="all">
 <body class="body" style="filter: <?= $_SESSION['theme'] ??'no'?>">
 <!-- <form action="controllers/theme-toggle.php" method="POST">
   <input type="submit" name="light" value="Light Theme">
@@ -36,11 +40,11 @@ date_default_timezone_set('Africa/Nairobi');
 <button onclick="darkTheme()">Dark Theme</button> -->
 
   <div class="header-main">
-    <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark text-light">
+    <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark border border-light text-light">
       <div class="container-fluid">
         <div class="navbar-header row">
           <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
-              class="rounded-circle border border-success"></a>
+              class="rounded-circle"></a>
         </div>
         <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php if (isset($_SESSION['user_id'])): ?>
