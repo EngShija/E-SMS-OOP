@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__. "/../models/Database.php";
+
+require_once __DIR__ . "/School.php";
 /**
  * Summary of Grade
  */
-class Grade{
+class Grade extends School
+{
     private $database;
     private $start_from;
     private $end_to;

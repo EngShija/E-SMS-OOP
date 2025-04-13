@@ -11,3 +11,4 @@ require_once __DIR__. "/../models/Timetable.php";
 require_once __DIR__. "/../models/pdf.php";
 require_once __DIR__. "/../models/Results.php";
 require_once __DIR__. "/../models/ResultsPDF.php";
+require_once __DIR__. "/../models/School.php";

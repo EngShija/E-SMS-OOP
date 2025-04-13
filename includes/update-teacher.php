@@ -1,15 +1,8 @@
 <?php
-session_start();
 require_once "models/Users.php";
 include_once "models/Subject.php";
 require_once __DIR__ . "/../includes/functions.php";
 $user = new User(new Database());
-// $hello = <script>localStorage.getItem('teacher_id')</script>;
-$teacher = $user->get_user_by_id($$hello);
-
-$subject = new Subject(new Database());
-
-$mySubject = $subject->get_all_subjects();
 
 ?>
 

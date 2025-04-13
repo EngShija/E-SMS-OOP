@@ -15,10 +15,10 @@ class studentParent extends User
         $sql = "SELECT * FROM parent WHERE student_id = ?";
         return $this->database->execute_query(query: $sql, params: [$student_id])->num_rows < 1;
     }
-    public function add_parent($unique_id, $student_id, $phone, $gender, $adress, $relation) {
-        $sql = "INSERT INTO parent(unique_id, student_id, phone,  gender, physical_address,  relation)
-        VALUES(?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$unique_id, $student_id, $phone, $gender, $adress, $relation]);
+    public function add_parent($unique_id, $student_id, $phone, $gender, $adress, $relation, $school_id) {
+        $sql = "INSERT INTO parent(unique_id, student_id, phone,  gender, physical_address,  relation, school_id)
+        VALUES(?, ?, ?, ?, ?, ?, ?)";
+        return $this->database->execute_query(query: $sql, params: [$unique_id, $student_id, $phone, $gender, $adress, $relation, $school_id]);
     }
     public function delete_parent($student_id)
     {

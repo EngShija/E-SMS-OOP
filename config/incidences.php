@@ -21,3 +21,4 @@ $timetable = new Timetable(new Database());
 
 $pdf = new PDF();
 
+$school = new School(new Database());

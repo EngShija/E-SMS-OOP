@@ -1,5 +1,10 @@
 <?php 
 date_default_timezone_set('Africa/Nairobi'); 
+
+require_once __DIR__ . "/../config/autoloader.php";
+require_once __DIR__ . "/../config/incidences.php";
+require_once __DIR__ . "/../config/constants.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +22,17 @@ date_default_timezone_set('Africa/Nairobi');
   <link rel="stylesheet" href="assets/datatables/dataTables.bootstrap.css">
   <script src="assets/js/sweetAlerts.js"></script>
   <script src="assets/js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/student-search.js"></script>
+  <script src="assets/datatables/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="assets/datatables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="assets/datatables/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="assets/dataTables/jquery.dataTables_themeroller.css">
+
   <style>
 .body{
     background-image: url('./assets/images/bg.jpeg');
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 }
 .all{
@@ -46,12 +58,16 @@ date_default_timezone_set('Africa/Nairobi');
           <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
               class="rounded-circle"></a>
         </div>
-        <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php if (isset($_SESSION['user_id'])): ?>
+          <?php $school->setSchoolId( $_SESSION[SCHOOL_ID]); 
+          $schoolDetails = $school->getSchoolDetails(); ?>
+          <h1 class="text-center"><?= strtoupper($schoolDetails[SCHOOL_NAME] ?? "SCHOOL MANAGEMENT SYSTEM STAFF") ?></h1>
           <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample">
             <a class="nav-link" title="Menu"><img src="assets/images/menu.svg" style="filter: invert(1);"></img></a>
           </div>
+        <?php else: ?>
+          <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
         <?php endif ?>
       </div>
     </nav>

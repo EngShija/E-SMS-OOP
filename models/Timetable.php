@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . "/Database.php";
+require_once __DIR__ . "/School.php";
 /**
  * Summary of Timetable
  */
-class Timetable
+class Timetable extends School
 {
     private $database;
     private $day;

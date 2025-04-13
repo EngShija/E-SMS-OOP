@@ -7,3 +7,8 @@ define('PASSWORD', 'password');
 define('VERIFIED', 'verified');
 define('STATUS', 'status');
 define('PARENT', 'parent');
+define('SCHOOL_ID', 'school_id');
+define('STUDENT', 'student');
+define('TEACHER', 'teacher');
+define('ADMIN', 'admin');
+define('SCHOOL_NAME', 'school_name');

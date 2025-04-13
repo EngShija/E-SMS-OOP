@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . "/../models/Users.php";
+require_once __DIR__ . '/../config/autoloader.php';
+// require_once __DIR__. "/../config/incidences.php";
 class Student extends User
 {
     private $student_id;
@@ -37,14 +39,14 @@ class Student extends User
 
     public function add_student($unique_id, $fname, $lname, $mname, $gender, $regNo, $RegDate, $class)
     {
-        $sql = "INSERT INTO student(unique_id, first_name, last_name, middle_name, gender, reg_no, reg_date, class)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-        return $this->database->execute_query(query: $sql, params: [$unique_id, $fname, $mname, $lname, $gender, $regNo, $RegDate, $class]);
+        $sql = "INSERT INTO student(unique_id, first_name, last_name, middle_name, gender, reg_no, reg_date, class, school_id)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return $this->database->execute_query(query: $sql, params: [$unique_id, $fname, $mname, $lname, $gender, $regNo, $RegDate, $class, $this->getSchoolId()]);
     }
-    public function get_students()
+    public function get_students($school_id)
     {
-        $sql = "SELECT * FROM student ORDER BY first_name, last_name";
-        return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM student WHERE school_id = ? ORDER BY first_name, last_name";
+        return $this->database->execute_query(query: $sql, params: [$school_id])->fetch_all(MYSQLI_ASSOC);
     }
     public function get_students_by_parent_id()
     {
@@ -76,6 +78,18 @@ class Student extends User
     {
         $sql = "UPDATE student SET parent_id = ? WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$parent_id, $student_id]);
-
     }
+
+    public function get_students_paginated($offset, $limit)
+    {
+        $sql = "SELECT * FROM student ORDER BY first_name, last_name LIMIT ?, ?";
+        return $this->database->execute_query(query: $sql, params: [$offset, $limit])->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function count_students()
+    {
+        $sql = "SELECT COUNT(*) as total FROM student";
+        return $this->database->execute_query(query: $sql)->fetch_assoc()['total'];
+    }
+
 }

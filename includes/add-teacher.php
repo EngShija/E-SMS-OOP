@@ -49,13 +49,6 @@
                           </select>
                           <label for="subject">Subject Name:</label>
                       </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="password" id="pass"
-                            placeholder="Enter Parent Relationship" required>
-                        <label for="pass">Password:</label>
-                    </div>
-
                 </div>
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

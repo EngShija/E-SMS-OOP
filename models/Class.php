@@ -1,5 +1,8 @@
 <?php
-class StudentClass{
+require_once __DIR__ . "/School.php";
+
+class StudentClass extends School
+{
     private $database;
     private $class_name;
     public function __construct(Database $database){

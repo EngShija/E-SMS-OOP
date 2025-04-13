@@ -1,3 +1,34 @@
+<script>
+    $(document).ready(function() {
+        $('#attendanceTb').DataTable({
+            paging: true,
+            searching: true,
+            ordering: true,
+            pageLength: 10,
+            lengthChange: true,
+            language: {
+                search: "<span style='color: #ffffff;'>Search:</span>",
+                lengthMenu: "<span style='color: #ffffff;'>Show _MENU_ entries</span>",
+                info: "<span style='color: #ffffff;'>Showing _START_ to _END_ of _TOTAL_ entries</span>",
+                paginate: {
+                    previous: "<span style='color: #ffffff;'>&laquo; Previous</span>",
+                    next: "<span style='color: #ffffff;'>Next &raquo;</span>"
+                }
+            },
+            initComplete: function() {
+                // Style pagination buttons
+                $('.dataTables_paginate .paginate_button').addClass('btn btn-secondary mx-1');
+                // Style the entry counter dropdown
+                $('.dataTables_length label').addClass('text-light');
+                $('.dataTables_length select').addClass('form-select form-select-sm');
+                // Style the "Showing X to Y of Z entries" text
+                $('.dataTables_info').addClass('text-light');
+                $('.dataTables_filter input').addClass('form-control form-control-sm');
+            }
+        });
+    });
+</script>
+
 <?php
 require_once __DIR__ . "/../models/Student.php";
 require_once __DIR__ . "/../models/Class.php";
@@ -21,7 +52,7 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
             <h5 class="card-title" style="text-decoration: underline;">
                 <?= strtoupper($myStudent['first_name']) . " " . strtoupper($myStudent['last_name']) ?>
             </h5>
-            <table class="table table-striped card-item table-bordered table-dark" id="tbId">
+            <table class="table table-striped card-item table-bordered table-dark" id="attendanceTb">
                 <thead>
                     <tr>
                         <th>No</th>

@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/Database.php";
-class Subject
+require_once __DIR__ . "/School.php";
+
+class Subject extends School
 {
     private $database;
     private $subjectName;

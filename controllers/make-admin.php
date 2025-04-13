@@ -7,8 +7,13 @@ $user_id = $_GET['id'];
 $role = 'admin';
 
     if ($user->update_user_role($user_id, $role)) {
-        header("Location: ../dashboard.php?addad=success");
+                // Set a success message in the session (optional)
+                $_SESSION['message'] = "User role updated successfully.";
+                
+        // redirect_to('../dashboard.php?addad=success');
+        echo "Admin role assigned successfully.";
     } else {
-        header("Location: ../dashboard.php?addad=error");
+        $_SESSION["message"] = "Failed to update user role.";
+        // redirect_to('../dashboard.php?addad=error');
+        echo "Failed to assign admin role.";
     }
-    exit();

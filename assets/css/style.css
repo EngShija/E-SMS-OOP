@@ -61,13 +61,13 @@ li {
     width: fit-content;
 }
 
-.scrollTb {
+/* .scrollTb {
     position: absolute;
     overflow: scroll;
     max-height: 500px;
     width: 100%;
     align-items: center;
-}
+} */
 
 .logo {
     width: 60px;

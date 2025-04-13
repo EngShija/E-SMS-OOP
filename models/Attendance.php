@@ -1,5 +1,7 @@
 <?php
-class Attendance{
+require_once __DIR__ . "/School.php";
+class Attendance extends School
+{
     private $database;
     private $date;
     private $status;

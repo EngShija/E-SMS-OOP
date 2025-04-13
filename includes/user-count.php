@@ -1,9 +1,13 @@
+<?php
+$school->setSchoolId($_SESSION[SCHOOL_ID]);
+?>
+
 <div class="text-center py-5">
     <div class="counts bg-dark text-light text-center border border-success">
-        <h4><?= count($student->get_students()) . " " ?> Students</h4>
+        <h4><?= count($student->get_students($school->getSchoolId())) . " " ?> Students</h4>
     </div>
     <div class="counts bg-dark text-light text-center border border-success">
-        <h4><?= count($user->get_parents()) . " " ?> Parents</h4>
+        <h4><?= count($user->get_parents($school->getSchoolId())) . " " ?> Parents</h4>
     </div>
     <div class="counts bg-dark text-light text-center border border-success">
         <h4><?= count($user->get_teachers()) . " " ?> Teachers</h4>

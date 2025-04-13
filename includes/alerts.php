@@ -14,7 +14,7 @@ if (isset($_SESSION['updated'])) {
 }
 else if(isset($_SESSION['parentPresent'])){
     $parentPresent = $_SESSION['parentPresent'];
-    sweetAlert('Sorry!', 'Parent already exists with entered email is found as '. strtoupper($parentPresent). " if is also a parent for this student go to parent and add a student", 'warning');
+    sweetAlert('Sorry!', 'A user with entered email is found as '. strtoupper($parentPresent). " and added as parent for this student!", 'warning');
     unset($_SESSION['parentPresent']);
 }
 else if(isset($_SESSION['exist'])){
