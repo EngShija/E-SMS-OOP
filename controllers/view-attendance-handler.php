@@ -8,6 +8,11 @@ $class->set_class_name($_POST['class']);
 
 $attendance->set_date($_POST['date']);
 
+$student->setSchoolId($_SESSION[SCHOOL_ID]);
+
+$attendance->setSchoolId($_SESSION[SCHOOL_ID]);
+
+
 if(count($student->get_student_by_class($class->get_class_name())) > 0){
     if(count($attendance->get_attendance_by_date($attendance->get_date())) > 0){
     $_SESSION['student_class'] = $class->get_class_name();

@@ -1,5 +1,11 @@
 <?php
 $school->setSchoolId($_SESSION[SCHOOL_ID]);
+
+$class->setSchoolId($_SESSION[SCHOOL_ID]);
+
+$user->setSchoolId($_SESSION[SCHOOL_ID]);
+
+
 ?>
 
 <div class="text-center py-5">

@@ -13,19 +13,19 @@
 
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name"
                             required autofocus>
                         <label for="fname">First Name:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name"
                             required>
                         <label for="lname">Last Name:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <select class="form-control" name="gender" id="gender">
                             <option value="">Select Your Gender:</option>
                             <option value="male">Male</option>
@@ -34,13 +34,13 @@
                         <label for="gender">Gender:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="email" class="form-control" name="email" id="email"
                             placeholder="Enter Email Address" required>
                         <label for="email">Email:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                           <select class="form-control" name="subject" id="subject">
                               <option>Select Subject</option>
                               <?php foreach ($subject->get_all_subjects() as $mySubject) : ?>

@@ -12,7 +12,7 @@
 
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="className" id="className" placeholder="Enter Class Name" required autofocus>
                         <label for="className">Class Name:</label>
                     </div>

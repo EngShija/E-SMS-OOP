@@ -71,8 +71,8 @@ class Student extends User
 
     public function get_student_by_class($class)
     {
-        $sql = "SELECT * FROM student WHERE class = ?";
-        return $this->database->execute_query(query: $sql, params: [$class])->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM student WHERE class = ? AND school_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$class, $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     public function update_parent_id($parent_id, $student_id)
     {
@@ -88,8 +88,8 @@ class Student extends User
 
     public function count_students()
     {
-        $sql = "SELECT COUNT(*) as total FROM student";
-        return $this->database->execute_query(query: $sql)->fetch_assoc()['total'];
+        $sql = "SELECT COUNT(*) as total FROM student WHERE school_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$this->getSchoolId()])->fetch_assoc()['total'];
     }
 
 }

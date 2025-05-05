@@ -24,20 +24,20 @@ else if(isset($_SESSION['exist'])){
 
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" name="fname" id="fname"
                                 placeholder="Enter First Name" required autofocus>
                                 <label for="fname">First Name:</label>
                         </div>
 
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" name="lname" id="lname"
                                 placeholder="Enter Last Name" required>
                                 <label for="lname">Last Name:</label>
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <select class="form-control" name="gender" id="gender">
                                 <option>Select Gender</option>
                                 <option value="male">Male</option>
@@ -47,25 +47,25 @@ else if(isset($_SESSION['exist'])){
                         </div>
 
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" name="address" id="address"
                                 placeholder="Enter Physical Address" required>
                                 <label for="address">Physical Address:</label>
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <input type="email" class="form-control" name="email" id="email"
                                 placeholder="Enter Email Address" required>
                                 <label for="email">Email Address:</label>
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <input type="number" class="form-control" name="phone" id="phone"
                                 placeholder="Enter Phone Number " required>
                                 <label for="phone">Phone Number:</label>
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating mb-3 text-dark">
                             <select class="form-control" name="relation" id="relation">
                                 <option value="father">Father</option>
                                 <option value="mother">Mother</option>

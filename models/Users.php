@@ -213,13 +213,13 @@ class User extends School
     }
     public function get_admins()
     {
-        $sql = "SELECT * FROM users WHERE role = 'admin'";
-        return $this->database->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM users WHERE role = ? AND school_id = ?";
+        return $this->database->execute_query($sql, ['admin', $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     public function get_teachers()
     {
         $sql = "SELECT * FROM users WHERE (role = 'teacher' OR role = 'admin') AND school_id = ? ";
-        return $this->database->execute_query($sql, [ $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
+        return $this->database->execute_query($sql, [$this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     // public function get_teachers_exept_current($user_id)
     // {

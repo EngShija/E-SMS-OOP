@@ -21,26 +21,26 @@ $class = new StudentClass(new Database());
 
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="fname" id="fname"
                             placeholder="Enter First Name" autofocus>
                             <label for="fname">First Name:</label>
                     </div>
 
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="mname" id="mname"
                             placeholder="Enter Middle Name">
                             <label for="mname">Middle Name:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="lname" id="lname"
                             placeholder="Enter Last Name">
                             <label for="lname">Last Name:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <select class="form-control" name="gender" id="gender">
                             <option value="">Select Your Gender:</option>
                             <option value="male">Male</option>
@@ -49,17 +49,17 @@ $class = new StudentClass(new Database());
                         <label for="gender">Gender:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="RegNo" id="RegNo"
                             placeholder="Enter Registration Number">
                             <label for="RegNo">Registration Number:</label>
                     </div>
 
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <select class="form-control" name="class" id="class">
                             <option>Select Current Class</option>
-                            <?php foreach ($class->get_all_classes() as $myClass) : ?>
+                            <?php $class->setSchoolId($_SESSION[SCHOOL_ID]); foreach ($class->get_all_classes() as $myClass) : ?>
                                 <option value="<?= $myClass['class_name'] ?>"><?= $myClass['class_name'] ?></option>
                             <?php endforeach; ?>
                         </select>

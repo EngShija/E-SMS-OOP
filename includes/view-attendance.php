@@ -11,6 +11,8 @@ $attendance->set_date($_SESSION['date']);
 
 $attendance->set_status(isset($_POST['status']) ? 'present' : 'absent');
 
+$student->setSchoolId($_SESSION[SCHOOL_ID]);
+
 ?>
 
 <h3 class="text-center"><?= strtoupper($_SESSION['student_class'] . " " . "(" . $_SESSION['date'] . ")") ?></h3>

@@ -11,6 +11,8 @@ $attendance->set_date($_SESSION['date']);
 
 $attendance->set_status(isset($_POST['status']) ? 'present' : 'absent');
 
+$student->setSchoolId($_SESSION[SCHOOL_ID]);
+
 if (isset($_SESSION['attendanceExist'])) {
     sweetAlert('Sorry!', 'This student is already checked!', 'warning');
     unset($_SESSION['attendanceExist']);

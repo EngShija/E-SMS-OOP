@@ -14,7 +14,7 @@
 
                     </div>
 
-                    <div class="form-floating">
+                    <div class="form-floating text-dark">
                         <input type="text" class="form-control" name="exam" id="exam" placeholder="Enter Exam Type" required autofocus>
                         <label for="exam">Exam Type:</label>
                     </div>

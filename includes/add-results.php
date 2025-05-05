@@ -54,7 +54,7 @@
                           <label for="subject">Subject Name:</label>
                       </div>
 
-                      <div class="form-floating mb-3">
+                      <div class="form-floating mb-3 text-dark">
                           <input type="number" class="form-control" name="marks" id="marks" placeholder="Enter Marks Scored" required autofocus>
                           <label for="marks">Marks Scored:</label>
                       </div>

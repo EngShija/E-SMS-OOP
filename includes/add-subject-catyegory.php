@@ -12,7 +12,7 @@
 
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="subcat" id="subcat" placeholder="Enter Subject Category" required autofocus>
                         <label for="subcat">Subject Category:</label>
                     </div>

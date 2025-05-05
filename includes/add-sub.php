@@ -18,12 +18,12 @@ $subject = new Subject(new Database());
 
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                         <input type="subname" class="form-control" name="subname" id="subname" placeholder="Enter Subject Name" required autofocus>
                         <label for="subname">Subject Name:</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 text-dark">
                           <select class="form-control" name="category" id="category">
                               <option>Select Sbject Category</option>
                               <?php foreach ($subject->get_all_subject_categories() as $category) : ?>

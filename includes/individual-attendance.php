@@ -49,7 +49,7 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
     <div class="card bg-dark text-center text-light mb-3 mt-3" style="width: 30rem;">
         <div class="card-body">
 
-            <h5 class="card-title" style="text-decoration: underline;">
+            <h5 class="card-title mb-3" style="text-decoration: underline;">
                 <?= strtoupper($myStudent['first_name']) . " " . strtoupper($myStudent['last_name']) ?>
             </h5>
             <table class="table table-striped card-item table-bordered table-dark" id="attendanceTb">

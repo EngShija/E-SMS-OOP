@@ -28,8 +28,10 @@ require_once __DIR__."/../includes/functions.php";
             redirect_to('../dashboard.php?addtch');
         }else{
             echo "{$email} Already Exist";
+            redirect_to('../dashboard.php?addtch');
         }
 
     } else{
         echo "All Fields Are Required!";
+        redirect_to('../dashboard.php?addtch');
     }

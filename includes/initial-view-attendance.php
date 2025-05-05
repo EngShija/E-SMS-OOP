@@ -3,7 +3,7 @@ include_once __DIR__ . "/../models/Database.php";
 include_once __DIR__ . "/../models/Class.php";
 require_once __DIR__ . "/../includes/functions.php";
 
-$class = new StudentClass(new Database());
+$class->setSchoolId($_SESSION[SCHOOL_ID]);
 ?>
 
 <div class="modal fade text-center" id="viewAttendance" tabindex="-1" aria-labelledby="exampleModalLabel"
