@@ -13,7 +13,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success"
                 src="assets/images/logo.jpg" height="30" width="30""></img><?= "  " ?>SMS</h5>
-        <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close" style="filter: invert(1);"></button>
+        <button type=" button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="filter: invert(1);"></button>
     </div>
     <hr>
 
@@ -97,20 +98,11 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             Timetables
                         </button>
                         <ul class="dropdown-menu" style="filter: invert();">
-                            <li><a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#addtmt">Add Timetable</a></li>
+                            <li><a href="?timetable" class="add-student list-group-item list-group-item-action">Class
+                                    Timetable</a></li>
 
                             <li><a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#classTmt">View Class Timetable</a></li>
-
-                            <li><a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#examTmt">View Exam Timetable</a></li>
-                            <?php if ($role['role'] == 'admin'): ?>
-                                <li>
-                                    <a  href="views/edit-class-timetable.php">Update
-                                        Timetables</a>
-                                </li>
-                            <?php endif ?>
+                                    data-bs-toggle="modal" data-bs-target="#examTmt">Exam Timetable</a></li>
                         </ul>
                     </div>
 
@@ -141,9 +133,9 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                                 Results
                             </button>
                             <ul class="dropdown-menu" style="filter: invert();">
-                                <a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#verifyRst">Verify Results</a>
-                                <a href="dashboard.php?addrst" class="list-group-item list-group-item-action">Reviw Results</a>
+                                <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
+                                    data-bs-target="#verifyRst">Verify Results</a>
+                                <a href="dashboard.php?viewResults" class="list-group-item list-group-item-action">View Results</a>
                                 </li>
                             </ul>
                         </div>
@@ -166,11 +158,30 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             </li>
                         </ul>
                     </div>
+
+                    <div class="dropdown mt-2">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                            <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                                <use xlink:href="#table" />
+                            </svg>
+                            Rooms
+                        </button>
+                        <ul class="dropdown-menu" style="filter: invert();">
+                            <?php if ($role['role'] == 'admin'): ?>
+                                <a href="dashboard.php?addcls" class="list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#addRoom">Add Room</a>
+                            <?php endif ?>
+                            <a href="dashboard.php?manageRooms" class="list-group-item list-group-item-action">Manage
+                                Rooms</a>
+                            </li>
+                        </ul>
+                    </div>
                 <?php endif ?>
 
                 <?php if ($role['role'] == 'parent'): ?>
                     <div class="dropdown">
-                        <button class="btn text-light" type="button" onclick="window.location.href='dashboard.php?mystudents'">
+                        <button class="btn text-light" type="button"
+                            onclick="window.location.href='dashboard.php?mystudents'">
                             <img src="assets/images/book-open.svg" height="28" width="28" style="filter: invert(1);"></img>
                             My Students
                         </button>
@@ -212,7 +223,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             Attendance
                         </button>
                         <ul class="dropdown-menu" style="filter: invert();">
-                            <a href="dashboard.php?indidualAttendance=<?= $myParent['student_id'] ?>" class="list-group-item list-group-item-action">View student Attendance</a>
+                            <a href="dashboard.php?indidualAttendance=<?= $myParent['student_id'] ?>"
+                                class="list-group-item list-group-item-action">View student Attendance</a>
                             </li>
                         </ul>
                     </div>
@@ -320,7 +332,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                     </button>
                     <ul class="dropdown-menu" style="filter: invert();">
                         <a href="dashboard.php?payFees" class="list-group-item list-group-item-action">Pay Fees</a>
-                        <a href="dashboard.php?viewFees" class="list-group-item list-group-item-action">View Payment History</a>
+                        <a href="dashboard.php?viewFees" class="list-group-item list-group-item-action">View Payment
+                            History</a>
                     </ul>
                 </div>
                 </nav>
@@ -332,30 +345,32 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
         <div class="dropdown mt-2">
             <button class="btn text-light" type="button" data-bs-toggle="dropdown">
                 <div class="d-inline-flex">
-                    <img class="rounded-circle border border-success"
-                        src="uploads/<?= $users['profile_image'] ?>" height="30" width="30"></img>
-                           <h5 class=" dropdown-toggle ml-3">Account</h5>
+                    <img class="rounded-circle border border-success" src="uploads/<?= $users['profile_image'] ?>"
+                        height="30" width="30"></img>
+                    <h5 class=" dropdown-toggle ml-3">Account</h5>
                 </div>
             </button>
             <ul class="dropdown-menu p-2" style="filter: invert();">
-            <div class="d-inline-flex">
+                <div class="d-inline-flex">
                     <img src="assets/images/user.svg" height="20" width="20"></img>
-            <a href="dashboard.php?myProfile" class="list-group-item list-group-item-action"> My Profile</a>
-            </div>
-<hr>
-<div class="d-inline-flex">
+                    <a href="dashboard.php?myProfile" class="list-group-item list-group-item-action"> My Profile</a>
+                </div>
+                <hr>
+                <div class="d-inline-flex">
                     <img src="assets/images/user.svg" height="20" width="20"></img>
-                <a href="#" class="list-group-item list-group-item-action"  data-bs-toggle="modal" data-bs-target="#updatePass">Change Password</a>
-</div>
+                    <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
+                        data-bs-target="#updatePass">Change Password</a>
+                </div>
                 <hr>
                 <div class="d-inline-flex">
                     <img src="assets/images/book-open.svg" height="20" width="20"></img>
-                <a href="dashboard.php?loginHst" class="list-group-item list-group-item-action">Login History</a>
+                    <a href="dashboard.php?loginHst" class="list-group-item list-group-item-action">Login History</a>
                 </div>
                 <hr>
                 <div class="d-inline-flex">
                     <img src="assets/images/log-out.svg" height="20" width="20"></img>
-                <a class="list-group-item list-group-item-action"  href="#" title="Logout" onclick="warningAlert('Are you sure you want to exit?', 'controllers/logout.php')">Logout</a>
+                    <a class="list-group-item list-group-item-action" href="#" title="Logout"
+                        onclick="warningAlert('Are you sure you want to exit?', 'controllers/logout.php')">Logout</a>
                 </div>
                 <hr>
                 </li>
@@ -369,6 +384,7 @@ include_once "add-sub.php";
 include_once "add-exam.php";
 include_once "add-subject-catyegory.php";
 include_once "add-class.php";
+include_once "add-room.php";
 include_once "add-teacher.php";
 include_once "attendance-choice.php";
 include_once "initial-view-attendance.php";
@@ -378,4 +394,5 @@ include_once "view-result.php";
 include_once "view-exam-timetable.php";
 include_once "verify-results.php";
 include_once "update-password.php";
+include_once "view-results.php";
 

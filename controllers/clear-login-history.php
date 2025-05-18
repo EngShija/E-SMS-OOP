@@ -6,6 +6,6 @@ require_once __DIR__."/../includes/functions.php";
 
 $database = new Database();
 
-$database->clear_login_history($_SESSION['user_id']);
+$user->clear_login_history($_SESSION['user_id']);
 
 redirect_to('../dashboard.php');

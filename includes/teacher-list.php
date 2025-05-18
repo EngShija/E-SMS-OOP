@@ -43,7 +43,6 @@ if(count($all_teachers) > 0) :?>
         <tr>
             <th>S/N</th>
             <th>Full Name</th>
-            <th>Subject(s) Tought</th>
             <th>Email</th>
             <th>Actions</th>
         </tr>
@@ -55,7 +54,6 @@ if(count($all_teachers) > 0) :?>
         <tr>
             <td><?= $i ?></td>
             <td><?=$teacher['first_name']. " ". $teacher['last_name'] ?></td>
-            <td><?=$teacher['subject_tought'] ?></td>
             <td><?=$teacher['email_address'] ?></td>
             <?php if($teacher['unique_id'] == $_SESSION[CURRENT_USER]) : ?>
                 <td><h3 class="text-secondary">You</h3></td>

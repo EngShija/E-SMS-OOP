@@ -86,4 +86,22 @@ public function get_results_by_student_id($student_id){
         $sql = "UPDATE results SET status = ? WHERE exam_type = ?";
         return $this->database->execute_query(query: $sql, params: [$status, $exam_type]);
     }
+    public function get_mark($student_id, $subject_name, $exam_type) {
+    $sql = "SELECT marks FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
+    $stmt = $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type]);
+    $row = $stmt->fetch_assoc();
+    return $row ? $row['marks'] : null;
+}
+    public function get_result_grade($student_id, $subject_name, $exam_type) {
+        $sql = "SELECT grade FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
+        $stmt = $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type]);
+        $row = $stmt->fetch_assoc();
+        return $row ? $row['grade'] : null;
+    }
+    public function get_result_description($student_id, $subject_name, $exam_type) {
+        $sql = "SELECT description FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
+        $stmt = $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type]);
+        $row = $stmt->fetch_assoc();
+        return $row ? $row['description'] : null;
+    }
 }

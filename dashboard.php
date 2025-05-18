@@ -65,3 +65,4 @@ $school->setSchoolId($_SESSION[SCHOOL_ID]);
 
       require_once __DIR__ . "/./includes/routes.php";
 
+include_once __DIR__. "/includes/alerts.php";

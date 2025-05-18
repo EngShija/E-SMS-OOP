@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        $('#subTb').DataTable({
+        $('#classTb').DataTable({
             paging: true,
             searching: true,
             ordering: true,
@@ -29,16 +29,16 @@
     });
 </script>
 
-<?php $subject->setSchoolId($_SESSION[SCHOOL_ID]); if (count($subject->get_all_subjects()) > 0): ?>
-    <h1 class="text-center">SUBJECTS</h1>
+<?php $room->setSchoolId($_SESSION[SCHOOL_ID]); if (count($room->get_all_rooms()) > 0): ?>
+    <h1 class="text-center">ROOMS</h1>
     <div class="scrollTb">
         <div class="d-flex justify-content-center">
-        <table class="table table-striped table-dark table-bordered w-100" id="subTb">
+        <table class="table table-striped table-dark table-bordered w-100" id="classTb">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Subject Name</th>
-                    <th>Subject Category</th>
+                    <th>Room Name</th>
+                    <th>Room capacity</th>
                     <?php if ($role['role'] == 'admin'): ?>
                     <th>Actions</th>
                     <?php endif ?>
@@ -47,14 +47,14 @@
             <tbody>
                 <?php
                 $i = 1;
-                foreach ($subject->get_all_subjects() as $subjects): ?>
+                foreach ($room->get_all_rooms() as $rooms): ?>
                     <tr>
                         <td><?= $i ?></td>
-                        <td><?= strtoupper($subjects['sub_name']) ?></td>
-                        <td><?= strtoupper($subjects['category']) ?></td>
+                        <td><?= strtoupper($rooms['room_name']) ?></td>
+                        <td><?= strtoupper($rooms['capacity']) ?></td>
                         <?php if ($role['role'] == 'admin'): ?>
-                        <td><a href="dashboard.php?subid=<?= $subjects['id'] ?>"  class="btn btn-success" >Edit</a>
-                                <a class="btn btn-danger" onclick="confirmDelete('<?= strtoupper($subjects['sub_name']) ?>', 'controllers/delete-subject.php?subid=<?= $subjects['id'] ?>')">Delete</a>
+                        <td><a href="dashboard.php?roomId=<?= $rooms['id'] ?>"  class="btn btn-success" >Edit</a>
+                                <a class="btn btn-danger" onclick="confirmDelete('<?= strtoupper($rooms['room_name']) ?>', 'controllers/delete-class.php?subid=<?= $rooms['id'] ?>')">Delete</a>
                             <?php endif ?>
                         </td>
                     </tr>

@@ -33,7 +33,7 @@ $relation = $parent->get_relation();
 $email = $parent->get_email();
 
 if (!$parent->is_parent_exist($student->get_student_id())) {
-    $_SESSION['exist'] = "exist";
+    $_SESSION['warning'] = "Parent already assigned to this student, Only one allowed!";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 } else {
     $parentUser = $parent->get_user_by_email($email);
@@ -41,7 +41,7 @@ if (!$parent->is_parent_exist($student->get_student_id())) {
         $parent->add_parent($parentUser['unique_id'], $student_id, $phone, $gender, $address, $relation, $school->getSchoolId());
         $parent->add_user($parentUser['unique_id'], $fname, $lname, $email, $gender, $password, $profile, 'parent', NULL , $_SESSION[SCHOOL_ID]);
         $student->update_parent_id($parentUser['unique_id'], $student_id);
-        $_SESSION['parentPresent'] = $parentUser['first_name'] . " " . $parentUser['last_name'] ;
+        $_SESSION['warning'] = $parentUser['first_name'] . " " . $parentUser['last_name']. " Already exists" ;
         redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
     }
 else{
@@ -49,7 +49,7 @@ else{
     $myUser = $user->get_user_by_email($email);
     $student->update_parent_id($myUser['unique_id'], $student_id);
     $parent->add_parent($myUser['unique_id'], $student_id, $phone, $gender, $address, $relation,  $school->getSchoolId());
-    $_SESSION['parent-rg'] = "registered";
+    $_SESSION['success'] = "Parent added successfully!";
     redirect_to("../dashboard.php?updatestd={$_SESSION['stdId']}");
 }
 }

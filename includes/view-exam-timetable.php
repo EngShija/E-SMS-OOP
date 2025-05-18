@@ -11,6 +11,9 @@ $subject = new Subject(new Database());
 
 $exam = new Exam(new Database());
 
+$class->setSchoolId(SCHOOL_ID);
+
+
 ?>
 
 <div class="modal fade" id="examTmt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -35,7 +38,6 @@ $exam = new Exam(new Database());
                         </select>
                         <label for="class">Class:</label>
                     </div>
-
                     <div class="form-floating mb-3">
                           <select class="form-control" name="exam" id="exam">
                               <option>Select Exam Type</option>

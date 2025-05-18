@@ -12,9 +12,9 @@ class School
 
     private $school_email_address;
 
-    public function __construct(private $db)
+    public function __construct(Database $database)
     {
-        $this->database = $db->getConnection();
+        $this->database = $database->getConnection();
     }
     public function setSchoolName($school_name)
     {

@@ -21,10 +21,9 @@ if(!$attendance->is_checked($attendance->get_date(), $student->get_student_id())
         $attendance->get_day(),
         $student->get_student_id(),
         $attendance->get_status());
-        $_SESSION['attendanceAdded'] = 'Attendance Added';
         redirect_to('../dashboard.php?addAttendance');
 }
 else{
-    $_SESSION['attendanceExist'] = 'Attendance Exists';
+    $_SESSION['warning'] = 'Attendance Exists';
     redirect_to('../dashboard.php?addAttendance');
 }

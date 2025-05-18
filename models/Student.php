@@ -92,4 +92,14 @@ class Student extends User
         return $this->database->execute_query(query: $sql, params: [$this->getSchoolId()])->fetch_assoc()['total'];
     }
 
+    public function get_student_class_by_result_student_id($student_id) {
+    $sql = "SELECT u.class_id 
+            FROM results r 
+            JOIN users u ON r.student_id = u.unique_id 
+            WHERE r.student_id = ? LIMIT 1";
+    $stmt = $this->database->execute_query(query: $sql, params: [$student_id]);
+    $row = $stmt->fetch_assoc();
+    return $row ? $row['class_id'] : null;
+}
+
 }

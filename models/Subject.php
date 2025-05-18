@@ -39,8 +39,8 @@ class Subject extends School
     }
 
     public function get_all_subjects(){
-        $sql = "SELECT * FROM subjects ORDER BY sub_name";
-        return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM subjects WHERE school_id = ? ORDER BY sub_name";
+        return $this->database->execute_query(query: $sql, params: [$this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     public function get_subject_by_id($sub_id){
         $sql = "SELECT * FROM subjects WHERE id = ?";

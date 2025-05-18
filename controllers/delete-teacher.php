@@ -8,8 +8,8 @@ if (isset($_GET['id'])) {
     $teacher_id = $_GET['id'];
     $userRole = 'deleted'; 
     $user->update_user_role($teacher_id, $userRole);
-    $_SESSION['updated'] = "update";
-    redirect_to("../dashboard.php?managetch=1");
+    $_SESSION['success'] = "Teacher deleted!";
+    redirect_to("../dashboard.php?managetch");
 }
 redirect_to("../dashboard.php?managetch=0");
-$_SESSION['fail'] = "fail";
+$_SESSION['error'] = "Something went wrong, try again!";

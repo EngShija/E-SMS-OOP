@@ -11,6 +11,8 @@ $subject = new Subject(new Database());
 
 $exam = new Exam(new Database());
 
+$exam->setSchoolId(SCHOOL_ID);
+
 ?>
 
 <div class="modal fade" id="addtmt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -39,7 +39,7 @@
   } else if (isset($_GET['managesub'])) {
     require_once "includes/manage-sub.php";
   } else if (isset($_SESSION['viewresult'])) {
-    include_once __DIR__ . "/includes/result-opt.php";
+    include_once __DIR__ . "/result-opt.php";
     unset($_SESSION['viewresult']);
   } else if (isset($_GET['subid'])) {
     include_once "includes/initial-editisubject.php";
@@ -63,7 +63,20 @@
     include_once "includes/profile.php";
   } else if (isset($_GET['mystudents'])) {
     include_once "includes/parent-students.php";
-  } else if (isset($_SESSION['classEmpty'])) {
+  }else if (isset($_GET['teacherTimetable'])) {
+    include_once "includes/teacher-timetable.php";
+  }else if (isset($_GET['timetable'])) {
+    include_once "includes/timetable.php";
+  }else if (isset($_GET['classTimetable'])) {
+    include_once "includes/class-timetable.php";
+  }else if (isset($_GET['roomTimetable'])) {
+    include_once "includes/room-timetable.php";
+  }else if (isset($_GET['manageRooms'])) {
+    include_once "includes/manage-rooms.php";
+  } else if (isset($_GET['editTimetable'])) {
+    include_once "includes/edit-timetable.php";
+  } 
+  else if (isset($_SESSION['classEmpty'])) {
     sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
     unset($_SESSION['classEmpty']);
   } else if (isset($_SESSION['noAttendance'])) {

@@ -7,15 +7,18 @@ $subject->set_subjectName(validate_input($_POST['subname']));
 $subject->set_subjectCategory(validate_input($_POST['category']));
 
 if($subject->is_subject_present($subject->get_subjectName())){
-    redirect_to("../dashboard.php?subjectPresent");
+    $_SESSION['warning'] = 'Subject is already exists!';
+    redirect_to("../dashboard.php");
 
 }
 else{
 if ($subject->add_subject($subject->get_subjectName(), $subject->get_subjectCategory())) {
+    $_SESSION['success'] = 'Subject added successfully';
     redirect_to("../dashboard.php?managesub");
 }
 else{
-    redirect_to("../dashboard.php?subNotAdded");
+    $_SESSION['error'] = "Something went wrong, Try again!";
+    redirect_to("../dashboard.php");
 
 }
 }

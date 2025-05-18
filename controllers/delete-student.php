@@ -8,6 +8,6 @@ if(isset($_GET['deleteid'])){
     $student->delete_student($_GET['deleteid']);
     $parent->delete_parent($_GET['deleteid']);
     $attendance->delete_attendanceby_student_id($_GET['deleteid']);
-    $_SESSION['deleted'] = 'student';
+    $_SESSION['success'] = 'One record deleted!';
     redirect_to('../dashboard.php?managestd');
 }
