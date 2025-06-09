@@ -10,7 +10,7 @@ $database = new Database();
 $timetable = new Timetable($database);
 
 // Replace with the actual teacher ID for testing
-$teacher_id = $_SESSION['teacherId'];
+$teacher_id = $_SESSION['teacherId'] ?? $_SESSION[CURRENT_USER];
 
 // Fetch timetable entries for the teacher
 $entries = $timetable->getTimetableByTeacherId($teacher_id);

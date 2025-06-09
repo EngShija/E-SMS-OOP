@@ -4,6 +4,8 @@ require_once __DIR__."/../includes/functions.php";
 
 $student = new Student(new Database());
 
+$class->setSchoolId($_SESSION[SCHOOL_ID]);
+
 if (isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student') {
     sweetAlert('Deleted', 'Student details deleted successfully!', 'success');
     unset($_SESSION['deleted']);
@@ -41,7 +43,12 @@ if (isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student') {
     });
 </script>
 <h3 class="text-center text-light">STUDENTS</h3>
-
+<?php if (isset($_SESSION['success'])): ?>
+  <div class="alert alert-success"><?= $_SESSION['success']; unset($_SESSION['success']); ?></div>
+<?php endif; ?>
+<?php if (isset($_SESSION['error'])): ?>
+  <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
+<?php endif; ?>
 <div class="scrollTb">
 <table class="table table-striped table-dark table-bordered" id="studentTb">
     <thead>
@@ -67,7 +74,8 @@ if (isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student') {
             <td><?= $student['reg_no'] ?></td>
             <td><?= $student['reg_date'] ?></td>
             <td><?= $student['gender'] ?></td>
-            <td><?= strtoupper($student['class']) ?></td>
+            <?php $classDetails = $class->get_class_by_id($student['class_id']) ?>
+            <td><?= strtoupper($classDetails['class_name']) ?></td>
             <td>
                 <a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>" class="btn btn-success">Manage</a>
                 <a class="btn btn-danger" onclick="confirmDelete('<?= $student['first_name'] . ' ' . $student['middle_name'] . ' ' . $student['last_name'] ?>', 'controllers/delete-student.php?deleteid=<?= $student['unique_id'] ?>')">Delete</a>
@@ -76,6 +84,7 @@ if (isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student') {
     <?php $i++; endforeach; ?>
     </tbody>
 </table>
+
 </div>
 
 

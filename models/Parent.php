@@ -22,8 +22,8 @@ class studentParent extends User
     }
     public function delete_parent($student_id)
     {
-        $sql = "UPDATE parent SET role = ? WHERE student_id = ?";
-        return $this->database->execute_query($sql, ['deleted', $student_id]);
+        $sql = "DELETE FROM parent WHERE student_id = ?";
+        return $this->database->execute_query($sql, [$student_id]);
     }
     public function delete_parent_parmanently($student_id){
         $sql = "DELETE FROM parent WHERE student_id = ?";

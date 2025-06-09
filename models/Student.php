@@ -45,13 +45,18 @@ class Student extends User
     }
     public function get_students($school_id)
     {
-        $sql = "SELECT * FROM student WHERE school_id = ? ORDER BY first_name, last_name";
+        $sql = "SELECT * FROM student WHERE school_id = ? AND status <> 'deleted' ORDER BY first_name, last_name";
         return $this->database->execute_query(query: $sql, params: [$school_id])->fetch_all(MYSQLI_ASSOC);
     }
     public function get_students_by_parent_id()
     {
         $sql = "SELECT * FROM student WHERE parent_id = ? ORDER BY first_name, last_name";
         return $this->database->execute_query(query: $sql, params: [$this->get_parent_id()])->fetch_all(MYSQLI_ASSOC);
+    }
+    public function get_student_by_reg_no($reg_no)
+    {
+        $sql = "SELECT * FROM student WHERE reg_no = ? AND school_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$reg_no, $this->getSchoolId()])->fetch_assoc();
     }
     public function get_student_by_id($student_id)
     {
@@ -71,7 +76,7 @@ class Student extends User
 
     public function get_student_by_class($class)
     {
-        $sql = "SELECT * FROM student WHERE class = ? AND school_id = ?";
+        $sql = "SELECT * FROM student WHERE class_id = ? AND school_id = ?";
         return $this->database->execute_query(query: $sql, params: [$class, $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     public function update_parent_id($parent_id, $student_id)
@@ -101,5 +106,19 @@ class Student extends User
     $row = $stmt->fetch_assoc();
     return $row ? $row['class_id'] : null;
 }
-
+public function addStudents($data) {
+    $sql = "INSERT INTO student (unique_id, first_name, middle_name, last_name, gender, reg_no, reg_date, class, school_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $this->database->prepare($sql);
+    return $stmt->execute([
+        $data['unique_id'],
+        $data['first_name'],
+        $data['middle_name'],
+        $data['last_name'],
+        $data['gender'],
+        $data['reg_no'],
+        $data['reg_date'],
+        $data['class'],
+        $data['school_id']
+    ]);
+}
 }

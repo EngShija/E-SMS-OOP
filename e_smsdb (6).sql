@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 09:53 AM
+-- Generation Time: May 19, 2025 at 06:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -117,7 +117,6 @@ INSERT INTO `attendance` (`id`, `date`, `day`, `student_id`, `status`, `school_i
 (91, '2025-05-04', 'Sunday', 'ID67ae146836ddc3.72912548', 'absent', 1),
 (92, '2025-05-04', 'Sunday', 'ID67ae154276b083.96317429', 'absent', 1),
 (93, '2025-05-04', 'Sunday', 'ID67f45da24ce1d3.82759712', 'absent', 1),
-(94, '2025-05-05', 'Monday', 'ID67c4679f13f453.33403629', 'absent', 1),
 (95, '2025-05-05', 'Monday', 'ID67f4488c571ee7.00401299', 'present', 1),
 (96, '2025-05-05', 'Monday', 'ID67f46245c4c2d7.53856666', 'present', 1),
 (97, '2025-05-05', 'Monday', 'ID67f58b4554c6b9.90531333', 'present', 1),
@@ -128,7 +127,14 @@ INSERT INTO `attendance` (`id`, `date`, `day`, `student_id`, `status`, `school_i
 (102, '2025-05-05', 'Monday', 'ID67a91229a0d432.54460126', 'absent', 1),
 (103, '2025-05-05', 'Monday', 'ID67ae146836ddc3.72912548', 'present', 1),
 (104, '2025-05-05', 'Monday', 'ID67ae154276b083.96317429', 'absent', 1),
-(105, '2025-05-05', 'Monday', 'ID67f45da24ce1d3.82759712', 'present', 1);
+(105, '2025-05-05', 'Monday', 'ID67f45da24ce1d3.82759712', 'present', 1),
+(106, '2025-05-05', 'Monday', 'ID67c4679f13f453.33403629', 'absent', 1),
+(107, '2025-05-13', 'Tuesday', 'ID67a91229a0d432.54460126', 'present', 1),
+(108, '2025-05-13', 'Tuesday', 'ID67ae146836ddc3.72912548', 'present', 1),
+(109, '2025-05-13', 'Tuesday', 'ID67ae154276b083.96317429', 'absent', 1),
+(110, '2025-05-13', 'Tuesday', 'ID67f45da24ce1d3.82759712', 'absent', 1),
+(111, '2025-05-19', 'Monday', 'ID67f8371eb5f635.07730886', 'present', 2),
+(112, '2025-05-19', 'Monday', 'ID67f836609e3590.99352512', 'absent', 2);
 
 -- --------------------------------------------------------
 
@@ -150,7 +156,9 @@ INSERT INTO `class` (`id`, `class_name`, `school_id`) VALUES
 (1, 'FORM ONE', 1),
 (2, 'FORM TWO', 1),
 (3, 'FIRST YEAR', 1),
-(4, 'FORM TWO', 2);
+(4, 'FORM TWO', 2),
+(5, 'FORM SIX', 1),
+(6, 'FORM SIX', 2);
 
 -- --------------------------------------------------------
 
@@ -380,7 +388,117 @@ INSERT INTO `login_history` (`id`, `user_id`, `ip_address`, `browser`, `platform
 (123, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-04 23:29:25', 'Success', 0),
 (124, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-04 23:42:58', 'Success', 0),
 (125, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-04 23:43:59', 'Success', 0),
-(126, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-05 00:25:51', 'Success', 0);
+(126, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-05 00:25:51', 'Success', 0),
+(127, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-05 19:40:24', 'Success', 0),
+(128, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-06 21:00:36', 'Success', 0),
+(129, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-07 16:57:30', 'Success', 0),
+(130, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-07 22:12:03', 'Success', 0),
+(131, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-08 18:19:55', 'Success', 0),
+(132, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-08 18:57:40', 'Success', 0),
+(133, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-08 19:17:03', 'Success', 0),
+(134, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-08 19:22:00', 'Success', 0),
+(135, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-08 19:30:54', 'Success', 0),
+(136, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 135.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 11:18:49', 'Success', 0),
+(137, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 12:57:52', 'Success', 0),
+(138, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 13:32:01', 'Success', 0),
+(139, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 14:46:50', 'Success', 0),
+(140, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 14:52:56', 'Success', 0),
+(141, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 14:58:17', 'Success', 0),
+(142, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:30:54', 'Success', 0),
+(143, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:36:30', 'Success', 0),
+(144, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:37:19', 'Success', 0),
+(145, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:39:54', 'Success', 0),
+(146, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:42:07', 'Success', 0),
+(147, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 15:43:07', 'Success', 0),
+(148, 'ID67015d92d60128.06247950', '192.168.42.129', 'Chrome 135.0.0.0', 'AndroidOS 10', 'Mobile', '2025-05-09 21:11:25', 'Success', 0),
+(149, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 22:36:27', 'Success', 0),
+(150, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-09 22:50:06', 'Success', 0),
+(151, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 10:42:30', 'Success', 0),
+(152, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 11:06:59', 'Success', 0),
+(153, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 11:17:46', 'Success', 0),
+(154, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 11:32:48', 'Success', 0),
+(155, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 11:39:44', 'Success', 0),
+(156, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 13:06:53', 'Success', 0),
+(157, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 13:12:46', 'Success', 0),
+(158, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 13:18:41', 'Success', 0),
+(159, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 13:29:12', 'Success', 0),
+(160, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 14:20:20', 'Success', 0),
+(161, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 14:25:16', 'Success', 0),
+(162, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 14:29:44', 'Success', 0),
+(163, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 14:34:38', 'Success', 0),
+(164, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 19:08:49', 'Success', 0),
+(165, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 19:24:59', 'Success', 0),
+(166, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 19:29:14', 'Success', 0),
+(167, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 19:50:13', 'Success', 0),
+(168, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 20:06:04', 'Success', 0),
+(169, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 20:15:10', 'Success', 0),
+(170, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 20:24:31', 'Success', 0),
+(171, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 20:46:03', 'Success', 0),
+(172, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 21:50:15', 'Success', 0),
+(173, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-11 23:38:47', 'Success', 0),
+(174, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 00:02:53', 'Success', 0),
+(175, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 00:14:39', 'Success', 0),
+(176, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 00:35:40', 'Success', 0),
+(177, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 00:44:55', 'Success', 0),
+(178, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 00:54:59', 'Success', 0),
+(179, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 19:00:44', 'Success', 0),
+(180, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 19:18:09', 'Success', 0),
+(181, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 19:41:43', 'Success', 0),
+(182, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 19:49:29', 'Success', 0),
+(183, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 19:55:01', 'Success', 0),
+(184, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-12 21:03:24', 'Success', 0),
+(185, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 18:07:51', 'Success', 0),
+(186, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 18:29:18', 'Success', 0),
+(187, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 19:08:12', 'Success', 0),
+(188, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 19:21:09', 'Success', 0),
+(189, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 19:51:30', 'Success', 0),
+(190, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 20:12:33', 'Success', 0),
+(191, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 20:38:50', 'Success', 0),
+(192, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 20:53:37', 'Success', 0),
+(193, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 20:58:53', 'Success', 0),
+(194, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 21:20:41', 'Success', 0),
+(195, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 21:25:14', 'Success', 0),
+(196, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 21:43:33', 'Success', 0),
+(197, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 22:14:26', 'Success', 0),
+(198, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 22:42:07', 'Success', 0),
+(199, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 23:05:06', 'Success', 0),
+(200, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-13 23:18:13', 'Success', 0),
+(201, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 10:58:07', 'Success', 0),
+(202, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:06:23', 'Success', 0),
+(203, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:10:16', 'Success', 0),
+(204, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:22:14', 'Success', 0),
+(205, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:33:10', 'Success', 0),
+(206, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:42:06', 'Success', 0),
+(207, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:49:38', 'Success', 0),
+(208, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 11:57:01', 'Success', 0),
+(209, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 12:11:07', 'Success', 0),
+(210, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 12:32:08', 'Success', 0),
+(211, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 12:39:35', 'Success', 0),
+(212, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 12:45:12', 'Success', 0),
+(213, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 13:13:41', 'Success', 0),
+(214, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 13:30:04', 'Success', 0),
+(215, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 13:53:08', 'Success', 0),
+(216, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 14:12:44', 'Success', 0),
+(217, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 14:19:58', 'Success', 0),
+(218, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-14 14:59:19', 'Success', 0),
+(219, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-16 20:35:35', 'Success', 0),
+(220, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-16 21:45:35', 'Success', 0),
+(221, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-17 15:37:36', 'Success', 0),
+(222, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-17 15:47:14', 'Success', 0),
+(223, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-17 20:02:15', 'Success', 0),
+(224, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-17 23:14:25', 'Success', 0),
+(225, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-18 18:20:34', 'Success', 0),
+(226, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 01:11:45', 'Success', 0),
+(227, 'ID67015c14d07119.50844433', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 05:56:16', 'Success', 0),
+(228, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:09:04', 'Success', 0),
+(229, 'ID123456789', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:09:46', 'Success', 0),
+(230, 'ID67c4e17c4598c4.53489939', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:10:06', 'Failed - Invalid Password', 0),
+(231, 'ID67f59c9a398433.41583407', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:12:02', 'Failed - Invalid Password', 0),
+(232, 'ID67f59c9a398433.41583407', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:12:12', 'Failed - Invalid Password', 0),
+(233, 'ID67f59c9a398433.41583407', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:12:14', 'Failed - Invalid Password', 0),
+(234, 'ID67f59c9a398433.41583407', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:13:05', 'Success', 0),
+(235, 'ID67f59c9a398433.41583407', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:21:33', 'Success', 0),
+(236, 'ID67015d92d60128.06247950', '127.0.0.1', 'Edge 136.0.0.0', 'Windows 10.0', 'Desktop', '2025-05-19 06:28:57', 'Success', 0);
 
 -- --------------------------------------------------------
 
@@ -451,7 +569,34 @@ INSERT INTO `results` (`id`, `student_id`, `teacher_id`, `subject_name`, `exam_t
 (5, 'ID67ae146836ddc3.72912548', 'ID67015d92d60128.06247950', 'History', 'Midterm Test 1 2025', 78, 'A', 'Excellent', 1, 'verified', 1, '2025-03-01 05:29:21'),
 (6, 'ID67a91229a0d432.54460126', 'ID67015d92d60128.06247950', 'Physics', 'Midterm Test 1 2025', 85, 'A', 'Excellent', 1, 'verified', 1, '2025-03-01 05:29:21'),
 (7, 'ID67ae146836ddc3.72912548', 'ID67015d92d60128.06247950', 'Graphics', 'Midterm Test 1 2025', 100, 'A', 'Excellent', 1, 'verified', 1, '2025-03-01 05:29:21'),
-(8, 'ID67ae154276b083.96317429', 'ID67015d92d60128.06247950', 'Mathematics', 'Midterm Test 1 2025', 78, 'A', 'Excellent', 1, 'pending', 1, '2025-04-07 18:41:32');
+(8, 'ID67ae154276b083.96317429', 'ID67015d92d60128.06247950', 'Mathematics', 'Midterm Test 1 2025', 78, 'A', 'Excellent', 1, 'verified', 1, '2025-05-13 20:05:41'),
+(9, 'ID67c4679f13f453.33403629', 'ID67015d92d60128.06247950', 'Geography', 'Midterm Test 1 2025', 78, 'A', 'Excellent', 1, 'verified', 0, '2025-05-13 20:05:41'),
+(10, 'ID67f4488c571ee7.00401299', 'ID67015d92d60128.06247950', 'Geography', 'Midterm Test 1 2025', 89, 'A', 'Excellent', 1, 'verified', 0, '2025-05-13 20:05:41'),
+(11, 'ID67f836609e3590.99352512', 'ID67015c14d07119.50844433', 'Networking', 'Midterm Test 1 2025', 78, 'A', 'Excellent', 1, 'pending', 0, '2025-05-19 04:02:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `id` int(11) NOT NULL,
+  `room_name` varchar(255) NOT NULL,
+  `capacity` int(10) NOT NULL,
+  `school_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `room_name`, `capacity`, `school_id`) VALUES
+(1, 'CLASS 1', 80, 1),
+(2, 'class 2', 70, 1),
+(3, 'class 3', 100, 1),
+(4, 'Aviation', 150, 1),
+(5, 'Block 10', 55, 2);
 
 -- --------------------------------------------------------
 
@@ -572,10 +717,8 @@ INSERT INTO `subjects` (`id`, `sub_name`, `category`, `school_id`) VALUES
 (8, 'Programming', 'science', 1),
 (20, 'Biology', 'Science', 1),
 (21, 'Mathematics', 'Science', 1),
-(24, 'History', 'Arts', 1),
 (25, 'Graphics', 'Science', 1),
-(26, 'Psychology', 'Arts', 1),
-(27, 'Ecology', 'Science', 1);
+(28, 'Networking', 'Science', 2);
 
 -- --------------------------------------------------------
 
@@ -610,13 +753,14 @@ CREATE TABLE `timetable` (
   `id` int(11) NOT NULL,
   `teacher_id` varchar(255) NOT NULL,
   `subject_id` int(11) NOT NULL,
+  `room_id` varchar(255) DEFAULT NULL,
   `class_id` int(11) NOT NULL,
   `day` varchar(255) NOT NULL,
   `time_slots` varchar(20) DEFAULT NULL,
   `timetable_type` varchar(255) NOT NULL,
   `date` varchar(30) DEFAULT NULL,
   `exam_id` int(11) DEFAULT NULL,
-  `yos` int(4) NOT NULL,
+  `yos` varchar(20) NOT NULL,
   `school_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -624,12 +768,44 @@ CREATE TABLE `timetable` (
 -- Dumping data for table `timetable`
 --
 
-INSERT INTO `timetable` (`id`, `teacher_id`, `subject_id`, `class_id`, `day`, `time_slots`, `timetable_type`, `date`, `exam_id`, `yos`, `school_id`) VALUES
-(1, '', 21, 2, 'Monday', '02:30 - 03:30', 'Exam', '2025-02-02', NULL, 2025, 1),
-(2, '', 20, 1, 'Monday', '10:00 - 11:00', 'Class', '', NULL, 2025, 1),
-(7, '', 17, 1, 'Monday', '13:00 - 14:00', 'Exam', '2025-01-30', 1, 2025, 1),
-(9, '', 21, 1, 'Friday', '08:00 - 09:00', 'Class', '', NULL, 2025, 1),
-(10, 'ID67015d92d60128.06247950', 21, 2, 'Tuesday', '08:00 - 09:00', 'Class', '', NULL, 2025, 1);
+INSERT INTO `timetable` (`id`, `teacher_id`, `subject_id`, `room_id`, `class_id`, `day`, `time_slots`, `timetable_type`, `date`, `exam_id`, `yos`, `school_id`) VALUES
+(209, 'ID67e659d7e890d3.16823785', 0, '1', 0, 'wednesday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 1),
+(210, 'ID67e659d7e890d3.16823785', 0, '1', 0, 'friday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(211, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'saturday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(212, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'sunday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 1),
+(213, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'monday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(214, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'tuesday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(215, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'saturday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(216, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'sunday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(217, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'wednesday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 1),
+(218, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'friday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 1),
+(219, 'ID67e659d7e890d3.16823785', 2, '1', 1, 'wednesday', '1:00 PM - 2:00 PM', 'class', NULL, NULL, '', 1),
+(220, 'ID67f59c637e3f92.78061388', 8, '4', 5, 'monday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(224, 'ID67f59c637e3f92.78061388', 8, '4', 5, 'sunday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(225, 'ID67f59c637e3f92.78061388', 8, '4', 5, 'wednesday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 1),
+(226, 'ID67f59c637e3f92.78061388', 8, '4', 5, 'saturday', '1:00 PM - 2:00 PM', 'class', NULL, NULL, '', 1),
+(227, 'ID67f59c637e3f92.78061388', 8, '4', 5, 'sunday', '1:00 PM - 2:00 PM', 'class', NULL, NULL, '', 1),
+(228, 'ID67f59c9a398433.41583407', 0, '1', 0, 'thursday', '8:00 AM - 9:00 AM', 'class', NULL, NULL, '', 1),
+(229, 'ID67f59c9a398433.41583407', 8, '2', 2, 'monday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(230, 'ID67f59c9a398433.41583407', 8, '2', 2, 'friday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(231, 'ID67f59c9a398433.41583407', 8, '2', 2, 'wednesday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 1),
+(232, 'ID67f59c9a398433.41583407', 8, '2', 2, 'thursday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 1),
+(233, 'ID67f59c9a398433.41583407', 8, '2', 2, 'wednesday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 1),
+(234, 'ID67f59da3693db5.05978014', 8, '3', 1, 'monday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(235, 'ID67f59da3693db5.05978014', 8, '3', 1, 'tuesday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 1),
+(236, 'ID67f59da3693db5.05978014', 8, '3', 1, 'tuesday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 1),
+(237, 'ID67f59da3693db5.05978014', 8, '3', 1, 'monday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 1),
+(238, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'monday', '8:00 AM - 9:00 AM', 'class', NULL, NULL, '', 2),
+(239, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'wednesday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 2),
+(240, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'thursday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 2),
+(241, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'sunday', '9:00 AM - 10:00 AM', 'class', NULL, NULL, '', 2),
+(242, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'monday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 2),
+(243, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'tuesday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 2),
+(244, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'friday', '10:00 AM - 11:00 AM', 'class', NULL, NULL, '', 2),
+(245, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'wednesday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 2),
+(246, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'saturday', '11:00 AM - 12:00 PM', 'class', NULL, NULL, '', 2),
+(247, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'thursday', '12:00 PM - 1:00 PM', 'class', NULL, NULL, '', 2),
+(248, 'ID67fc4c7d750d00.93886171', 28, '5', 4, 'sunday', '1:00 PM - 2:00 PM', 'class', NULL, NULL, '', 2);
 
 -- --------------------------------------------------------
 
@@ -647,7 +823,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `profile_image` varchar(255) DEFAULT 'default_profile.svg',
   `role` varchar(255) NOT NULL DEFAULT 'teacher',
-  `subject_tought` varchar(255) DEFAULT NULL,
   `change_password_attemts` int(20) NOT NULL DEFAULT 0,
   `school_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -656,34 +831,34 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `unique_id`, `first_name`, `last_name`, `email_address`, `gender`, `password`, `profile_image`, `role`, `subject_tought`, `change_password_attemts`, `school_id`) VALUES
-(1, 'ID123456789', 'Nkinda', 'Sitta', 'shija0105@gmail.com', 'male', '$2y$10$LHtsWeoJSBbImcKNBZvvYO11Vlir93F9UFwRUA.6xyLiLk/qWDJn.', 'SHIMILE logo on grasses.png', 'superadmin', NULL, 0, 0),
-(3, 'ID67015c14d07119.50844433', 'Singili', 'Makula', 'singili@gmail.com', 'male', '$2y$10$xKhjwpOK/aJqGkuIMgBB3eZa2hjv.UU.T6u8eEYWldgnyMJyNRmWG', 'Screenshot 2025-02-06 213305.png', 'admin', NULL, 0, 2),
-(4, 'ID67015d92d60128.06247950', 'Kushaha', 'Shija', 'kushaha@gmail.com', 'male', '$2y$10$RLedlBTL7g1RpEwFnf1JseVnFoXGzuGYLbbm6AWDQr0HUpJh1Lupu', 'a man Working out 3.jpg', 'admin', 'Graphics', 0, 1),
-(6, 'ID67c351e9e40cc3.57957349', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', 'SHIMILE2.png', 'parent', NULL, 0, 1),
-(7, 'ID67c366ad101621.09100774', 'Juma', 'Mgunda', 'mgunda@gmail.com', 'male', '$2y$10$akCU8oWsdr7NyieEbnIseOBGXauDypfeK8qsT6gJR7fox4P3thjbO', 'PROFILE_IMAGE', 'deleted', 'Psychology', 0, 1),
-(9, 'ID67c46b5f3d8c86.40326566', 'test', 'user', 'test@gmail.com', 'male', '$2y$10$rFomZ0v7sjDmOTyGOomf8OkOmXTztznRyGL96tyb8io.NXQPjMhJa', 'img39.jpg', 'parent', NULL, 0, 1),
-(10, 'ID67c46f1e9d8487.88084010', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', NULL, 'parent', NULL, 0, 1),
-(11, 'ID67c472046e6459.22521429', 'Shija', 'Mboje', 'shijamboje@gmail.com', 'male', '$2y$10$lJuYRIsY65gfr3RqvrzlzuAWkRstcbofUaioQCfDEx/Siks1.yIOC', NULL, 'parent', NULL, 0, 1),
-(12, 'ID67c4debf3119d4.12936218', 'Shija', 'Mboje', 'shijamboje@gmail.com', 'male', '$2y$10$HzB.r43rChddHFg2vwI8wuNMqQN6peMsMTRFdXUNEu9XXjASSo8IO', NULL, 'parent', NULL, 0, 1),
-(13, 'ID67c4e17c4598c4.53489939', 'Adam', 'Matondo', 'shija@gmail.com', 'male', '$2y$10$678i6gxYC7S85eBjgZaR7ew/F83dhfXT2OD9Z3daHXBw/500KUv9S', NULL, 'parent', NULL, 0, 1),
-(14, 'ID67c4e17c8db204.99374017', 'Shija', 'Mboje', 'shija@gmail.com', 'male', '$2y$10$QBr9qfq3PISn6tWwLZIlpOuB8CjOBNQIoOuC5FNK51Qo5UtmxLnuK', NULL, 'parent', NULL, 0, 1),
-(15, 'ID67c4e21ea95843.78450904', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', NULL, 'parent', NULL, 0, 1),
-(16, 'ID67e5a4366069a7.55454109', 'gfjgh', 'hjkh', 'cvnhjv@g.fg', 'male', '$2y$10$oWL9wzfcIiRNrLP3am.2dORQKF7HPdA5I6e0ihuTCSp7d3Piz3PQK', 'PROFILE_IMAGE', 'deleted', 'Geography', 0, 1),
-(18, 'ID67e659d7e890d3.16823785', 'Maige', 'Sitta', 'maige@gmail.com', '', '$2y$10$Yc3.TsxGMPkoCyLUQFQPpu0BDRgWye3D7xebxMC4uYU4a1IIgET..', 'SHIMILE LOGO.png', 'admin', 'Mathematics', 0, 1),
-(20, 'ID67015c14d07119.50844433', 'Singili', 'Makula', 'singili@gmail.com', 'male', '$2y$10$xDziPZrJi9a0fA7taUVKDe9Az6Nn/HATd5n.TxnqYoIy7AS/xE5/i', 'Screenshot 2025-02-06 213305.png', 'parent', NULL, 0, 1),
-(22, 'ID67f462e3d70d79.32984350', 'Miliara', 'Logerieki', 'miliara@gmail.com', 'male', '$2y$10$Qxm7OaVh9eonLoo9SvwjZePFDArrMnHin0wi0PxizFLMtWqXvsk9G', NULL, 'parent', NULL, 0, 1),
-(23, 'ID67f59c637e3f92.78061388', 'Peter', 'Mwakalinga', 'mwakalinga@gmail.com', 'male', '$2y$10$ZSsVxTulTdJZVdznIBhM9OQquCbqo6fFXwv8bDICOBi4JTrxVtwU.', 'default_profile.svg', 'teacher', 'Programming', 0, 1),
-(24, 'ID67f59c9a398433.41583407', 'Victor', 'Nkwera', 'nkwera@gmail.com', 'male', '$2y$10$9Uz5reaL5vtkb4e7Bg3HA.228bbsdt7gEFXJuXUbwexCoXw/Lva0S', 'default_profile.svg', 'teacher', 'Mathematics', 0, 1),
-(25, 'ID67f59ccd727a04.00539020', 'Mike', 'Kakwaya', 'mike@gmail.com', 'male', '$2y$10$Lq5K9lxZRxo7YtE3w9hq7Oi7wMR9dqM79a0jQNlNgjsQsTfKYXj0O', 'default_profile.svg', 'teacher', 'Graphics', 0, 1),
-(26, 'ID67f59d3f192ae9.42242083', 'Maulid', 'Shafii', 'shafii@gmail.com', 'male', '$2y$10$uyhWIsKiY0Ax24JTPUqZLuHvqXHT7f8lKpgWVRGocwpAflABIBm2.', 'default_profile.svg', 'teacher', 'Mathematics', 0, 1),
-(27, 'ID67f59d65afc469.58958321', 'Eunice', 'Mkwasi', 'mkwasi@gmail.com', 'female', '$2y$10$SFCX6ww8URZ7E.6oUjH5e.Itbq9pKhFWGKqT6g4iMIUeZVT00w9CO', 'default_profile.svg', 'teacher', 'Biology', 0, 1),
-(28, 'ID67f59da3693db5.05978014', 'Laurent', 'Haule', 'haule@gmail.com', 'male', '$2y$10$TyRE95xMa6z4WFACTEcAVuxdIiHdMB7z39vX0CvgqCa69sc32jAue', 'default_profile.svg', 'teacher', 'Geography', 0, 1),
-(29, 'ID67f59dea50d774.95785441', 'Ponsiono', 'Mamboleo', 'mamboleo@gmail.com', 'male', '$2y$10$CiEOPiPHDBbn6hTi5RaoFO6/pz7WYMZqCJ.v5ariShQQ3oT4u4ni.', 'default_profile.svg', 'teacher', 'Psychology', 0, 1),
-(30, 'ID67f59f0164f049.45244214', 'Benald', 'Hayuma', 'hayuma@gmail.com', 'male', '$2y$10$6zXaRLamOUsrIR44TV7QVOaewRqrN5i4ICoJ7iHkmj5EawBMAHLcm', 'Screenshot 2025-02-13 124337.png', 'teacher', 'Programming', 0, 1),
-(31, 'ID67f83d9f368868.21446556', 'Samwel', 'Abraham', 'samwel@gmail.com', 'male', '$2y$10$i1sjWtRUEmXCuLFU4BwOHOt1XSLD2niLmocw6Nz9DDS9xiaAV3bBO', NULL, 'parent', NULL, 0, 2),
-(32, 'ID67f83dbe62a793.23871577', 'Nzumbi', 'Maduhu', 'nzumbi@gmail.com', 'male', '$2y$10$l7ACUh1kSGIsCQvzXmVNpO7hHbnhxpaeFMfPmytFS0RxZTCRD4Hxy', NULL, 'parent', NULL, 0, 2),
-(33, 'ID67fc4c7d750d00.93886171', 'Kennedy', 'Kayinga', 'kennedy@gmail.com', 'male', '$2y$10$tL9rHPCRs3hep6qnlXctsuEX21z5zFnlJkWrlcgKilnfo3uz7l27.', 'default_profile.svg', 'teacher', 'Programming', 0, 2);
+INSERT INTO `users` (`id`, `unique_id`, `first_name`, `last_name`, `email_address`, `gender`, `password`, `profile_image`, `role`, `change_password_attemts`, `school_id`) VALUES
+(1, 'ID123456789', 'Nkinda', 'Sitta', 'shija0105@gmail.com', 'male', '$2y$10$LHtsWeoJSBbImcKNBZvvYO11Vlir93F9UFwRUA.6xyLiLk/qWDJn.', 'SHIMILE logo on grasses.png', 'superadmin', 0, 0),
+(3, 'ID67015c14d07119.50844433', 'Singili', 'Makula', 'singili@gmail.com', 'male', '$2y$10$xKhjwpOK/aJqGkuIMgBB3eZa2hjv.UU.T6u8eEYWldgnyMJyNRmWG', 'Screenshot 2025-02-06 213305.png', 'admin', 0, 2),
+(4, 'ID67015d92d60128.06247950', 'Kushaha', 'Shija', 'kushaha@gmail.com', 'male', '$2y$10$RLedlBTL7g1RpEwFnf1JseVnFoXGzuGYLbbm6AWDQr0HUpJh1Lupu', 'a man Working out 3.jpg', 'admin', 0, 1),
+(6, 'ID67c351e9e40cc3.57957349', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', 'SHIMILE2.png', 'parent', 0, 1),
+(7, 'ID67c366ad101621.09100774', 'Juma', 'Mgunda', 'mgunda@gmail.com', 'male', '$2y$10$akCU8oWsdr7NyieEbnIseOBGXauDypfeK8qsT6gJR7fox4P3thjbO', 'PROFILE_IMAGE', 'deleted', 0, 1),
+(9, 'ID67c46b5f3d8c86.40326566', 'test', 'user', 'test@gmail.com', 'male', '$2y$10$rFomZ0v7sjDmOTyGOomf8OkOmXTztznRyGL96tyb8io.NXQPjMhJa', 'img39.jpg', 'parent', 0, 1),
+(10, 'ID67c46f1e9d8487.88084010', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', NULL, 'parent', 0, 1),
+(11, 'ID67c472046e6459.22521429', 'Shija', 'Mboje', 'shijamboje@gmail.com', 'male', '$2y$10$lJuYRIsY65gfr3RqvrzlzuAWkRstcbofUaioQCfDEx/Siks1.yIOC', NULL, 'parent', 0, 1),
+(12, 'ID67c4debf3119d4.12936218', 'Shija', 'Mboje', 'shijamboje@gmail.com', 'male', '$2y$10$HzB.r43rChddHFg2vwI8wuNMqQN6peMsMTRFdXUNEu9XXjASSo8IO', NULL, 'parent', 0, 1),
+(13, 'ID67c4e17c4598c4.53489939', 'Adam', 'Matondo', 'shija@gmail.com', 'male', '$2y$10$678i6gxYC7S85eBjgZaR7ew/F83dhfXT2OD9Z3daHXBw/500KUv9S', NULL, 'parent', 1, 1),
+(14, 'ID67c4e17c8db204.99374017', 'Shija', 'Mboje', 'shija@gmail.com', 'male', '$2y$10$QBr9qfq3PISn6tWwLZIlpOuB8CjOBNQIoOuC5FNK51Qo5UtmxLnuK', NULL, 'parent', 0, 1),
+(15, 'ID67c4e21ea95843.78450904', 'Adam', 'Matondo', 'adam@gmail.com', 'male', '$2y$10$/HzNsNqaV6pniKPmKhPeiO7PITFbxQOYiNSTeI/QAkcCz9SpfoJ4m', NULL, 'parent', 0, 1),
+(16, 'ID67e5a4366069a7.55454109', 'gfjgh', 'hjkh', 'cvnhjv@g.fg', 'male', '$2y$10$oWL9wzfcIiRNrLP3am.2dORQKF7HPdA5I6e0ihuTCSp7d3Piz3PQK', 'PROFILE_IMAGE', 'deleted', 0, 1),
+(18, 'ID67e659d7e890d3.16823785', 'Maige', 'Sitta', 'maige@gmail.com', '', '$2y$10$Yc3.TsxGMPkoCyLUQFQPpu0BDRgWye3D7xebxMC4uYU4a1IIgET..', 'SHIMILE LOGO.png', 'admin', 0, 1),
+(20, 'ID67015c14d07119.50844433', 'Singili', 'Makula', 'singili@gmail.com', 'male', '$2y$10$xDziPZrJi9a0fA7taUVKDe9Az6Nn/HATd5n.TxnqYoIy7AS/xE5/i', 'Screenshot 2025-02-06 213305.png', 'parent', 0, 1),
+(22, 'ID67f462e3d70d79.32984350', 'Miliara', 'Logerieki', 'miliara@gmail.com', 'male', '$2y$10$Qxm7OaVh9eonLoo9SvwjZePFDArrMnHin0wi0PxizFLMtWqXvsk9G', NULL, 'parent', 0, 1),
+(23, 'ID67f59c637e3f92.78061388', 'Peter', 'Mwakalinga', 'mwakalinga@gmail.com', 'male', '$2y$10$ZSsVxTulTdJZVdznIBhM9OQquCbqo6fFXwv8bDICOBi4JTrxVtwU.', 'default_profile.svg', 'teacher', 0, 1),
+(24, 'ID67f59c9a398433.41583407', 'Victor', 'Nkwera', 'nkwera@gmail.com', 'male', '$2y$10$es6B.Rl0Ve9Gccu08vzTj.dNo/uDqpjsQpQhMoGgd1YLXsc5SmYne', 'default_profile.svg', 'teacher', 0, 1),
+(25, 'ID67f59ccd727a04.00539020', 'Mike', 'Kakwaya', 'mike@gmail.com', 'male', '$2y$10$Lq5K9lxZRxo7YtE3w9hq7Oi7wMR9dqM79a0jQNlNgjsQsTfKYXj0O', 'default_profile.svg', 'deleted', 0, 1),
+(26, 'ID67f59d3f192ae9.42242083', 'Maulid', 'Shafii', 'shafii@gmail.com', 'male', '$2y$10$uyhWIsKiY0Ax24JTPUqZLuHvqXHT7f8lKpgWVRGocwpAflABIBm2.', 'default_profile.svg', 'deleted', 0, 1),
+(27, 'ID67f59d65afc469.58958321', 'Eunice', 'Mkwasi', 'mkwasi@gmail.com', 'female', '$2y$10$SFCX6ww8URZ7E.6oUjH5e.Itbq9pKhFWGKqT6g4iMIUeZVT00w9CO', 'default_profile.svg', 'deleted', 0, 1),
+(28, 'ID67f59da3693db5.05978014', 'Laurent', 'Haule', 'haule@gmail.com', 'male', '$2y$10$TyRE95xMa6z4WFACTEcAVuxdIiHdMB7z39vX0CvgqCa69sc32jAue', 'default_profile.svg', 'teacher', 0, 1),
+(29, 'ID67f59dea50d774.95785441', 'Ponsiono', 'Mamboleo', 'mamboleo@gmail.com', 'male', '$2y$10$CiEOPiPHDBbn6hTi5RaoFO6/pz7WYMZqCJ.v5ariShQQ3oT4u4ni.', 'default_profile.svg', 'teacher', 0, 1),
+(30, 'ID67f59f0164f049.45244214', 'Benald', 'Hayuma', 'hayuma@gmail.com', 'male', '$2y$10$6zXaRLamOUsrIR44TV7QVOaewRqrN5i4ICoJ7iHkmj5EawBMAHLcm', 'Screenshot 2025-02-13 124337.png', 'deleted', 0, 1),
+(31, 'ID67f83d9f368868.21446556', 'Samwel', 'Abraham', 'samwel@gmail.com', 'male', '$2y$10$i1sjWtRUEmXCuLFU4BwOHOt1XSLD2niLmocw6Nz9DDS9xiaAV3bBO', NULL, 'parent', 0, 2),
+(32, 'ID67f83dbe62a793.23871577', 'Nzumbi', 'Maduhu', 'nzumbi@gmail.com', 'male', '$2y$10$l7ACUh1kSGIsCQvzXmVNpO7hHbnhxpaeFMfPmytFS0RxZTCRD4Hxy', NULL, 'parent', 0, 2),
+(33, 'ID67fc4c7d750d00.93886171', 'Kennedy', 'Kayinga', 'kennedy@gmail.com', 'male', '$2y$10$tL9rHPCRs3hep6qnlXctsuEX21z5zFnlJkWrlcgKilnfo3uz7l27.', 'default_profile.svg', 'teacher', 0, 2);
 
 --
 -- Indexes for dumped tables
@@ -739,6 +914,12 @@ ALTER TABLE `results`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `schools`
 --
 ALTER TABLE `schools`
@@ -788,13 +969,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `exam`
@@ -818,7 +999,7 @@ ALTER TABLE `fee_payments`
 -- AUTO_INCREMENT for table `login_history`
 --
 ALTER TABLE `login_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 
 --
 -- AUTO_INCREMENT for table `parent`
@@ -830,7 +1011,13 @@ ALTER TABLE `parent`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `room`
+--
+ALTER TABLE `room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -854,7 +1041,13 @@ ALTER TABLE `student_fees`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `timetable`
+--
+ALTER TABLE `timetable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `users`

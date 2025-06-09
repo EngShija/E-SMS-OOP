@@ -1,6 +1,6 @@
 
-const form = document.querySelector(".login form");
-continueBtn = form.querySelector(".button input");
+const form = document.querySelector(".login #loginForm");
+continueBtn = form.querySelector(".button button");
 errorText = form.querySelector(".error-text");
 
 form.onsubmit = (e)=>{

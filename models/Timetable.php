@@ -164,4 +164,25 @@ public function deleteTimetableEntry($id)
         $sql = "UPDATE timetable SET teacher_id = ?, class_id = ?, room_id = ?, subject_id = ?, day = ?, time_slots = ? WHERE id = ?";
         return $this->database->execute_query($sql, [$teacher, $class, $room, $subject, $day, $timeSlot, $id]);
     }
+    public function getAllTimetables() {
+    $sql = "SELECT 
+                t.id,
+                t.day,
+                t.time_slots,
+                t.class_id,
+                c.class_name,
+                t.teacher_id,
+                u.first_name AS teacher_first_name,
+                u.last_name AS teacher_last_name,
+                CONCAT(u.first_name, ' ', u.last_name) AS teacher_name,
+                t.subject_id,
+                s.sub_name
+            FROM timetable t
+            JOIN class c ON t.class_id = c.id
+            JOIN users u ON t.teacher_id = u.unique_id
+            JOIN subjects s ON t.subject_id = s.id
+            ORDER BY FIELD(t.day, 'monday','tuesday','wednesday','thursday','friday','saturday','sunday'), t.time_slots, c.class_name";
+    $stmt = $this->database->execute_query(query: $sql);
+    return $stmt->fetch_all(MYSQLI_ASSOC);
+}
 }

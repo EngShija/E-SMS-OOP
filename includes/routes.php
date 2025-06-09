@@ -75,6 +75,10 @@
     include_once "includes/manage-rooms.php";
   } else if (isset($_GET['editTimetable'])) {
     include_once "includes/edit-timetable.php";
+  } else if (isset($_GET['mytimetable'])) {
+    include_once "includes/teacher-timetable.php";
+  }  else if (isset($_GET['overollTimetable'])) {
+    include_once "includes/overall-timetable.php";
   } 
   else if (isset($_SESSION['classEmpty'])) {
     sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
@@ -92,7 +96,7 @@
     if ($role['role'] != 'parent') {
       require_once "includes/user-count.php";
     }
-    include_once __DIR__ . "/../includes/carousel.php";
+    // include_once __DIR__ . "/../includes/carousel.php";
     // include_once __DIR__. "/includes/advertisements.php";
   }
   require_once __DIR__ . "/../includes/alerts.php";

@@ -5,6 +5,8 @@
     include_once "models/Exam.php";
     $subject = new Subject(new Database());
     $exam = new Exam(new Database());
+    $subject->setSchoolId($_SESSION['school_id']);
+    $exam->setSchoolId($_SESSION['school_id']);
     ?>
   <div class="modal fade" id="addrst" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">

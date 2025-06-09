@@ -35,7 +35,7 @@ unset($_SESSION['errors']); // Clear the errors after displaying
                 <a href="#" data-bs-toggle="modal" data-bs-target="#classTimetable" class="btn btn-warning">Class</a>
                 <a href="#" data-bs-toggle="modal" data-bs-target="#selectRoom" class="btn btn-success">Room</a>
 
-                <h3 class="text-center mt-3">Timetable</h3>
+                <h3 class="text-center mt-3">Class Timetable</h3>
                 <table class="table table-striped table-dark table-bordered">
                     <thead>
                         <tr>

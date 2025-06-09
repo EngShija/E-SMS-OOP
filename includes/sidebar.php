@@ -44,6 +44,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             <?php if ($role['role'] == 'admin'): ?>
                                 <li><a href="dashboard.php?addstd" class="add-student list-group-item list-group-item-action"
                                         data-bs-toggle="modal" data-bs-target="#addStudent">Add Student</a></li>
+                                <li><a href="dashboard.php?addstd" class="add-student list-group-item list-group-item-action"
+                                        data-bs-toggle="modal" data-bs-target="#addStudents">Add Multiple Students </a></li>
                             <?php endif ?>
                             <li><a href="dashboard.php?managestd" class="list-group-item list-group-item-action">Manage
                                     Students</a></li>
@@ -89,41 +91,43 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                                 </li>
                             </ul>
                         </div>
+                        <div class="dropdown mt-2">
+                            <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                                <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                                    <use xlink:href="#calendar3" />
+                                </svg>
+                                Timetables
+                            </button>
+                            <ul class="dropdown-menu" style="filter: invert();">
+                                <li><a href="?timetable" class="add-student list-group-item list-group-item-action">Class
+                                        Timetable</a></li>
+                                <li><a href="?overollTimetable"
+                                        class="add-student list-group-item list-group-item-action">Overall
+                                        Timetable</a></li>
+                                <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                        data-bs-toggle="modal" data-bs-target="#examTmt">Exam Timetable</a></li>
+                            </ul>
+                        </div>
                     <?php endif ?>
-                    <div class="dropdown mt-2">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25" fill="white">
-                                <use xlink:href="#calendar3" />
-                            </svg>
-                            Timetables
-                        </button>
-                        <ul class="dropdown-menu" style="filter: invert();">
-                            <li><a href="?timetable" class="add-student list-group-item list-group-item-action">Class
-                                    Timetable</a></li>
+                    <?php if ($role['role'] == 'admin' || $role['role'] == 'teacher'): ?>
+                        <div class="dropdown mt-2">
+                            <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                                <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                                    <use xlink:href="#calendar3" />
+                                </svg>
+                                Attendance
+                            </button>
+                            <ul class="dropdown-menu" style="filter: invert();">
+                                <li><a href="#" class="add-student list-group-item list-group-item-action"
+                                        data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
 
-                            <li><a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#examTmt">Exam Timetable</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="dropdown mt-2">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <svg class="bi pe-none me-2" width="25" height="25" fill="white">
-                                <use xlink:href="#calendar3" />
-                            </svg>
-                            Attendance
-                        </button>
-                        <ul class="dropdown-menu" style="filter: invert();">
-                            <li><a href="#" class="add-student list-group-item list-group-item-action"
-                                    data-bs-toggle="modal" data-bs-target="#attendanceChoice">Take Attendance</a></li>
-
-                            <a href="dashboard.php?managestd" class="list-group-item list-group-item-action"
-                                data-bs-toggle="modal" data-bs-target="#viewAttendance">View
-                                Attendances</a>
-                            </li>
-                        </ul>
-                    </div>
-
+                                <a href="dashboard.php?managestd" class="list-group-item list-group-item-action"
+                                    data-bs-toggle="modal" data-bs-target="#viewAttendance">View
+                                    Attendances</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php endif ?>
                     <?php if ($role['role'] == 'admin'): ?>
                         <div class="dropdown mt-2">
                             <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
@@ -135,12 +139,20 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             <ul class="dropdown-menu" style="filter: invert();">
                                 <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
                                     data-bs-target="#verifyRst">Verify Results</a>
-                                <a href="dashboard.php?viewResults" class="list-group-item list-group-item-action">View Results</a>
+                                <a href="dashboard.php?viewResults" class="list-group-item list-group-item-action">View
+                                    Results</a>
                                 </li>
                             </ul>
                         </div>
                     <?php endif ?>
-
+                    <?php if ($role['role'] == 'teacher'): ?>
+                        <button class="btn text-light" type="button" onclick="window.location.href='dashboard.php?mytimetable'">
+                            <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                                <use xlink:href="#calendar3" />
+                            </svg>
+                            My Timetable
+                        </button>
+                    <?php endif ?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25" fill="white">
@@ -394,5 +406,4 @@ include_once "view-result.php";
 include_once "view-exam-timetable.php";
 include_once "verify-results.php";
 include_once "update-password.php";
-include_once "view-results.php";
-
+include_once "add-multiple-students.php";

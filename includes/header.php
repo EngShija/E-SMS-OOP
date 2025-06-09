@@ -28,6 +28,7 @@ require_once __DIR__ . "/../config/constants.php";
   <link rel="stylesheet" href="assets/datatables/jquery.dataTables.min.css">
   <link rel="stylesheet" href="assets/datatables/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="assets/dataTables/jquery.dataTables_themeroller.css">
+<!-- <link rel="stylesheet" href="assets/css/bootstrap-icons.min.css"> -->
 
   <style>
 .body{
@@ -51,24 +52,30 @@ require_once __DIR__ . "/../config/constants.php";
 <!-- <button onclick="lightTheme()">Light Theme</button>
 <button onclick="darkTheme()">Dark Theme</button> -->
 
-  <div class="header-main">
-    <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark border border-light text-light">
-      <div class="container-fluid">
-        <div class="navbar-header row">
-          <a class="navbar-brand" href="dashboard.php"><img src="assets/images/logo.jpg" height="60" width="60"
-              class="rounded-circle"></a>
-        </div>
-        <?php if (isset($_SESSION['user_id'])): ?>
-          <?php $school->setSchoolId( $_SESSION[SCHOOL_ID]); 
-          $schoolDetails = $school->getSchoolDetails(); ?>
-          <h1 class="text-center"><?= strtoupper($schoolDetails[SCHOOL_NAME] ?? "SCHOOL MANAGEMENT SYSTEM STAFF") ?></h1>
-          <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-            aria-controls="offcanvasExample">
-            <a class="nav-link" title="Menu"><img src="assets/images/menu.svg" style="filter: invert(1);"></img></a>
-          </div>
-        <?php else: ?>
-          <h1 class="text-center">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
-        <?php endif ?>
+<div class="header-main">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark border border-light text-light">
+    <div class="container-fluid">
+      <div class="navbar-header row">
+        <a class="navbar-brand" href="dashboard.php">
+          <img src="assets/images/logo.jpg" height="60" width="60" class="rounded-circle">
+        </a>
       </div>
-    </nav>
-  </div>
+      <?php if (isset($_SESSION['user_id'])): ?>
+        <?php 
+          $school->setSchoolId($_SESSION[SCHOOL_ID]); 
+          $schoolDetails = $school->getSchoolDetails(); 
+        ?>
+        <h1 class="text-center flex-grow-1 m-0"><?= strtoupper($schoolDetails[SCHOOL_NAME] ?? "SCHOOL MANAGEMENT SYSTEM STAFF") ?></h1>
+        <div class="ms-auto d-flex align-items-center">
+          <div class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <a class="nav-link" title="Menu">
+              <img src="assets/images/menu.svg" style="filter: invert(1);">
+            </a>
+          </div>
+        </div>
+      <?php else: ?>
+        <h1 class="text-center flex-grow-1 m-0">SCHOOL MANAGEMENT SYSTEM-SMS</h1>
+      <?php endif ?>
+    </div>
+  </nav>
+</div>

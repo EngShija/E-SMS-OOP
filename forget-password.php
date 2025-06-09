@@ -3,8 +3,9 @@ require_once "includes/header.php";
 ?>
 <!-- <div class="container">
   <div class="d-flex justify-content-center mt-5 mb-5 login"> -->
-  <div class="container">
-  <div class="d-flex justify-content-center mt-5 mb-5 col-md-10 mx-auto col-lg-4 login">
+<div class="container vh-100 d-flex align-items-center justify-content-center">
+  <div class="row w-100 justify-content-center">
+    <div class="login col-12 col-sm-8 col-md-6 col-lg-4">
     <form action="../controllers/change_password.php"  class="p-4 p-md-5 border rounded-3 border-primary bg-dark was-validated" enctype="multipart/form-data" method="POST">
     <div class="error-text">
 
@@ -49,6 +50,7 @@ require_once "includes/header.php";
 
   </form>
   </div>
+</div>
 </div>
 
 <div class="footer text-light">

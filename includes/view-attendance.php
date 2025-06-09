@@ -15,7 +15,7 @@ $student->setSchoolId($_SESSION[SCHOOL_ID]);
 
 ?>
 
-<h3 class="text-center"><?= strtoupper($_SESSION['student_class'] . " " . "(" . $_SESSION['date'] . ")") ?></h3>
+<h3 class="text-center"><?= strtoupper($_SESSION['class_name'] . " " . "(" . $_SESSION['date'] . ")") ?></h3>
 <div class="scrollTb">
     <table class="table table-striped table-dark" id="tbId">
         <thead>

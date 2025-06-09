@@ -19,7 +19,7 @@ if (isset($_SESSION['attendanceExist'])) {
 }
 ?>
 
-<h3 class="text-center"><?= strtoupper($_SESSION['student_class'] . " ". "(". $attendance->get_date(). ")") ?></h3>
+<h3 class="text-center"><?= strtoupper($_SESSION['class_name'] . " ". "(". $attendance->get_date(). ")") ?></h3>
 <div class="scrollTb">
     <table class="table table-striped table-dark" id="tbId">
         <thead>
