@@ -138,6 +138,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             </button>
                             <ul class="dropdown-menu" style="filter: invert();">
                                 <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
+                                    data-bs-target="#addResultsCSV">Add Results</a>
+                                <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
                                     data-bs-target="#verifyRst">Verify Results</a>
                                 <a href="dashboard.php?viewResults" class="list-group-item list-group-item-action">View
                                     Results</a>
@@ -407,3 +409,4 @@ include_once "view-exam-timetable.php";
 include_once "verify-results.php";
 include_once "update-password.php";
 include_once "add-multiple-students.php";
+include_once "add-multiple-results.php";
