@@ -30,9 +30,11 @@
 </script>
 
 <?php $room->setSchoolId($_SESSION[SCHOOL_ID]); if (count($room->get_all_rooms()) > 0): ?>
-    <h1 class="text-center">ROOMS</h1>
-    <div class="scrollTb">
-        <div class="d-flex justify-content-center">
+        <div class="col-md-12 mt-4">
+            <div class="card mb-3 bg-dark">
+                <div class="card-header bg-secondary text-white">
+                    <strong>Rooms List</strong>
+                </div>
         <table class="table table-striped table-dark table-bordered w-100" id="classTb">
             <thead>
                 <tr>

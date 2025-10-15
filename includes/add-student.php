@@ -23,7 +23,7 @@ $class = new StudentClass(new Database());
 
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" name="fname" id="fname"
-                            placeholder="Enter First Name" autofocus>
+                            placeholder="Enter First Name" pattern="[A-Za-z]" autofocus>
                             <label for="fname">First Name:</label>
                     </div>
 

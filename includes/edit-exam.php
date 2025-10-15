@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . "/../includes/functions.php";
-require_once __DIR__ . "/../models/Exam.php";
-$exam = new Exam(new Database());
-$myExam = $exam->get_exam_by_id($_GET['examid']); 
-$_SESSION['examid'] = $_GET['examid'];
+// require_once __DIR__ . "/../includes/functions.php";
+// require_once __DIR__ . "/../models/Exam.php";
+// $exam = new Exam(new Database());
+// $myExam = $exam->get_exam_by_id($_GET['examid']); 
+// $_SESSION['examid'] = $_GET['examid'];
 ?>
 
 <div class="modal fade" id="editExam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -21,7 +21,7 @@ $_SESSION['examid'] = $_GET['examid'];
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="examname" id="examname" placeholder="Enter Subject Name" value="<?= $myExam['exam_name'] ?>" required autofocus>
+                        <input type="text" class="form-control" name="examname" id="examname" placeholder="Enter Subject Name" value="<?= $exams['exam_name'] ?>" required autofocus>
                         <label for="examname">Exam type:</label>
                     </div>
 

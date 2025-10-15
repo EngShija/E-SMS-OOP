@@ -48,6 +48,7 @@ $subject->setSchoolId($_SESSION[SCHOOL_ID]);
 
 <div class="container py-5">
   <div class="row g-4 justify-content-center">
+     <?php if ($role['role'] !== 'superadmin'): ?>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="card shadow border-0 text-center h-100">
         <div class="card-body">
@@ -114,5 +115,18 @@ $subject->setSchoolId($_SESSION[SCHOOL_ID]);
         </div>
       </div>
     </div>
+    <?php else :?>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card shadow border-0 text-center h-100">
+        <div class="card-body">
+          <div class="mb-2">
+            <svg width="48" height="48"><use xlink:href="#icon-subjects"/></svg>
+          </div>
+          <h5 class="card-title">Schools</h5>
+          <h2 class="card-text text-dark"><?= count($school->getAllSchools()) ?? '0' ?></h2>
+        </div>
+      </div>
+    </div>
+    <?php endif ?>
   </div>
 </div>

@@ -5,11 +5,12 @@ require_once __DIR__ . '/../includes/functions.php';
 include_once __DIR__ . "/../config/constants.php";
 
 $class = new StudentClass(new Database());
-$examModel = new Exam(new Database());
+$exam = new Exam(new Database());
 $class->setSchoolId($_SESSION[SCHOOL_ID]);
+$exam->setSchoolId($_SESSION[SCHOOL_ID]);
 
 $classes = $class->get_all_classes();
-$exams = $examModel->get_all_exams();
+$exams = $exam->get_all_exams();
 ?>
 
 <div class="modal fade text-center" id="addResultsCSV" tabindex="-1" aria-labelledby="addResultsCSVLabel"
@@ -35,7 +36,8 @@ $exams = $examModel->get_all_exams();
                                 <option value="">Select Class</option>
                                 <?php foreach ($classes as $myClass): ?>
                                     <option value="<?= htmlspecialchars($myClass['class_name']) ?>">
-                                        <?= htmlspecialchars($myClass['class_name']) ?></option>
+                                        <?= htmlspecialchars($myClass['class_name']) ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -57,7 +59,8 @@ $exams = $examModel->get_all_exams();
                                 <option value="">Select Exam</option>
                                 <?php foreach ($exams as $exam): ?>
                                     <option value="<?= htmlspecialchars($exam['exam_name']) ?>">
-                                        <?= htmlspecialchars($exam['exam_name']) ?></option>
+                                        <?= htmlspecialchars($exam['exam_name']) ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

@@ -64,8 +64,8 @@ class Exam extends School
      * @return array
      */
     public function get_all_exams(){
-        $sql = "SELECT * FROM exam";
-        return $this->database->execute_query(query: $sql)->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM exam WHERE school_id = ?";
+        return $this->database->execute_query(query: $sql, params: [$this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
     
     public function get_exam_by_id($exam_id){

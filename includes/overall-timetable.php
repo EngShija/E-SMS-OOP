@@ -3,13 +3,14 @@ require_once __DIR__ . '/../models/Database.php';
 require_once __DIR__ . '/../models/Timetable.php';
 require_once __DIR__ . '/../models/Class.php';
 require_once __DIR__ . '/../models/Users.php';
+require_once __DIR__ . '/../config/constants.php';
 
 $database = new Database();
 $timetableModel = new Timetable($database);
 $classModel = new StudentClass($database);
 $userModel = new User($database);
 
-$classModel->setSchoolId(1);
+// $classModel->setSchoolId(1);
 
 $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 $timeSlots = [
@@ -21,11 +22,13 @@ $timeSlots = [
     '1:00 PM - 2:00 PM',
     '2:00 PM - 3:00 PM'
 ];
+$userModel->setSchoolId($_SESSION[SCHOOL_ID]);
+$classModel->setSchoolId($_SESSION[SCHOOL_ID]);
 $classes = $classModel->get_all_classes();
 $teachers = $userModel->get_teachers();
 $teacherColors = [];
 
-// Assign a random color to each teacher (not based on ID)
+// Assign a random color to each teacher (not based on ID);
 function randomColor() {
     return sprintf('#%06X', hexdec(substr(md5(uniqid(mt_rand(), true)), 0, 6)));
 }
@@ -78,6 +81,7 @@ foreach ($entries as $entry) {
 </style>
 
 <h3 class="text-center">Overall School Timetable</h3>
+<div class="table-responsive">
 <table class="table table-bordered timetable-table table-striped">
     <thead>
         <tr>
@@ -107,7 +111,7 @@ foreach ($entries as $entry) {
 <td>
     <?php if ($entry):
         $abbr = strtoupper(substr($entry['teacher_first_name'], 0, 1). "-" . $entry['teacher_last_name']);
-        $color = $teacherColors[$entry['teacher_id']] ?? '#cccccc'; // fallback color
+        $color = $teacherColors[$entry['teacher_id']] ?? '#cccccc';
     ?>
         <span class="teacher-cell" style="background: <?= $color ?>;">
             <?= htmlspecialchars($abbr) ?><br>
@@ -123,6 +127,7 @@ foreach ($entries as $entry) {
     <?php endforeach; ?>
 </tbody>
 </table>
+</div>
 <!-- Legend for teacher colors and abbreviations -->
 <div class="mt-4">
     <strong>Teacher Color Legend & Abbreviations:</strong>
@@ -143,5 +148,17 @@ foreach ($entries as $entry) {
 <button id="print-timetable" class="btn btn-primary print-button" style="bottom: 20px; right: 20px; z-index: 1000;">
     Print Timetable
 </button>
+<button id="download-timetable-pdf" class="btn btn-success print-button"
+    style="bottom: 20px; right: 160px; z-index: 1000;">
+    Download PDF
+</button>
+<script>
+    document.getElementById('print-timetable').onclick = function () {
+        window.print();
+    };
+    document.getElementById('download-timetable-pdf').onclick = function () {
+        window.location.href = 'controllers/download-timetable-pdf.php';
+    };
+</script>
 <script src="assets/js/timetable-actions.js"></script>
 <script src="assets/js/edit-timetable.js"></script>

@@ -10,10 +10,10 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../models/Database.php';
 require_once __DIR__ . '/../models/Timetable.php';
 require_once __DIR__ . '/../models/Class.php';
-require_once __DIR__. "/../config/autoloader.php";
-require_once __DIR__. "/../config/incidences.php";
-require_once __DIR__. "/../config/constants.php";
-require_once __DIR__."/../includes/functions.php";
+require_once __DIR__ . "/../config/autoloader.php";
+require_once __DIR__ . "/../config/incidences.php";
+require_once __DIR__ . "/../config/constants.php";
+require_once __DIR__ . "/../includes/functions.php";
 
 $database = new Database();
 $conn = $database->getConnection();
@@ -42,13 +42,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate required fields
     if (empty($teacher) || empty($class) || empty($room) || empty($subject) || empty($schedule)) {
-        echo json_encode(["success" => false, "errors" => ["All fields are required."], "submittedData" => [
-            "teacher" => $teacher,
-            "class" => $class,
-            "room" => $room,
-            "subject" => $subject,
-            "schedule" => $schedule
-        ]]);
+        echo json_encode([
+            "success" => false,
+            "errors" => ["All fields are required."],
+            "submittedData" => [
+                "teacher" => $teacher,
+                "class" => $class,
+                "room" => $room,
+                "subject" => $subject,
+                "schedule" => $schedule
+            ]
+        ]);
         exit();
     }
 
@@ -61,20 +65,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($timetable->isClassAvailable($class, $day, $time, $school_id)) {
                 $classes->setSchoolId($_SESSION[SCHOOL_ID]);
                 $myClass = $classes->get_class_by_id($class);
-                $errors[] = "Class: ". strtoupper($myClass['class_name']). " is already scheduled at $time on $day.";
+                $errors[] = "Class: " . strtoupper($myClass['class_name']) . " is already scheduled at $time on $day.";
                 $hasConflict = true;
             }
 
             // Check if the teacher is available
             if ($timetable->isTeacherAvailable($teacher, $day, $time, $school_id)) {
                 $teachers = $user->get_user_by_id($teacher);
-                $errors[] = "Teacher: ". strtoupper($teachers['first_name']. " ". $teachers['last_name']). " is already scheduled at $time on $day.";
+                $errors[] = "Teacher: " . strtoupper($teachers['first_name'] . " " . $teachers['last_name']) . " is already scheduled at $time on $day.";
                 $hasConflict = true;
             }
 
             // Check if the room is available
             if ($timetable->isRoomAvailable($room, $day, $time, $school_id)) {
-                $errors[] = "Room: ". strtoupper($room). " is already scheduled at $time on $day.";
+                $errors[] = "Room: " . strtoupper($room) . " is already scheduled at $time on $day.";
                 $hasConflict = true;
             }
 

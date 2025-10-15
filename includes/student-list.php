@@ -49,7 +49,7 @@ if (isset($_SESSION['deleted']) && $_SESSION['deleted'] === 'student') {
 <?php if (isset($_SESSION['error'])): ?>
   <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
 <?php endif; ?>
-<div class="scrollTb">
+<div class="scrollTb bg-dark">
 <table class="table table-striped table-dark table-bordered" id="studentTb">
     <thead>
         <tr>

@@ -46,8 +46,12 @@ $parentUser = $myStudent->get_user_by_id($parent['unique_id']) ?? '';
                     <a href="#" class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#addrst">Add Results</a>
                 <?php endif ?>
                 <a href="#" class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#result">View Results</a>
+                <?php if($role['role'] == 'parent') :?>
+                    <a href="?indidualAttendance" class="btn btn-dark mb-3">View Attendance</a>
+                      <?php $_SESSION['studendID'] =  $_GET['updatestd']; ?>
+                <?php endif ?>
                 <?php if ($role['role'] == 'admin'): ?>
-                    <a href="#" class="btn btn-dark mb-3">Payment Details</a>
+                    <!-- <a href="#" class="btn btn-dark mb-3">Payment Details</a> -->
                 <?php endif ?>
             </div>
         </div>

@@ -12,12 +12,11 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel"><img class="logo rounded-circle border border-success"
-                src="assets/images/logo.jpg" height="30" width="30""></img><?= "  " ?>SMS</h5>
+                src="assets/images/logo.jpg" height="30" width="30"></img><?= "  " ?>SMS</h5>
         <button type=" button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"
-                style="filter: invert(1);"></button>
+            style="filter: invert(1);"></button>
     </div>
     <hr>
-
     <div class="offcanvas-body">
 
         <div class="d-flex flex-column flex-shrink-0 text-bg-dark" style="width: 300px;">
@@ -141,8 +140,8 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                                     data-bs-target="#addResultsCSV">Add Results</a>
                                 <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
                                     data-bs-target="#verifyRst">Verify Results</a>
-                                <a href="dashboard.php?viewResults" class="list-group-item list-group-item-action">View
-                                    Results</a>
+                                <a href="#" class="add-student list-group-item list-group-item-action" data-bs-toggle="modal"
+                                    data-bs-target="#viewResultsModal">View Results</a>
                                 </li>
                             </ul>
                         </div>
@@ -201,20 +200,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                         </button>
                     </div>
 
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
-                            <img src="assets/images/book-open.svg" height="28" width="28" style="filter: invert(1);"></img>
-                            Updates
-                        </button>
-                        <ul class="dropdown-menu" style="filter: invert();">
-                            <a href="dashboard.php?addad" class="list-group-item list-group-item-action">Broadcast
-                                Updates</a>
-                            <a href="dashboard.php?managead" class="list-group-item list-group-item-action">Private
-                                Updates</a>
-                            </li>
-                        </ul>
-                    </div>
-
+<?php if($role['role'] !== 'parent') :?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25" fill="white">
@@ -242,7 +228,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             </li>
                         </ul>
                     </div>
-
+<?php endif ?>
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25" fill="white">
@@ -289,7 +275,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                         </ul>
                     </div>
 
-                    <div class="dropdown mt-2">
+                    <!-- <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                             <svg class="bi pe-none me-2" width="25" height="25" fill="white">
                                 <use xlink:href="#credit-card" />
@@ -297,9 +283,10 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                             Payments
                         </button>
                         <ul class="dropdown-menu" style="filter: invert();">
-                            <a href="#" class="list-group-item list-group-item-action">Add Payment details</a>
-                            <a href="#" class="list-group-item list-group-item-action">Pending payments</a>
-                            <a href="#" class="list-group-item list-group-item-action">Completed payments</a>
+                            <a href="?feeCategories" class="list-group-item list-group-item-action">Fee Categories</a>
+                            <a href="?feeStracture" class="list-group-item list-group-item-action">Fee Structures</a>
+                            <a href="?studentFees" class="list-group-item list-group-item-action">Student Fees</a>
+                            <a href="?feePayments" class="list-group-item list-group-item-action">Fee Payments</a>
                             </li>
                         </ul>
                     </div>
@@ -317,7 +304,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                                 invoices</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
                     <div class="dropdown mt-2">
                         <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
@@ -328,16 +315,30 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                         </button>
                         <ul class="dropdown-menu" style="filter: invert();">
                             <a href="dashboard.php?manage" class="add-student list-group-item list-group-item-action"
-                                data-toggle="modal" data-target="#modelId">System Management</a>
-                            <a href="dashboard.php?grade" class="list-group-item list-group-item-action">Accademic
-                                Grades</a>
-                            <a href="dashboard.php?auth" class="list-group-item list-group-item-action">User
-                                Authentication</a>
+                                data-toggle="modal" data-target="#modelId">Edit School Details</a>
                             </li>
                         </ul>
                     </div>
                 <?php endif ?>
-                <div class="dropdown mt-2">
+                <?php if ($role['role'] == 'superadmin'): ?>
+                    <div class="dropdown mt-2">
+                        <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
+                            <svg class="bi pe-none me-2" width="25" height="25" fill="white">
+                                <use xlink:href="#people" />
+                            </svg>
+                            Schools
+                        </button>
+                        <ul class="dropdown-menu" style="filter: invert();">
+                            <li><a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
+                                    data-bs-target="#addSchool">Add School</a>
+                            </li>
+                            <li><a href="dashboard.php?manageSchools" class="list-group-item list-group-item-action">Manage
+                                    Schools</a>
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif ?>
+                <!-- <div class="dropdown mt-2">
                     <button class="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown">
                         <svg class="bi pe-none me-2" width="25" height="25" fill="white">
                             <use xlink:href="#credit-card" />
@@ -349,7 +350,7 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
                         <a href="dashboard.php?viewFees" class="list-group-item list-group-item-action">View Payment
                             History</a>
                     </ul>
-                </div>
+                </div> -->
                 </nav>
 
         </div>
@@ -367,23 +368,25 @@ $myParent = $parent->get_parent_by_id($_SESSION['user_id']);
             <ul class="dropdown-menu p-2" style="filter: invert();">
                 <div class="d-inline-flex">
                     <img src="assets/images/user.svg" height="20" width="20"></img>
-                    <a href="dashboard.php?myProfile" class="list-group-item list-group-item-action"> My Profile</a>
+                    <a href="dashboard.php?myProfile" class="list-group-item list-group-item-action mx-2"> My
+                        Profile</a>
                 </div>
                 <hr>
                 <div class="d-inline-flex">
                     <img src="assets/images/user.svg" height="20" width="20"></img>
-                    <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="modal"
+                    <a href="#" class="list-group-item list-group-item-action mx-2" data-bs-toggle="modal"
                         data-bs-target="#updatePass">Change Password</a>
                 </div>
                 <hr>
                 <div class="d-inline-flex">
                     <img src="assets/images/book-open.svg" height="20" width="20"></img>
-                    <a href="dashboard.php?loginHst" class="list-group-item list-group-item-action">Login History</a>
+                    <a href="dashboard.php?loginHst" class="list-group-item list-group-item-action mx-2">Login
+                        History</a>
                 </div>
                 <hr>
                 <div class="d-inline-flex">
                     <img src="assets/images/log-out.svg" height="20" width="20"></img>
-                    <a class="list-group-item list-group-item-action" href="#" title="Logout"
+                    <a class="list-group-item list-group-item-action mx-2" href="#" title="Logout"
                         onclick="warningAlert('Are you sure you want to exit?', 'controllers/logout.php')">Logout</a>
                 </div>
                 <hr>
@@ -410,3 +413,5 @@ include_once "verify-results.php";
 include_once "update-password.php";
 include_once "add-multiple-students.php";
 include_once "add-multiple-results.php";
+include_once "view-class-results.php";
+include_once "add-school.php";

@@ -33,7 +33,8 @@ foreach( $student->get_students_by_parent_id() as $student) :?>
             <td><?=$student['reg_no'] ?></td>
             <td><?=$student['reg_date'] ?></td>
             <td><?=$student['gender'] ?></td>
-            <td><?= strtoupper($student['class']) ?></td>
+            <?php $myClass = $class->get_class_by_id($student['class_id']); ?>
+            <td><?= strtoupper($myClass['class_name']) ?></td>
             <td><a href="dashboard.php?updatestd=<?= $student['unique_id'] ?>" Class="btn btn-success">View Details</a></td>
         </tr>
         

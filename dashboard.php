@@ -42,7 +42,7 @@
 
 <?php
 session_start();
-// error_reporting(0);
+error_reporting(0);
 require_once "includes/header.php";
 require_once __DIR__ . "/config/autoloader.php";
 require_once __DIR__ . "/config/incidences.php";
@@ -54,6 +54,7 @@ $users = $user->get_user_by_id($_SESSION['user_id']);
 $email = $users['email_address'];
 $role = $user->user_role($email);
 $school->setSchoolId($_SESSION[SCHOOL_ID]);
+$exam->setSchoolId($_SESSION[SCHOOL_ID]);
 
 ?>
 <div class="container-fluid text-light">

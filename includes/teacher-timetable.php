@@ -57,10 +57,11 @@ foreach ($entries as $entry) {
                             $room->set_id($timetableData[$day][$timeSlot]['room']);
                             $rooms = $room->get_room_by_id();
                             ?>
-                            <strong>Subject:</strong> <?= htmlspecialchars(strtoupper($timetableData[$day][$timeSlot]['subject'])) ?><br>
+                            <strong>Sub:</strong> <?= htmlspecialchars(strtoupper($timetableData[$day][$timeSlot]['subject'])) ?><br>
                             <strong>Class:</strong> <?= htmlspecialchars(strtoupper($timetableData[$day][$timeSlot]['class'])) ?><br>
                             <strong>Room:</strong> <?= htmlspecialchars(strtoupper($rooms['room_name'])) ?><br>
                             <!-- Edit and Delete Buttons -->
+                             <?php if($role['role'] == 'admin') :?>
                             <button class="btn btn-warning btn-sm edit-entry" data-id="<?= $timetableData[$day][$timeSlot]['id'] ?>"
                                 data-teacher="<?= htmlspecialchars($timetableData[$day][$timeSlot]['teacher'] ?? '') ?>"
                                 data-class="<?= htmlspecialchars($timetableData[$day][$timeSlot]['class'] ?? '') ?>"
@@ -72,6 +73,7 @@ foreach ($entries as $entry) {
                             </button>
                             <button class="btn btn-danger btn-sm delete-entry"
                                 data-id="<?= $timetableData[$day][$timeSlot]['id'] ?>">Delete</button>
+                                <?php endif ?>
                         <?php else: ?>
                             <em>---</em>
                         <?php endif; ?>

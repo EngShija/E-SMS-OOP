@@ -30,9 +30,11 @@
 </script>
 
 <?php $class->setSchoolId($_SESSION[SCHOOL_ID]); if (count($class->get_all_classes()) > 0): ?>
-    <h1 class="text-center">CLASSES</h1>
-    <div class="scrollTb">
-        <div class="d-flex justify-content-center">
+        <div class="col-md-12 mt-4">
+            <div class="card mb-3 bg-dark">
+                <div class="card-header bg-secondary text-white">
+                    <strong>Classes List</strong>
+                </div>
         <table class="table table-striped table-dark table-bordered w-100" id="classTb">
             <thead>
                 <tr>

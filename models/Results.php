@@ -104,4 +104,9 @@ public function get_results_by_student_id($student_id){
         $row = $stmt->fetch_assoc();
         return $row ? $row['description'] : null;
     }
+    public function get_result_by_student_subject_exam($student_id, $subject_name, $exam_type)
+{
+    $sql = "SELECT * FROM results WHERE student_id = ? AND subject_name = ? AND exam_type = ?";
+    return $this->database->execute_query(query: $sql, params: [$student_id, $subject_name, $exam_type])->fetch_assoc();
+}
 }

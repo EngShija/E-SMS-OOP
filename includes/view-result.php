@@ -4,8 +4,10 @@
     include_once "models/Database.php";
     include_once "models/Subject.php";
     include_once "models/Exam.php";
+    include_once "config/constants.php";
     $subject = new Subject(new Database());
     $exam = new Exam(new Database());
+    $exam->setSchoolId($_SESSION[SCHOOL_ID])
     ?>
   <div class="modal fade" id="result" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">

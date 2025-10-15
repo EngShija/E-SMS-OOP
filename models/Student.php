@@ -79,7 +79,12 @@ class Student extends User
         $sql = "SELECT * FROM student WHERE class_id = ? AND school_id = ?";
         return $this->database->execute_query(query: $sql, params: [$class, $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
     }
-    public function update_parent_id($parent_id, $student_id)
+    public function get_students_by_class($class_id)
+{
+    $sql = "SELECT * FROM student WHERE class_id = ? AND school_id = ? AND status <> 'deleted' ORDER BY first_name, last_name";
+    return $this->database->execute_query(query: $sql, params: [$class_id, $this->getSchoolId()])->fetch_all(MYSQLI_ASSOC);
+}
+    public function update_parent_id($parent_id, $student_id): bool|mysqli_result
     {
         $sql = "UPDATE student SET parent_id = ? WHERE unique_id = ?";
         return $this->database->execute_query(query: $sql, params: [$parent_id, $student_id]);
@@ -89,12 +94,6 @@ class Student extends User
     {
         $sql = "SELECT * FROM student ORDER BY first_name, last_name LIMIT ?, ?";
         return $this->database->execute_query(query: $sql, params: [$offset, $limit])->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function count_students()
-    {
-        $sql = "SELECT COUNT(*) as total FROM student WHERE school_id = ?";
-        return $this->database->execute_query(query: $sql, params: [$this->getSchoolId()])->fetch_assoc()['total'];
     }
 
     public function get_student_class_by_result_student_id($student_id) {

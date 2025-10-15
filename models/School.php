@@ -58,7 +58,7 @@ class School
     }
     public function addSchoolDetails()
     {
-        $query = "INSERT INTO school_details(school_name, school_address, school_phone_number, school_email_address) VALUES(?, ?, ?, ?)";
+        $query = "INSERT INTO schools(school_name, address, phone, email) VALUES(?, ?, ?, ?)";
         return $this->database->execute_query($query, [
             $this->getSchoolName(),
             $this->getSchoolAddress(),
@@ -70,5 +70,14 @@ class School
     {
         $query = "SELECT * FROM schools WHERE id = ?";
         return $this->database->execute_query($query, [$this->school_id])->fetch_assoc();
+    }
+        public function getAllSchools()
+    {
+        $query = "SELECT * FROM schools";
+        return $this->database->execute_query($query)->fetch_all(MYSQLI_ASSOC);
+    }
+    public function isSchoolExist(){
+         $query = "SELECT * FROM schools WHERE school_name = ?";
+        return $this->database->execute_query($query, [$this->school_name])->fetch_assoc();
     }
 }

@@ -79,6 +79,14 @@
     include_once "includes/teacher-timetable.php";
   }  else if (isset($_GET['overollTimetable'])) {
     include_once "includes/overall-timetable.php";
+  }  else if (isset($_GET['classResults'])) {
+    include_once "includes/class-results.php";
+  }   else if (isset($_GET['feeStracture'])) {
+    include_once "includes/fee-structures.php";
+  }   else if (isset($_GET['feeCategories'])) {
+    include_once "includes/fee-categories.php";
+  }  else if (isset($_GET['feePayments'])) {
+    include_once "includes/fee-payments.php";
   } 
   else if (isset($_SESSION['classEmpty'])) {
     sweetAlert('Sorry!', 'No students For the selected Class', 'warning');
@@ -102,7 +110,6 @@
   require_once __DIR__ . "/../includes/alerts.php";
 
   require_once __DIR__ . "/../includes/footer.php";
-
 
   //       $route = isset($_GET['route']) ? $_GET['route'] : 'home';
   

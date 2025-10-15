@@ -30,9 +30,11 @@
 </script>
 
 <?php $subject->setSchoolId($_SESSION[SCHOOL_ID]); if (count($subject->get_all_subjects()) > 0): ?>
-    <h1 class="text-center">SUBJECTS</h1>
-    <div class="scrollTb">
-        <div class="d-flex justify-content-center">
+        <div class="col-md-12 mt-4">
+            <div class="card mb-3 bg-dark">
+                <div class="card-header bg-secondary text-white">
+                    <strong>Subjects List</strong>
+                </div>
         <table class="table table-striped table-dark table-bordered w-100" id="subTb">
             <thead>
                 <tr>

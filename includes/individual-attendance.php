@@ -41,7 +41,9 @@ $student = new Student(new Database());
 
 $attendance = new Attendance(new Database());
 
-$myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
+$student_id = $_GET['indidualAttendance'] ?: $_SESSION['studendID'];
+
+$myStudent = $student->get_student_by_id($student_id);
 
 ?>
 
@@ -64,7 +66,7 @@ $myStudent = $student->get_student_by_id($_GET['indidualAttendance']);
                 <tbody>
                     <?php
                     $i = 1;
-                    foreach ($attendance->get_attendance_by_student_id($_GET['indidualAttendance']) as $myAttendance): ?>
+                    foreach ($attendance->get_attendance_by_student_id($student_id) as $myAttendance): ?>
                         <tr>
                             <td
                                 title=" <?= strtoupper($myStudent['first_name']) . " " . strtoupper($myStudent['last_name']) ?>">
